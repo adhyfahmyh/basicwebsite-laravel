@@ -23,4 +23,4 @@ Route::get('/contact', function(){
 Route::get('/signin', function(){
     return view('signin');
 });
-Route::post('/contact/submit', 'MessageController@submit');
+Route::POST('/contact/submit', 'MessagesController@submit');

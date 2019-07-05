@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Contact Page</h1>
-{!! Form::open(array('url' => 'contact/submit','method' => 'PUT')) !!}
+{!! Form::open(array('url' => 'contact/submit','method' => 'POST')) !!}
 <div class="form-group">
     {{ Form::label('name', 'Name') }}
     {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter your name'])}}

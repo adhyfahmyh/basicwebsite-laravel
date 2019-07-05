@@ -6,5 +6,12 @@ use Illuminate\Http\Request;
 
 class MessagesController extends Controller
 {
-    //
+    public function submit(Request $request){
+        // return $request->input('name', 'email', 'message');
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required'
+        ]);
+    }
 }

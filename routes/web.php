@@ -14,13 +14,21 @@
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/about', function (){
     return view('about');
 });
+
 Route::get('/contact', function(){
     return view('contact');
 });
+
 Route::get('/signin', function(){
     return view('signin');
 });
-Route::POST('/contact/submit', 'MessagesController@submit');
+
+Route::get('/messages', 'MessagesController@getMessages');
+
+Route::post('/contact/submit', 'MessagesController@submit');
+
+

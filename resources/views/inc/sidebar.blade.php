@@ -1,7 +1,8 @@
 @section('sidebar')
-<div class="well">
+<div class="sidebar text-center">
     <h2>Sidebar</h2>
-    This is sidebar
+    <p>This is sidebar</p>
+    <a class="active" href="/messages">Home</a>
 </div>
 
 @show

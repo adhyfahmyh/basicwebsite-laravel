@@ -21,9 +21,9 @@
 
     @include('inc.navbar')
     <!-- <main role="main" class="container"> -->
-    <div class="container-fluid">
+    <div class="container">
         @if(Request::is('/'))
-        @include('inc.showcase')
+            @include('inc.showcase')
         @endif
         <div class="row justify-content-md-center" id="page-container">
             @if(!Request::is('signin'))

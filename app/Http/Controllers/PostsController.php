@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use DB;
-
+//this is cool
 class PostsController extends Controller
 {
     /**

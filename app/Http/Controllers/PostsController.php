@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use DB;
-//this is very cool
+
 class PostsController extends Controller
 {
     /**
@@ -109,6 +109,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success', 'Post Removed');
     }
 }

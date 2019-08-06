@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function getHome(){
-        return view('home');
-    }
+    // public function getHome(){
+    //     return view('dashboard');
+    // }
     public function getAbout(){
         return view('about');
     }
@@ -17,5 +17,9 @@ class PagesController extends Controller
     }
     public function getSignin(){
         return view('signin');
+    }
+    public function index()
+    {
+        return view('welcome');
     }
 }

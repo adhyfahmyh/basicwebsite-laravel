@@ -16,29 +16,30 @@
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
 
                     {{-- show posts by user id --}}
-                    <h3>Your Posts!</h3>
-                        {{-- @if(count($posts) > 0)
-                            @foreach($posts as $post)
-                                <div class="well">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <a href="/posts/{{$post->id}}">
-                                                <h3>{{$post->title}}</h3>
-                                                <small>Written on {{$post->created_at}}</small>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <br>
-                                <!-- <div class="well">
-                                    <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                                    <small>Written on {{$post->created_at}}</small>
-                                </div> -->
+                    <h3>Your Posts</h3>
+                    @if (count($posts)>0)
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Title</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            @foreach ($posts as $post)
+                                <tr>
+                                    <td><a href=/posts/{{$post->id}}>{{$post->title}}</a></td>
+                                    <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit Post</a></td>
+                                    <td>
+                                        {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method'=>'POST', 'id'=>'delete_post'])!!}
+                                            {{Form::hidden('_method', 'DELETE')}}
+                                            {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
+                                        {!!Form::close()!!}
+                                    </td>
+                                </tr>
                             @endforeach
-                            {{$posts->links()}}
-                        @else
-                            <p>NO POST FOUND</p>
-                        @endif --}}
+                        </table>
+                    @else
+                        <p>You have no post!</p>
+                    @endif
                 </div>
             </div>
         </div>

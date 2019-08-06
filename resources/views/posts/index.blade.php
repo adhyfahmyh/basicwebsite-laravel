@@ -12,21 +12,21 @@
             <div class="well">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="/posts/{{$post->id}}">
-                            <h3>{{$post->title}}</h3>
-                            <small>Written on {{$post->created_at}}</small>
-                        </a>
+                        <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+                        <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
                     </li>
                 </ul>
             </div>
             <br>
-            <!-- <div class="well">
-                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                <small>Written on {{$post->created_at}}</small>
-            </div> -->
         @endforeach
         {{$posts->links()}}
     @else
         <p>NO POST FOUND</p>
     @endif
 @endsection
+
+
+            <!-- <div class="well">
+                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+                <small>Written on {{$post->created_at}}</small>
+            </div> -->

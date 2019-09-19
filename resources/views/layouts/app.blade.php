@@ -33,9 +33,12 @@
                         @yield('content')
                     {{-- </main> --}}
                 </div>
-                <div class="col-md-4 col-lg-4">
-                    @include('inc.sidebar')
-                </div>
+                @if (Request::is('/') or Request::is('about') or Request::is('contact') or Request::is('messages') or Request::is('posts'))
+                    <div class="col-md-4 col-lg-4">
+                        @include('inc.sidebar')
+                    </div>
+                @endif
+                
             </div>
         </div>
         
@@ -43,9 +46,9 @@
         @include('inc.footer')
     </div>
 
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace( 'article-ckeditor' );
+        CKEDITOR.replace('article-ckeditor');
     </script>
 </body>
 </html>

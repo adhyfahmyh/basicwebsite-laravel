@@ -22,29 +22,29 @@
 <body>
     <div id="app">
         @include('inc.navbar')
-        <div class="container">
-            @if (Request::is('/'))
-                @include('inc.showcase')
-            @endif
-            <div class="row justify-content-md-center" id="page-container">
-                <div class="col-md-8 col-lg-8" id="content-wrap">
-                    {{-- <main class="py-4"> --}}
-                        @include('inc.messages')
-                        @yield('content')
-                    {{-- </main> --}}
-                </div>
-                @if (Request::is('/') or Request::is('about') or Request::is('contact') or Request::is('messages') or Request::is('posts'))
+        @if (Request::is('/'))
+            @include('inc.showcase')
+        @endif
+        <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                    @if (Request::is('/') or Request::is('about') or Request::is('contact') or Request::is('messages') or Request::is('posts'))
                     <div class="col-md-4 col-lg-4">
                         @include('inc.sidebar')
                     </div>
                 @endif
+                <div class="col-md-8 col-lg-8" id="content-wrap">
+                    @include('inc.messages')
+                    @yield('content')
+                </div>
+               
                 
             </div>
         </div>
         
         
-        @include('inc.footer')
+      
     </div>
+    @include('inc.footer')
 
     <script type="text/javascript" src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>

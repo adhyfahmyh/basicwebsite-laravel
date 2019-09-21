@@ -27,9 +27,14 @@
         @endif
         <div class="container-fluid">
             <div class="row justify-content-md-center">
-                    @if (Request::is('/') or Request::is('about') or Request::is('contact') or Request::is('messages') or Request::is('posts'))
-                    <div class="col-md-4 col-lg-4">
+                @if (Request::is('/') or Request::is('about') or Request::is('contact') or Request::is('messages') or Request::is('posts'))
+                    <div>
                         @include('inc.sidebar')
+                    </div>
+                @endif
+                @if (Request::is('profile') or Request::is('editProfile') or Request::is('createdContent') or Request::is('savedContent'))
+                    <div>
+                        @include('inc.sidebar-profile')
                     </div>
                 @endif
                 <div class="col-md-8 col-lg-8" id="content-wrap">

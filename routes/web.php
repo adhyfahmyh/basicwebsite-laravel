@@ -21,7 +21,11 @@ Route::get('/signin', 'PagesController@getSignin');
 
 Route::get('/messages', 'MessagesController@getMessages');
 
-Route::get('/profile', 'ProfileController@index');
+// Route::get('/profile', 'ProfileController@index');
+
+Route::resource('profile', 'ProfileController');
+
+// Route::get('/editProfile', 'ProfileController@edit');
 
 Route::post('/contact/submit', 'MessagesController@submit');
 

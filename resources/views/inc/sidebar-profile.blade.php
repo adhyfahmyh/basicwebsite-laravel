@@ -5,7 +5,7 @@
             <a class = "{{Request::is('profile') ? 'active' : ''}}" href="/profile"><li class="list-group-item">
                 Profile</li>
             </a>
-            <a class = "{{Request::is('editProfile') ? 'active' : ''}}" href="/editProfile"><li class="list-group-item">
+            <a class = "{{Request::is('editProfile') ? 'active' : ''}}" href="/profile/{{ Auth::user()->firstname }}/edit"><li class="list-group-item">
                 Edit Profile</li>
             </a>
             <a class = "{{Request::is('createdContent') ? 'active' : ''}}" href="/createdContent"><li class="list-group-item">

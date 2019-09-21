@@ -32,7 +32,7 @@
                         @include('inc.sidebar')
                     </div>
                 @endif
-                @if (Request::is('profile') or Request::is('editProfile') or Request::is('createdContent') or Request::is('savedContent'))
+                @if (Request::is('profile') or Request::is('profile/{{Auth::user()->firstname}}/edit'))
                     <div>
                         @include('inc.sidebar-profile')
                     </div>

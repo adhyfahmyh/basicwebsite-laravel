@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use MyLearning\User;
 
 class DashboardController extends Controller
 {

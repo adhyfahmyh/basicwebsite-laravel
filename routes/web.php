@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', ['middleware' => 'auth', 'uses' => 'PagesController@index']);
 
 Route::get('/about', 'PagesController@getAbout');
 
@@ -23,9 +23,16 @@ Route::get('/messages', 'MessagesController@getMessages');
 
 // Route::get('/profile', 'ProfileController@index');
 
-Route::resource('profile', 'ProfileController');
+Route::resource('profile', 'ProfileController')->middleware('auth');
+Route::resource('created-content', 'CreatedContentController')->middleware('auth');
+Route::resource('saved-content', 'SavedContentController')->middleware('auth');
+ 
+// Route::resource('profile', 'CreatedContentController');
+// Route::get('profile/createdContent', function () {
+//     return view('user.createdContent');
+// });
 
-// Route::get('/editProfile', 'ProfileController@edit');
+// Route::get('/profile/{{ Auth::user()->firstname }}/show', 'ProfileController@show');
 
 Route::post('/contact/submit', 'MessagesController@submit');
 
@@ -34,3 +41,4 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+

@@ -5,10 +5,13 @@
     <a href="/posts" class="btn btn-default" id="back_post">Back</a>
     <br><br>
     <div>
-        {!!$post->body!!}
+        <textarea id="editor">
+            {!!$post->body!!}
+        </textarea>
     </div>
+    
     <hr> 
-        <small>Written on {{$post->created_at}} by {{@$post->user->name}}</small>
+        <small>Written on {{$post->created_at}} by {{@$post->user->firstname}}</small>
     <br>
         <a href="/posts/{{$post->id}}/edit" class="btn btn-default" id="edit_post">Edit Post</a>
         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method'=>'POST', 'id'=>'delete_post'])!!}

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MyLearning;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('MyLearning\Post');
     }
 }

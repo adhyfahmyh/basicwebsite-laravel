@@ -56,7 +56,8 @@
                             <label for="about" class="col-md-4 col-form-label text-md-right">{{ __('About Yourself') }}</label>
 
                             <div class="col-md-6">
-                                <input id="about" type="text" class="form-control @error('about') is-invalid @enderror" name="about" value="{{ old('about') }}" autocomplete="about">
+                                <textarea name="about" id="about" cols="30" rows="10" class="form-control @error('about') is-invalid @enderror" value="{{ old('about') }}" autocomplete="about"></textarea>
+                                {{-- <input id="about" type="" class="form-control @error('about') is-invalid @enderror" name="about" value="{{ old('about') }}" autocomplete="about"> --}}
                             </div>
                         </div>
 

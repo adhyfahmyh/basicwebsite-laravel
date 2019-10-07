@@ -15,12 +15,12 @@ class AddExtraFieldToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // $table->string('username', 15)->unique()->after('id');
-            $table->string('firstname')->after('username');
-            $table->string('lastname')->after('firstname');
-            $table->string('about')->nullable()->after('lastname');
-            $table->string('contact')->nullable()->after('email');
-            $table->date('birthday')->after('contact');
-            $table->string('link')->nullable()->after('birthday');
+            // $table->string('firstname')->after('username');
+            // $table->string('lastname')->after('firstname');
+            // $table->string('about')->nullable()->after('lastname');
+            // $table->string('contact')->nullable()->after('email');
+            // $table->date('birthday')->after('contact');
+            // $table->string('link')->nullable()->after('birthday');
         });
     }
 
@@ -31,14 +31,14 @@ class AddExtraFieldToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            // $table->dropColumn('username');
-            $table->dropColumn('firstname');
-            $table->dropColumn('lastname');
-            $table->dropColumn('about');
-            $table->dropColumn('contact');
-            $table->dropColumn('birthday');
-            $table->dropColumn('link');
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->dropColumn('username');
+        //     $table->dropColumn('firstname');
+        //     $table->dropColumn('lastname');
+        //     $table->dropColumn('about');
+        //     $table->dropColumn('contact');
+        //     $table->dropColumn('birthday');
+        //     $table->dropColumn('link');
+        // });
     }
 }

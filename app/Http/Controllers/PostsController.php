@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use MyLearning\Post;
 use DB;
 
 class PostsController extends Controller
@@ -16,7 +16,7 @@ class PostsController extends Controller
     public function index()
     {
         // $posts = DB::select('SELECT * from posts order by created_at desc');
-        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        $posts = Post::orderBy('updated_at', 'desc')->paginate(10);
         // $posts = Post::orderBy('created_at', 'desc')->take(1)->get();
 
         return view('posts.index')->with('posts', $posts);
@@ -99,7 +99,7 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->save();
 
-        return redirect('/posts')->with('success', 'Post Updated');
+        return redirect()->route('posts.show', $post->id)->with('success', 'Post Updated');
     }
 
     /**

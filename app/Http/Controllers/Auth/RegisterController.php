@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MyLearning\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use MyLearning\User;
+use MyLearning\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:15', 'unique:users'],
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'about' => ['string', 'max:255'],
+            'about' => ['mediumText'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'contact' => ['string', 'max:255'],
             'birthday' => ['date'],
@@ -65,7 +65,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \MyLearning\User
      */
     protected function create(array $data)
     {

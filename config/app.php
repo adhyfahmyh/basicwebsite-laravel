@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Acme'),
+    'name' => env('APP_NAME', 'MyLearning'),
 
     /*
     |--------------------------------------------------------------------------
@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        MyLearning\Providers\AppServiceProvider::class,
+        MyLearning\Providers\AuthServiceProvider::class,
+        // MyLearning\Providers\BroadcastServiceProvider::class,
+        MyLearning\Providers\EventServiceProvider::class,
+        MyLearning\Providers\RouteServiceProvider::class,
 
     ],
 

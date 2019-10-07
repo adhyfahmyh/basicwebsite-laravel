@@ -1,32 +1,57 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbar-1">
+
+<nav class="navbar navbar-expand-md" id="navbar-1">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">{{config('app.name', 'Acme')}}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="header-logo-container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <strong><h3>{{config('app.name', 'MyLearning')}}</h3></strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-              <li class="{{Request::is('/') ? 'active' : ''}}">
-                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="{{Request::is('about') ? 'active' : ''}}">
-                <a class="nav-link" href="/about">About</a>
-              </li>
-              <li class="{{Request::is('contact') ? 'active' : ''}}">
-                <a class="nav-link" href="/contact">Contact</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Courses</a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/#">Courses</a>
-                    <a class="dropdown-item" href="/#">Recomendation</a>
+        <!-- Left Side Of Navbar -->
+        <div class="header-left" id="navbarSupportedContent">
+            <div class="header-component1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="">
+                        <a class="nav-link {{Request::is('/') ? 'active' : ''}}" href="/">Home</a>
+                    </li>
+                    {{-- <li class="{{Request::is('about') ? 'active' : ''}}">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="{{Request::is('contact') ? 'active' : ''}}">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li> --}}
+                    <li class="nav-item dropdown" id="dropdown-left">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Courses</a>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/posts">Courses</a>
+                            <a class="dropdown-item" href="/#">Recomendation</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-component2">
+                <div class="header-component2-search">
+                    <div class="search">
+                        <form action="/action_page.php">
+                            <span class="input-group">
+                                <input type="text" placeholder="Search.." name="search">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-link">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </span>
+                        </form>
+                    </div>
                 </div>
-              </li>
-            </ul>
+            </div>
+        </div>
 
-            <!-- Right Side Of Navbar -->
+        <!-- Right Side Of Navbar -->
+        <div class="header-right">
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
@@ -45,11 +70,11 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/profile">Profile</a>
+                            <a class="dropdown-item" href="/profile/{{ Auth::user()->username }}">Profile</a>
                             <a class="dropdown-item" href="/dashboard">Dashboard</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
@@ -63,4 +88,3 @@
         </div>
     </div>
 </nav>
-  

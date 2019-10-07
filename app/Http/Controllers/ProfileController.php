@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use MyLearning\User;
+use MyLearning\Post;
 use DB;
 
 class ProfileController extends Controller
@@ -48,7 +49,8 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.profile')->with('user', $user);
     }
 
     /**
@@ -61,6 +63,7 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
         return view('user.editProfile')->with('user', $user);  
+        
     }
 
     /**
@@ -72,7 +75,28 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this-> validate($request,[
+            'firstname'=> 'required',
+            'lastname' => 'required',
+            'about' => 'required',
+            'email'=>'required',
+            'contact' => 'required',
+            'birthday' => 'required',
+            'link' => 'required'
+        ]);
+        
+        // Create Post
+        $post = User::find($id);
+        $post->firstname = $request->input('firstname');
+        $post->lastname = $request->input('lastname');
+        $post->about = $request->input('about');
+        $post->email = $request->input('email');
+        $post->contact = $request->input('contact');
+        $post->birthday = $request->input('birthday');
+        $post->link = $request->input('link');
+        $post->save();
+
+        return redirect('/profile')->with('success', 'Profile Updated');
     }
 
     /**

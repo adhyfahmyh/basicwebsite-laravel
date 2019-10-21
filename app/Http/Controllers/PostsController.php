@@ -16,7 +16,7 @@ class PostsController extends Controller
     public function index()
     {
         // $posts = DB::select('SELECT * from posts order by created_at desc');
-        $posts = Post::orderBy('updated_at', 'desc')->paginate(10);
+        $posts = Post::orderBy('updated_at', 'desc')->paginate(5);
         // $posts = Post::orderBy('created_at', 'desc')->take(1)->get();
 
         return view('posts.index')->with('posts', $posts);
@@ -45,7 +45,7 @@ class PostsController extends Controller
             'body' => 'required'
         ]);
         
-        // Create Post
+        // Create Post 
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');

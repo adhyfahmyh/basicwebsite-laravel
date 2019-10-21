@@ -80,7 +80,6 @@
                         @if (Request::is('/'))
                             @include('inc.showcase')
                         @endif
-    
                         @include('inc.messages')
                         @yield('content')
                     </div>

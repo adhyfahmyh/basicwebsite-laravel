@@ -5,9 +5,7 @@
     <a href="/posts" class="btn btn-default" id="back_post">Back</a>
     <br><br>
     <div>
-        <textarea id="editor">
-            {!!$post->body!!}
-        </textarea>
+        {!!$post->body!!}
     </div>
     
     <hr> 

@@ -1,6 +1,8 @@
-<div class="jumbotron text-center">
+<div class="jumbotron">
     <div class="container">
-        <h1>Welcome to our site</h1>
-        <p class="lead">Welcome to our brand new laravel powered laravel website. This website use laravel 5</p>
+        <div class="head">
+            <p>Personalized Learning Environment</p>
+        </div>
+        <p>Sebuah konsep pembelajaran untuk pelajar </p>
     </div>
 </div>

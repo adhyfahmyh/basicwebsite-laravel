@@ -38,6 +38,7 @@ class User extends Authenticatable
     ];
 
     public function posts(){
-        return $this->hasMany('MyLearning\Post');
+        // return $this->hasMany(['MyLearning\Post', 'MyLearning\Contents']);
+        return $this->hasMany('MyLearning\Contents');
     }
 }

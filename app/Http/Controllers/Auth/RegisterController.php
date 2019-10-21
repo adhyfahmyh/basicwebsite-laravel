@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:15', 'unique:users'],
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'about' => ['mediumText'],
+            'about' => ['max:1000'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'contact' => ['string', 'max:255'],
             'birthday' => ['date'],

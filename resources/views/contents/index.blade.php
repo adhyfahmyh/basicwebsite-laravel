@@ -5,14 +5,15 @@
         <h4>Buat Konten</h4>
     </button> --}}
     <div>
-        <h1>Kontent Pembelajaran</h1>
+        <h2 class="text-center">Konten Pembelajaran</h2>
     </div>
-    <hr>
-    <div>
-        @if ()
-            
+        @if (isset($search))
+        <div>
+            <p>Hasil pencarian: <b>{{ $search }}</b></p>
+            <button type="reset" onclick="window.location.href='/contents'">Reset</button>
+        </div>
         @endif
-    </div>
+    <hr>
     <div>
         @if(count($contents) > 0)
             @foreach($contents as $content)

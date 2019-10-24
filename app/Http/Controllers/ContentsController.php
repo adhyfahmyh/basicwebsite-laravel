@@ -24,13 +24,22 @@ class ContentsController extends Controller
     public function index(Request $request)
     {
         // $contents = Contents::orderBy('updated_at', 'desc')->paginate(5);
+
+
         // $contents = DB::select('SELECT * from contents');;
+        
+
         // $contents = Contents::when($request->search, function ($query) use ($request) {
         //     $query->where('title', 'LIKE', "%{$request->search}%");
         // })->get();
+
+
         $search = $request->search;
-        $contents = DB::table('contents')->where('title', 'like', '%'.$search.'%')->paginate(5);
-        return view('contents.index')->with('contents', $contents);
+        $contents = DB::table('contents')->where('title', 'like', '%'.$search.'%')->orderBy('updated_at', 'DESC')->paginate(5);
+
+
+        // return view('contents.index')->with('contents', $contents)->withQuery ($query);
+        return view('contents.index', ['contents' => $contents, 'search' =>$search]);
     }
 
     /**
@@ -60,7 +69,7 @@ class ContentsController extends Controller
             'category' => 'required',
             'tag' => 'nullable',
             'body' => 'required',
-            'file' => 'nullable|mimes:pdf,doc,docx|max:10000',
+            'file' => 'nullable|mimes:pdf,doc,docx,ppt,pptx|max:10000',
             'video' => 'nullable'
         ]);
         

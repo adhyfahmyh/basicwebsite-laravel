@@ -14,8 +14,8 @@
     {{-- oEmbed API CDN --}}
     <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={API KEY}"></script>
     {{-- CKEDITOR 4 LOCAL --}}
-    {{-- <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script> --}}
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     {{-- CKEDITOR 5 local --}}
     {{-- <script src="/vendor/ckeditor5-build-classic/ckeditor.js"></script>
     <script src="vendor/ckeditor5-build-classic/ckeditor5-easy/src/easyimage.js"></script> --}}

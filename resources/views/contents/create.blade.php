@@ -29,8 +29,8 @@
         {{Form::text('tag', null, [ 'class' => 'form-control', 'placeholder' => 'Tag'])}}
     </div>
     <div class="form-group body">
-        {{Form::label('body', 'Body')}}
-        {{Form::textarea('body', null, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Body'])}}
+        {{Form::label('body', 'Penjabaran')}}
+        {{Form::textarea('body', null, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Silahkan berikan penjabaran tentang konten pembelajaran..'])}}
     </div>
     <div class="form-group upload">
         {{Form::label('file', 'File')}}

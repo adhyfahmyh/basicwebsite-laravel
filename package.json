@@ -27,6 +27,7 @@
         "@ckeditor/ckeditor5-alignment": "^11.2.0",
         "@ckeditor/ckeditor5-build-classic": "^12.4.0",
         "@ckeditor/ckeditor5-easy-image": "^11.0.5",
+        "ckeditor": "^4.12.1",
         "vue-toasted": "^1.1.27"
     }
 }

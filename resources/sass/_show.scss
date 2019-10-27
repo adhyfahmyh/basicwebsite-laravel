@@ -3,7 +3,7 @@
 }
 
 .content-column {
-    width: 75%;
+    width: 100%;
     display: block;
 }
 
@@ -34,16 +34,18 @@
 .curriculum-item-view {
     height: 100%;
     overflow: hidden;
-    max-height: calc(100vh - 290px);
+    max-height: 80vh;
 }
 
 @media (min-width: 768px) {
     .curriculum-item-view-absolute {
-        min-width: 400px;
+        // min-width: 400px;
+        min-height: 400px;
     }
 }
 
 .curriculum-item-view-absolute {
+    max-height: 100%;
     height: 100%;
     overflow: hidden;
 }
@@ -58,6 +60,7 @@
     position: absolute;
     top: 0;
     width: 100%;
+    height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -67,9 +70,10 @@
 }
 
 .curriculum-item-view-scaled-height-limiter {
+    max-height: 80vh;
     height: 100%;
     overflow: hidden;
-    max-height: calc(100vh - 290px);
+    // max-height: calc(100vh - 290px);
 }
 
 @media (min-width:768px) {
@@ -79,6 +83,7 @@
 }
 
 .curriculum-item-view-absolute-height-limiter {
+    max-height: 100%;
     height: 100%;
     overflow: hidden;
 }
@@ -97,12 +102,132 @@
 // content
 
 
-
+//dashboard content
 .content-dashboard {
     display: flex;
     justify-content: center;
 }
 
+.app-row-content {
+    display: flex;
+    justify-content: center;
+    // padding: 0 16px;
+}
+
+.app-dashboard-content {
+    // width: 83.33333333%;
+    // margin-bottom: 48px;
+    width: 100%;
+}
+
+.dasboard-wrapper {
+    position: relative;
+}
+
+.dasboard-navbar {
+    display: flex;
+}
+
+.dasboard-content {
+    width: 100%;
+    border-top: 1px solid #dedfe0;
+    min-height: 400px;
+}
+
+.dashboard-tabs-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.nav-container {
+    position: relative;
+}
+
+.nav-slide {
+    white-space: nowrap;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    bottom: -1px;
+    overflow: hidden;
+    padding-top: 7px;
+    border: 0;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+    // margin-bottom: 10.5px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    // list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.nav-slide li {
+    display: inline-block;
+    float: none;
+    padding: 0 15px;
+    position: relative;
+}
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+.tabcontent {
+    // color: white;
+    display: none;
+    padding: 20px 20px;
+    height: 100%;
+}  
+
+.tabcontent footer{
+    color: #29303b;
+    background: none;
+    min-height: 2rem;
+    text-align: left;
+    margin-top: 10%;
+}
+.tabcontent footer span{
+    display: block;
+}
+
+.dashboard-wrapper footer {
+    margin-top: 5%;
+    text-align: left;
+    background: none;
+    color: #29303b;
+    height: 20px;
+}
+.dashboard-wrapper footer div {
+    display: inline;
+}
+
+#Deskripsi span{
+    display: block;
+}
+// #Home {background-color: red;}
+// #News {background-color: green;}
+// #Contact {background-color: blue;}
+// #About {background-color: orange;}
+//dashboard content
 
 // SIDE CONTENT
 .sidebar-column {

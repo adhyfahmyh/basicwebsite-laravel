@@ -74,16 +74,32 @@ class ContentsController extends Controller
         ]);
         
         // Create Content
+        if(!isset($_FILES['content_img']) || $_FILES['content_img']['error'] == UPLOAD_ERR_NO_FILE) {
+            $img_name = ""; 
+        } else {
+            // print_r($_FILES);
+            $img_content = $request->file('content_img');
+            $img_name = time()."_".$img_content->getClientOriginalName();
+            $upload_path = 'data_file/images';
+            $img_content->move($upload_path, $img_name);
+        }
+        // $img_content = $request->file('content_img');
+        // $img_name = time()."_".$img_content->getClientOriginalName();
+        // $upload_path = 'data_file/images';
+        // $img_content->move($upload_path, $img_name);
 
-        $img_content = $request->file('content_img');
-        $img_name = time()."_".$img_content->getClientOriginalName();
-        $upload_path = 'data_file/images';
-        $img_content->move($upload_path, $img_name);
-
+        if(!isset($_FILES['file_name']) || $_FILES['file_name']['error'] == UPLOAD_ERR_NO_FILE) {
+            $file_name = ""; 
+        } else {
         $file_content = $request->file('file');
         $file_name = time()."_".$file_content->getClientOriginalName();
         $upload_path_f = 'data_file/files';
         $file_content->move($upload_path_f, $file_name);
+        }
+
+        $tag = $request->tag;
+        $tag = explode(" ", $tag);
+        $tags = implode(substr_replace($tag," #",0,0));
 
         Contents::create([
             'user_id' => auth()->id(),
@@ -91,7 +107,7 @@ class ContentsController extends Controller
             'content_img' => $img_name,
             'description'=> $request->description,
             'category'=> $request->category,
-            'tag'=> $request->tag,
+            'tag'=> $tags,
             'body'=> $request->body,
             'file'=> $file_name,
             'video'=> $request->video

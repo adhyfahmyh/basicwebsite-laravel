@@ -49,32 +49,114 @@
         {!!Form::close()!!} --}}
     <div class="column-container">
         <div class="content-column">
+            <div class="show-title text-center">
+                <h3>{{$content->title}}</h3>
+            </div>
             <div class="content-body">
                 <div class="app-row-content">
                     <div class="app-curriculum-item">
                         <div class="curriculum-item-view">
                             <div class="curriculum-item-view-absolute">
-                                {{-- <div class="curriculum-item-view-aspect-ratio"> --}}
-                                    {{-- <div class="curriculum-item-view-content-container"> --}}
-                                        {{-- <div class="curriculum-item-view-scaled-height-limiter"> --}}
-                                            {{-- <div class="curriculum-item-view-absolute-height-limiter"> --}}
-                                                {{-- <div class="curriculum-item-view-content" data-purpose="curriculum-item-viewer-content"> --}}
-                                                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ url('/data_file/files/'.$content->file) }}" frameborder="0" scrolling="auto" allowfullscreen height="100%" width="100%"></iframe>
-                                                {{-- </div> --}}
-                                            {{-- </div> --}}
-                                        {{-- </div> --}}
-                                    {{-- </div> --}}
-                                {{-- </div> --}}
+                                <div class="curriculum-item-view-aspect-ratio">
+                                    <div class="curriculum-item-view-content-container">
+                                        <div class="curriculum-item-view-scaled-height-limiter">
+                                            <div class="curriculum-item-view-absolute-height-limiter">
+                                                <div class="curriculum-item-view-content" data-purpose="curriculum-item-viewer-content">
+                                                    <iframe src="{{ url('/data_file/files/'.$content->file) }}" frameborder="0" scrolling="auto" allowfullscreen height="100%" width="100%"></iframe>
+                                                    {{-- <a href="http://docs.google.com/gview?url={{ URL::to('/data_file/files/'.$content->file) }}" target="_blank">{{$content->title}}</a> --}}
+                                                    {{-- <object data="{{ url('/data_file/files/'.$content->file) }}" type="application/vnd.ms-powerpoint" height="100%" width="100%"></object> --}}
+                                                    {{-- application/vnd.ms-powerpoint --}}
+                                                    {{-- <embed src="{{ url('/data_file/files/'.$content->file) }}" type="application/pdf"> --}}
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="content-dashboard">
+                <div class="app-row-content">
+                    <div class="app-dashboard-content">
+                        <div class="dashboard-wrapper">
+                            <div class="dashboard-navbar">
+                                <div class="dashboard-tabs-container">
+                                    {{-- <div class="nav-container">
+                                        <ul class="nav-slide nav nav-tabs">
+                                            <li class="nav-item">
+                                                <a href="">Deskripsi</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="">Penjabaran</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="">Tanya Jawab</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="">Video</a>
+                                            </li>
+                                        </ul>
+                                    </div> --}}
+                                    <button class="tablink" onclick="openPage('Deskripsi', this, '#E84C54')" id="defaultOpen">Deskripsi</button>
+                                    <button class="tablink" onclick="openPage('Penjabaran', this, '#E84C54')">Penjabaran</button>
+                                    <button class="tablink" onclick="openPage('TJ', this, '#E84C54')">Tanya Jawab</button>
+                                    <button class="tablink" onclick="openPage('Video', this, '#E84C54')">Video</button>
 
+                                    
+                                </div>
+                            </div>
+                            <div class="dashboard-content">
+                                <div id="Deskripsi" class="tabcontent">
+                                    <span>Dibuat oleh: {{$content->user->firstname}} {{$content->user->lastname}}</span>
+                                    {{-- <span> --}}
+                                        <small>Kategori: <strong>{!! $content->category !!}</strong></small>
+                                    {{-- </span> --}}
+                                    {{-- <span> --}}
+                                        <small>Tag: <strong>{!! $content->tag !!}</strong></small>
+                                    {{-- </span> --}}
+                                    <hr>
+                                    <h5>Deskripsi Konten</h5>
+                                    <p>{!! $content->description !!}</p>
+                                    <footer>
+                                        {{-- <hr> --}}
+                                        {{-- <div class="content-footer-description"> --}}
+                                        {{-- </div> --}}
+                                    </footer>   
+                                </div>
+                                    
+                                <div id="Penjabaran" class="tabcontent">
+                                    <h3>News</h3>
+                                    <p>{!! $content->body !!} </p> 
+                                </div>
+                                    
+                                <div id="TJ" class="tabcontent">
+                                    <h3>Contact</h3>
+                                    <p>Get in touch, or swing by for a cup of coffee.</p>
+                                </div>
+                                    
+                                <div id="Video" class="tabcontent">
+                                    <h3>Video Konten</h3>
+                                    <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <footer>
+                                <hr>
+                                <div class="created-at">
+                                    <small>Dibuat pada: {{ $content->created_at}}</small>
+                                </div>
+                                <div class="updated-at">
+                                    <small>Terakhir diubah: {{ $content->updated_at}}</small>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="sidebar-column">
+        {{-- <div class="sidebar-column">
             <div class="sidebar-sidebar">
                 <div class="sidebar-header">
                     <h4>Rekomendasi Konten Pembelajaran Selanjutnya</h4>
@@ -92,16 +174,10 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <ul class="list-group">
-                            <li class="list-group-item">
-                                <h3><a href="">$post->title</a></h3>
-                                <small>Written on  by </small>
-                            </li>
-                        </ul> --}}
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
         
 
@@ -118,4 +194,22 @@
             float: right;
         }
     </style>
+    <script>
+        function openPage(pageName,elmnt,color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 @endsection

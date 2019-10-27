@@ -14,7 +14,7 @@
         <div class="header-left" id="navbarSupportedContent">
             <div class="header-component1">
                 <ul class="navbar-nav mr-auto">
-                    <li class="">
+                    <li class="nav-item">
                         <a class="nav-link {{Request::is('/') ? 'active' : ''}}" href="/">Beranda</a>
                     </li>
                     {{-- <li class="{{Request::is('about') ? 'active' : ''}}">

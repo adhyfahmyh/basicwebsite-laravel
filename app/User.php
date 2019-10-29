@@ -37,8 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts(){
+    public function contents(){
         // return $this->hasMany(['MyLearning\Post', 'MyLearning\Contents']);
         return $this->hasMany('MyLearning\Contents');
+    }
+
+    public function ratings(){
+        return $this->hasMany('MyLearning\Ratings');
     }
 }

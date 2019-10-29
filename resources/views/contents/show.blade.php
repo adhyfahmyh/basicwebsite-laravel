@@ -62,12 +62,7 @@
                                         <div class="curriculum-item-view-scaled-height-limiter">
                                             <div class="curriculum-item-view-absolute-height-limiter">
                                                 <div class="curriculum-item-view-content" data-purpose="curriculum-item-viewer-content">
-                                                    <iframe src="{{ url('/data_file/files/'.$content->file) }}" frameborder="0" scrolling="auto" allowfullscreen height="100%" width="100%"></iframe>
-                                                    {{-- <a href="http://docs.google.com/gview?url={{ URL::to('/data_file/files/'.$content->file) }}" target="_blank">{{$content->title}}</a> --}}
-                                                    {{-- <object data="{{ url('/data_file/files/'.$content->file) }}" type="application/vnd.ms-powerpoint" height="100%" width="100%"></object> --}}
-                                                    {{-- application/vnd.ms-powerpoint --}}
-                                                    {{-- <embed src="{{ url('/data_file/files/'.$content->file) }}" type="application/pdf"> --}}
-                                                     
+                                                    <iframe src="/ViewerJS/#..{{ ('/data_file/files/'.$content->file) }}" frameborder="0" height="100%" width="100%" allowfullscreen webkitallowfullscreen></iframe>
                                                 </div>
                                             </div>
                                         </div>
@@ -78,34 +73,60 @@
                     </div>
                 </div>
             </div>
+            <div class="content-score">
+                {{-- <form action="{{action('ContentsController@giveRating')}}" method="post" class="content-score" id="content_score" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{ method_field('post') }}
+                    <input type="hidden" name="content_id" value="{{$content->id}}">
+                    <select name="rating" id="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form> --}}
+                {{ Form::open(['action' => 'ContentsController@giveRating', 'method' => 'POST', 'enctype' => "multipart/form-data"]) }}
+                {{ csrf_field() }}
+                {{ method_field('post') }}
+                {!!Form::hidden('content_id', $content->id)!!}
+                <div class="form-group select">
+                    {{Form::label('rating', 'Rating')}}
+                    {{Form::select('rating', 
+                    ['1' => '1', 
+                    '2' => '2', 
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                    '6' => '6',
+                    '7' => '7',
+                    '8' => '8',
+                    '9' => '9',
+                    '10' => '10'
+                    ], 
+                    ['placeholder' => 'Pilih Kategori', 'class' => 'form-control'])}}
+                </div>
+                <div class="form-group">
+                    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                    {{ Form::close() }}
+                </div>
+            </div>
             <div class="content-dashboard">
                 <div class="app-row-content">
                     <div class="app-dashboard-content">
                         <div class="dashboard-wrapper">
                             <div class="dashboard-navbar">
                                 <div class="dashboard-tabs-container">
-                                    {{-- <div class="nav-container">
-                                        <ul class="nav-slide nav nav-tabs">
-                                            <li class="nav-item">
-                                                <a href="">Deskripsi</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="">Penjabaran</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="">Tanya Jawab</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="">Video</a>
-                                            </li>
-                                        </ul>
-                                    </div> --}}
                                     <button class="tablink" onclick="openPage('Deskripsi', this, '#E84C54')" id="defaultOpen">Deskripsi</button>
                                     <button class="tablink" onclick="openPage('Penjabaran', this, '#E84C54')">Penjabaran</button>
                                     <button class="tablink" onclick="openPage('TJ', this, '#E84C54')">Tanya Jawab</button>
                                     <button class="tablink" onclick="openPage('Video', this, '#E84C54')">Video</button>
-
-                                    
                                 </div>
                             </div>
                             <div class="dashboard-content">
@@ -133,8 +154,16 @@
                                 </div>
                                     
                                 <div id="TJ" class="tabcontent">
-                                    <h3>Contact</h3>
-                                    <p>Get in touch, or swing by for a cup of coffee.</p>
+                                    <h3>Komentar</h3>
+                                    {!! Form::open(array('url' => 'CommentController@store','method' => 'POST')) !!}
+                                    <div class="form-group">
+                                        {{-- {{ Form::label('comment', 'Komentar') }} --}}
+                                        {{ Form::textarea('comment', '', ['class' => 'form-control', 'placeholder' => 'Tulis komentar anda'])}}
+                                    </div>
+                                    <div>
+                                        {{ Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+                                    </div>
+                                    {!! Form::close() !!}
                                 </div>
                                     
                                 <div id="Video" class="tabcontent">
@@ -178,9 +207,8 @@
                 </div>
             </div>
         </div> --}}
-    </div>
-        
-
+    </div>   
+    
     <style>
         #back_post{
             background-color: #b5b5b0;

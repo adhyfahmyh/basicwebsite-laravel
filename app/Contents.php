@@ -3,9 +3,12 @@
 namespace MyLearning;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class Contents extends Model
 {
+    // use Rateable;
+
     // Table name
     protected $table = 'contents';
     protected $fillable = [
@@ -22,4 +25,18 @@ class Contents extends Model
     {
         return $this->belongsTo('MyLearning\User');
     }
+    public function ratings()
+    {
+        return $this->hasMany('MyLearning\Ratings');
+    }
+    
 }
+// $contents = Contents::first();
+
+// $rating = new willvincent\Rateable\Rating;
+// $rating->rating = 5;
+// $rating->user_id = \Auth::id();
+
+// $contents->ratings()->save($rating);
+
+// dd(Contents::first()->ratings);

@@ -36,11 +36,11 @@ class ContentsController extends Controller
 
 
         $search = $request->search;
-        $contents = DB::table('contents')->where('title', 'like', '%'.$search.'%')->orderBy('updated_at', 'DESC')->paginate(9);
-
+        $contents = DB::table('contents')->where('title', 'like', '%'.$search.'%')->orderBy('created_at', 'DESC')->paginate(9);
+        $ratings = Ratings::all();
 
         // return view('contents.index')->with('contents', $contents)->withQuery ($query);
-        return view('contents.index', ['contents' => $contents, 'search' =>$search]);
+        return view('contents.index', ['contents'=>$contents, 'search'=>$search, 'ratings'=>$ratings]);
     }
 
     /**
@@ -127,7 +127,15 @@ class ContentsController extends Controller
     public function show(Contents $contents, $id)
     {
         $content = Contents::find($id);
-        return view('contents.show')->with('content', $content);    
+        $content_id = $content->id;
+        $content_rating = DB::table('ratings')
+                            ->where('content_id', $content_id)
+                            ->avg('rating');
+        $ratings = DB::table('ratings')
+                    ->where('user_id', auth()->user()->id)
+                    ->where('content_id', $content_id)
+                    ->avg('rating');
+        return view('contents.show', ['content'=>$content, 'ratings'=>$ratings, 'content_rating' =>$content_rating]);    
     }
 
     /**
@@ -182,22 +190,22 @@ class ContentsController extends Controller
         return view('contents.search')->with('contents', $contents);
     }
 
-    public function giveRating (Request $request)
-    {
-        $this-> validate($request,[
-            'rating'=> 'required'
-        ]);
+    // public function rating (Request $request)
+    // {
+    //     $this-> validate($request,[
+    //         'rating'=> 'required'
+    //     ]);
         
-        // Create Post 
-        $rating = new Ratings;
-        // $content = Contents::find($id);
-        $rating->user_id = auth()->user()->id;
-        $rating->content_id = $request->input('content_id');
-        $rating->rating = $request->input('rating');
-        $rating->save();
+    //     // Create Post 
+    //     $rating = new Ratings;
+    //     // $content = Contents::find($id);
+    //     $rating->user_id = auth()->user()->id;
+    //     // $rating->content_id = $request->input('content_id');
+    //     // $rating->rating = $request->input('rating');
+    //     $rating->save();
 
-        return redirect('contents/'.$rating->content_id)->with('rating', $rating);
-    }
+    //     return redirect('contents/'.$rating->content_id)->with('rating', $rating);
+    // }
 }
 
 

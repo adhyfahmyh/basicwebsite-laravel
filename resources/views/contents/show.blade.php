@@ -1,47 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-</div> --}}
-{{-- <a href="/contents" class="btn btn-default" id="back_post">Back</a> --}}
-    {{-- <div class="show-container">
-        <button class="openbtn" onclick="openNav()"></button>
-        <div class="show-title">
-            <h1>{{$content->title}}</h1><br>
-        </div>
-        <br><br>
-        <div>
-            {!! $content->description !!}
-        </div>
-        <div style="margin:0;">
-            <small>Kategori: {!! $content->category !!}</small>
-            <small>Tag: #{!! $content->tag !!}</small>
-        </div>
-        <hr>
-        <div class="show-main">
-            <div class="show-img" style="">
-                <img src="{{ url('/data_file/images/'.$content->content_img) }}" alt="">
-            </div>
-            <div style="margin-bottom:20px;">
-                {!! $content->body !!} 
-            </div>
-            <div class="show-file">
-                <iframe src="{{ url('/data_file/files/'.$content->file) }}" width="100%" height="700px" allowfullscreen webkitallowfullscreen></iframe>
-                <hr>
-            </div>
-            <div class="show-video">
-                <iframe src="{!! $content->video !!}" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
-            </div>
-        </div>
-        <hr> 
-            <small>Written on {{$content->created_at}} by {{@$content->user->firstname}}</small>
-        <br>
-    </div> --}}
         {{-- <a href="/contents/{{$content->id}}/edit" class="btn btn-default" id="edit_post">Edit Post</a>
         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method'=>'POST', 'id'=>'delete_post'])!!}
             {{Form::hidden('_method', 'DELETE')}}
@@ -74,7 +33,12 @@
                 </div>
             </div>
             <div class="content-score">
-                {{-- <form action="{{action('ContentsController@giveRating')}}" method="post" class="content-score" id="content_score" enctype="multipart/form-data">
+                    @foreach ($ratings as $rating)
+                        <p>{{$rating->rating}}</p>
+                    @endforeach
+                    <p>Rating dari pengguna: {{0.5 * round($content_rating / 0.5)}}<strong>/10</strong></p>
+                    <p>Rating dari anda: {{0.5 * round($ratings / 0.5)}}<strong>/10</strong></p>
+                <form action="{{action('RatingsController@store')}}" method="post" class="content-score" id="content_score" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('post') }}
                     <input type="hidden" name="content_id" value="{{$content->id}}">
@@ -91,31 +55,7 @@
                         <option value="10">10</option>
                     </select>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form> --}}
-                {{ Form::open(['action' => 'ContentsController@giveRating', 'method' => 'POST', 'enctype' => "multipart/form-data"]) }}
-                {{ csrf_field() }}
-                {{ method_field('post') }}
-                {!!Form::hidden('content_id', $content->id)!!}
-                <div class="form-group select">
-                    {{Form::label('rating', 'Rating')}}
-                    {{Form::select('rating', 
-                    ['1' => '1', 
-                    '2' => '2', 
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
-                    '7' => '7',
-                    '8' => '8',
-                    '9' => '9',
-                    '10' => '10'
-                    ], 
-                    ['placeholder' => 'Pilih Kategori', 'class' => 'form-control'])}}
-                </div>
-                <div class="form-group">
-                    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
-                    {{ Form::close() }}
-                </div>
+                </form>
             </div>
             <div class="content-dashboard">
                 <div class="app-row-content">

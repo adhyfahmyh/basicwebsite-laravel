@@ -25,6 +25,7 @@
                             <h4 class="card-title">{{$content->title}}</h4>
                             <hr>
                             <p class="card-text"><small>{{$content->description}}</small></p>
+                            <p class="card-text"><small>{{$content->rating}}</small></p>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted" style="position:relative">Last updated {{$content->updated_at}}</small>

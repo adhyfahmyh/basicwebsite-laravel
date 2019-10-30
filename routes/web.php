@@ -44,7 +44,8 @@ Route::post('/contact/submit', 'MessagesController@submit')->middleware('auth');
 
 Route::resource('posts', 'PostsController')->middleware('auth');
 Route::resource('contents', 'ContentsController')->middleware('auth');
-// Route::resource(('contents/'.$content->id), 'RatingsController');
+// Route::post('/contents/{$content_id}', 'ContentsController@rating');
+Route::resource(('contents/$content->id'), 'RatingsController');
 
 Auth::routes();
 

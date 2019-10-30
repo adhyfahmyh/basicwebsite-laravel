@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+ 
 @section('content')
 <div class="mainsection">
     <h2>Buat Konten</h2><br>

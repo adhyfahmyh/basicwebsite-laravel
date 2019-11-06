@@ -5,6 +5,7 @@ namespace MyLearning\Http\Controllers;
 use Illuminate\Http\Request;
 use MyLearning\Post;
 use MyLearning\Contents;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -30,7 +31,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $contents = Contents::orderBy('updated_at', 'desc');
+        // $contents = DB::select('SELECT * from contents order by rating desc');
+        $contents = Contents::orderBy('rating', 'desc')->paginate(1);
         return view('welcome')->with('contents', $contents);
     }
 }

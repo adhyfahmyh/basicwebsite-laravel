@@ -7,6 +7,8 @@ use MyLearning\Contents;
 use MyLearning\Ratings;
 use MyLearning\Http\Controllers\Auth;
 use DB;
+use MyLearning\Selection;
+use Symfony\Component\Console\Helper\Table;
 
 class ContentsController extends Controller
 {
@@ -128,6 +130,7 @@ class ContentsController extends Controller
     {
         $content = Contents::find($id);
         $content_id = $content->id;
+        $user_id = auth()->user()->id;
         $content_rating = DB::table('ratings')
                             ->where('content_id', $content_id)
                             ->avg('rating');
@@ -135,7 +138,40 @@ class ContentsController extends Controller
                     ->where('user_id', auth()->user()->id)
                     ->where('content_id', $content_id)
                     ->avg('rating');
-        return view('contents.show', ['content'=>$content, 'ratings'=>$ratings, 'content_rating' =>$content_rating]);    
+        $selection = DB::table('user_selection')
+                    ->where('user_id', auth()->user()->id)
+                    ->where('content_id', $content_id)
+                    ->avg('total_selection');
+        $timespent = DB::table('timespents')
+                    ->where('user_id', auth()->user()->id)
+                    ->where('content_id', $content_id)
+                    ->avg('timespent');
+
+        if (count($selection) == 0) {
+            # code...
+            return view('contents.show', [
+                'content'=>$content, 
+                'ratings'=>$ratings, 
+                'content_rating' =>$content_rating,
+                'selection' => 0,
+                'timespent' =>$timespent
+            ]);   
+        } else {
+            # code...
+            return view('contents.show', [
+                'content'=>$content, 
+                'ratings'=>$ratings, 
+                'content_rating' =>$content_rating,
+                'selection' =>$selection
+            ]);   
+        }
+        
+        // return view('contents.show', [
+        //     'content'=>$content, 
+        //     'ratings'=>$ratings, 
+        //     'content_rating' =>$content_rating,
+        //     'selection' =>$selection
+        //     ]);    
     }
 
     /**

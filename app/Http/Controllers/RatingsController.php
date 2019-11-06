@@ -2,8 +2,9 @@
 
 namespace MyLearning\Http\Controllers;
 
-use MyLearning\Ratings;
 use Illuminate\Http\Request;
+use MyLearning\Ratings;
+use MyLearning\Selection;
 use MyLearning\Contents;
 use MyLearning\Http\Controllers\ContentsController;
 use Illuminate\Support\Facades\DB;
@@ -67,7 +68,8 @@ class RatingsController extends Controller
         ]);
         
 
-        return redirect('contents/'.$rating->content_id)->with('success', 'Berhasil');
+        // return redirect('contents/'.$rating->content_id)->with('success', 'Berhasil');
+        return redirect(url()->previous());
     }
 
     /**
@@ -122,5 +124,19 @@ class RatingsController extends Controller
         // return view('contents.show')->with('rating', $rating);
         $get = DB::table('ratings')->get();
         return view('contents.show', ['data', $get]);
+    }
+
+    public function select(Request $request)
+    {
+        $selection = new Selection;
+        $selection->user_id = auth()->user()->id;
+        $user_id = $request->user_id;
+        $content_id = $request->content_id;
+        $selection_count = $request->selection;
+
+        $selection->user_id = $user_id;
+        $selection->content_id = $content_id;
+        $selection->total_selection = $selection_count;
+        $selection->save();
     }
 }

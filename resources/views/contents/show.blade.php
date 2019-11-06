@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content-score">
+            <div class="content-score" name="contentscore">
                     @foreach ($ratings as $rating)
                         <p>{{$rating->rating}}</p>
                     @endforeach
@@ -147,8 +147,20 @@
                 </div>
             </div>
         </div> --}}
-    </div>   
-    
+        <form style="display:none;" action="{{ route('content.selection')}}" method="POST" id="selection" name="selection" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <input type="hidden" name="_method" value="POST">
+            <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
+            <input type="text" name="selection_count" id="contentSelectionCount" value="{{$selection}}">
+        </form>
+        <form style="" action="{{ route('content.timespent')}}" method="POST" id="timespent" name="timespent" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <input type="hidden" name="_method" value="POST">
+            <input type="text" name="content_id" id="contentId" value="{{$content->id}}">
+            <input type="text" name="time_count" id="seconds">
+        </form>
+
+    </div> 
     <style>
         #back_post{
             background-color: #b5b5b0;
@@ -163,6 +175,39 @@
         }
     </style>
     <script>
+        window.onload = () => {
+            let totalSeconds = document.getElementById("seconds").value;
+            let intervalId = null;
+
+            intervalId = setInterval(startTimer, 1000);
+            function startTimer() {
+                document.getElementById("seconds").value = ++totalSeconds;
+            }
+        };
+        window.onunload = function() {
+            let $time_spent = $('#timespent');
+            $.ajax({
+                url:"{{ route('content.timespent')}}",
+                method:'POST',
+                data: $time_spent.serialize()
+            });
+        };
+        
+        setTimeout(function(){
+            let selectionCount = document.getElementById('contentSelectionCount').value;
+            let selectionCountPlusOne = parseInt(selectionCount)+1;
+
+            document.getElementById('contentSelectionCount').value = selectionCountPlusOne;
+            let $formVar = $('#selection');
+            
+            $.ajax({
+
+                url:"{{ route('content.selection')}}",
+                method:'POST',
+                data: $formVar.serialize()
+            });
+        }, 1000);
+
         function openPage(pageName,elmnt,color) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -175,9 +220,10 @@
             }
             document.getElementById(pageName).style.display = "block";
             elmnt.style.backgroundColor = color;
-        }
+        };
         
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+
     </script>
 @endsection

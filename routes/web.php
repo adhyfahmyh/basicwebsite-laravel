@@ -17,7 +17,7 @@ if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
 |
 */
 
-Route::get('/', ['middleware' => 'auth', 'uses' => 'PagesController@index']);
+Route::get('/', 'PagesController@index')->middleware('auth');
 
 Route::get('/about', 'PagesController@getAbout');
 
@@ -46,6 +46,9 @@ Route::resource('posts', 'PostsController')->middleware('auth');
 Route::resource('contents', 'ContentsController')->middleware('auth');
 // Route::post('/contents/{$content_id}', 'ContentsController@rating');
 Route::resource(('contents/$content->id'), 'RatingsController');
+// Route::post(('contents/$content->id/selection'), 'SelectionController@store');
+Route::post('contents/$content->id/selection', ['uses' => 'SelectionController@store', 'as' => 'content.selection']);
+Route::post('contents/$content->id/timespent', ['uses' => 'TimespentController@store', 'as' => 'content.timespent']);
 
 Auth::routes();
 

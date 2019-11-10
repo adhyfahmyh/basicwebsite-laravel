@@ -2,6 +2,7 @@
 
 namespace MyLearning\Http\Controllers;
 
+use DateTime;
 use Illuminate\Http\Request;
 use MyLearning\Ratings;
 use MyLearning\Selection;
@@ -48,24 +49,54 @@ class RatingsController extends Controller
             'rating'=> 'required'
         ]);
         
-        // Create Post 
+        // $rating = new Ratings;
+        // $rating->user_id = auth()->user()->id;
+        // $rating->content_id = $request->input('content_id');
+        // $rating->rating = $request->input('rating');
+        // $rating->save();
+        // $content_id = $rating->content_id;
+        // $content_ratings = Ratings::select('rating')->where('content_id', $content_id);
+        // $ratings = DB::table('ratings')
+        //         ->where('content_id', $content_id)
+        //         ->avg('rating');
+        // // $count_content_ratings = count($content_ratings);
+        // // $sum_content_ratings = sum($count_content_ratings);
+        // // $content_rating = Ratings::all();
+        // // $content_rating->each(function(Request $request) {
+        // Contents::where('id', $request->input('content_id'))->update([
+        //         'rating' => $ratings
+        // ]);
+
         $rating = new Ratings;
         $rating->user_id = auth()->user()->id;
-        $rating->content_id = $request->input('content_id');
-        $rating->rating = $request->input('rating');
-        $rating->save();
-        $content_id = $rating->content_id;
-        $content_ratings = Ratings::select('rating')->where('content_id', $content_id);
-        $ratings = DB::table('ratings')
-                ->where('content_id', $content_id)
-                ->avg('rating');
-        // $count_content_ratings = count($content_ratings);
-        // $sum_content_ratings = sum($count_content_ratings);
-        // $content_rating = Ratings::all();
-        // $content_rating->each(function(Request $request) {
-        Contents::where('id', $request->input('content_id'))->update([
-                'rating' => $ratings
-        ]);
+        $user_id = $rating->user_id;
+        $content_id = $request->content_id;
+        $ratings = $request->rating;
+        $result = DB::table('ratings')
+                    ->where('user_id', '=', $user_id)
+                    ->where('content_id', '=', $content_id)
+                    ->first();
+        $curTime = new DateTime();
+        if (is_null($result)) {
+            # code...
+            DB::table('ratings')
+                ->insert([
+                    'user_id'=>$user_id, 
+                    'content_id'=>$content_id, 
+                    'rating'=>$ratings,
+                    'created_at' =>$curTime
+                    ]);
+        } else {
+            # code...
+            Ratings::where([
+                'user_id'=>$user_id, 
+                'content_id'=>$content_id
+                ])
+                ->update([
+                    'rating'=> $ratings,
+                    'updated_at'=>$curTime
+                    ]);
+        }
         
 
         // return redirect('contents/'.$rating->content_id)->with('success', 'Berhasil');

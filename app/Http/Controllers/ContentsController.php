@@ -143,10 +143,14 @@ class ContentsController extends Controller
                     ->where('content_id', $content_id)
                     ->avg('total_selection');
         $timespent = DB::table('timespents')
-                    ->where('user_id', auth()->user()->id)
-                    ->where('content_id', $content_id)
-                    ->avg('timespent');
-
+                        // ->select('timespent')
+                        ->where('user_id',$user_id)
+                        ->where('content_id', $content_id)
+                        ->avg('timespent');
+        $bookmarked = DB::table('bookmarks')
+                        ->where('user_id',$user_id)
+                        ->where('content_id', $content_id)
+                        ->avg('A');
         if (count($selection) == 0) {
             # code...
             return view('contents.show', [
@@ -154,7 +158,8 @@ class ContentsController extends Controller
                 'ratings'=>$ratings, 
                 'content_rating' =>$content_rating,
                 'selection' => 0,
-                'timespent' =>$timespent
+                'timespent' => $timespent,
+                'bookmarked' => $bookmarked,
             ]);   
         } else {
             # code...
@@ -162,7 +167,9 @@ class ContentsController extends Controller
                 'content'=>$content, 
                 'ratings'=>$ratings, 
                 'content_rating' =>$content_rating,
-                'selection' =>$selection
+                'selection' =>$selection,
+                'timespent' => $timespent,
+                'bookmarked' => $bookmarked,
             ]);   
         }
         

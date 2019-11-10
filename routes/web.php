@@ -45,10 +45,13 @@ Route::post('/contact/submit', 'MessagesController@submit')->middleware('auth');
 Route::resource('posts', 'PostsController')->middleware('auth');
 Route::resource('contents', 'ContentsController')->middleware('auth');
 // Route::post('/contents/{$content_id}', 'ContentsController@rating');
-Route::resource(('contents/$content->id'), 'RatingsController');
+// Route::resource(('contents/$content->id'), 'RatingsController');
 // Route::post(('contents/$content->id/selection'), 'SelectionController@store');
+Route::post('contents/$content->id/rating', ['uses' => 'RatingsController@store', 'as' => 'content.rating']);
 Route::post('contents/$content->id/selection', ['uses' => 'SelectionController@store', 'as' => 'content.selection']);
 Route::post('contents/$content->id/timespent', ['uses' => 'TimespentController@store', 'as' => 'content.timespent']);
+Route::post('contents/$content->id/bookmark', ['uses' => 'BookmarkController@store', 'as' => 'content.bookmark']);
+Route::post('contents/$content->id/delete-bookmark', ['uses' => 'BookmarkController@destroy', 'as' => 'content.delete_bookmark']);
 
 Auth::routes();
 

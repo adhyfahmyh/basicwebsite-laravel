@@ -2,12 +2,12 @@
 
 namespace MyLearning\Http\Controllers;
 
-use MyLearning\Timespent;
+use MyLearning\Bookmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Psy\Command\ListCommand\Enumerator;
+use DateTime;
 
-class TimespentController extends Controller
+class BookmarkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,50 +37,45 @@ class TimespentController extends Controller
      */
     public function store(Request $request)
     {
-        $timespent = new Timespent;
-        $timespent->user_id = auth()->user()->id;
-        $user_id = $timespent->user_id;
+        $bookmark = new Bookmark;
+        $bookmark->user_id = auth()->user()->id;
+        $user_id = $bookmark->user_id;
         $content_id = $request->content_id;
-        $time_count = $request->time_count;
-
-        $result = DB::table('timespents')
+        $bookmarks = $request->bookmark;
+        $result = DB::table('bookmarks')
                     ->where('user_id', '=', $user_id)
                     ->where('content_id', '=', $content_id)
                     ->first();
+        $curTime = new DateTime();
         if (is_null($result)) {
-            $curTime = new \DateTime();
-            DB::table('timespents')
+            # code...
+            DB::table('bookmarks')
                 ->insert([
                     'user_id'=>$user_id, 
                     'content_id'=>$content_id, 
-                    'timespent'=>$time_count,
-                    'created_at'=>$curTime
+                    'A'=>$bookmarks,
+                    'created_at' =>$curTime
                     ]);
         } else {
             # code...
-            $existed = DB::table('timespents')
-                        ->where('user_id',$user_id)
-                        ->where('content_id', $content_id)
-                        ->avg('timespent');
-            $insert_time = $existed+$time_count;
-            Timespent::where([
+            Bookmark::where([
                 'user_id'=>$user_id, 
                 'content_id'=>$content_id
                 ])
                 ->update([
-                    'timespent'=> $insert_time
+                    'A'=> $bookmarks,
+                    'updated_at'=>$curTime
                     ]);
         }
-        return redirect(url()->previous());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \MyLearning\Timespent  $timespent
+     * @param  \MyLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function show(Timespent $timespent)
+    public function show(Bookmark $bookmark)
     {
         //
     }
@@ -88,10 +83,10 @@ class TimespentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \MyLearning\Timespent  $timespent
+     * @param  \MyLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function edit(Timespent $timespent)
+    public function edit(Bookmark $bookmark)
     {
         //
     }
@@ -100,10 +95,10 @@ class TimespentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \MyLearning\Timespent  $timespent
+     * @param  \MyLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Timespent $timespent)
+    public function update(Request $request, Bookmark $bookmark)
     {
         //
     }
@@ -111,11 +106,17 @@ class TimespentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \MyLearning\Timespent  $timespent
+     * @param  \MyLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Timespent $timespent)
+    public function destroy(Bookmark $bookmark, Request $request)
     {
-        //
+        $bookmark->user_id = auth()->user()->id;
+        $user_id = $bookmark->user_id;
+        $content_id = $request->content_id;
+        Bookmark::where([
+            'user_id'=>$user_id, 
+            'content_id'=>$content_id
+            ])->delete();
     }
 }

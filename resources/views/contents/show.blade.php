@@ -29,8 +29,14 @@
                     </div>
                 </div> 
                 <div class="rating-container">
-                    <div class="rating-overal">
-                        <span class="star-rating-overal"></span>
+                    <div class="rating-overall">
+                        <div class="star-rating-overal">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star" width="30" height="30">
+                        </div>
+                        <div class="star-rating-text">
+                            <span>fcdgd</span>
+                        </div>
+                        
                     </div>
                     <div class="rating-user">
 
@@ -210,7 +216,6 @@
         var book = {{ round($bookmarked) }};
         if (book !== 0) {
             document.getElementById("savebtn").checked = true;
-            document.getElementById("save_text").innerHTML = "Terima kasih anda telah menyimpan konten ini Silahkan lihat "+"<a href='/saved-content/{{ Auth::user()->username }}'>di sini! </a>";
         }
         $('input[id="savebtn"]').click(function(){ 
             if (this.checked) {
@@ -226,7 +231,8 @@
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
                         alert("Some error..");
                     }
-                });
+                });            
+                document.getElementById("save_text").innerHTML = "Terima kasih anda telah menyimpan konten ini Silahkan lihat "+"<a href='/saved-content/{{ Auth::user()->username }}'>di sini! </a>";
             }else{
                 // $("#" + sspan).remove();//what should go here
                 var bookmarks = $("#bookmark").serialize();
@@ -241,6 +247,7 @@
                         alert("Some error..");
                     }
                 });
+                document.getElementById("save_text").innerHTML = "Tekan logo di samping untuk bookmark atau menyimpan konten ini!";
             }
         });
 

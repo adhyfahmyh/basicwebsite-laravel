@@ -6,15 +6,63 @@
     </button> --}}
     <div>
         <h2 class="text-center">Konten Pembelajaran</h2>
+        <br>
     </div>
-        @if (isset($search))
-        <div>
-            <p>Hasil pencarian: <b>{{ $search }}</b></p>
-            <button type="reset" onclick="window.location.href='/contents'">Reset</button>
+        <div class="filter">
+            <form action="/contents" method="GET">
+                <div class="row" id="filterContent">
+                    <div class="col-md-8">
+                        @if (isset($category))
+                            <div class="col-md-4">
+                                <label for="reset" style="margin:0"><p>Hasil untuk kategori: <b>{{ $category }}</b></p></label>
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block">
+                            </div>
+                        @elseif (isset($sortBy))
+                            <div class="col-md-4">
+                                <label for="reset" style="margin:0"><p>Urut Berdasarkan: <b>
+                                <?php
+                                    if ($sortBy=="total_selection"){
+                                        echo "Popularitas";
+                                    }
+                                    if ($sortBy=="rating") {
+                                        echo "Rating";
+                                    }
+                                ?>
+                                </b></p></label>
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block">
+                                {{-- <button type="reset" onclick="window.location.href='/contents'" name="reset">Reset</button> --}}
+                            </div>
+                        @elseif (isset($search))
+                            <div class="col-md-4">
+                                <label for="reset" style="margin:0"><p>Hasil pencarian: <b>{{ $search }}</b></p></label>
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block">
+                            </div>
+                        @endif
+                    </div>
+                    
+                    <div class="col-md-2 col-3">
+                        <label for="category">Pilih Kategori</label>
+                        <select name="category" class="form-control form-control-sm" value="{{$category}}" onchange="submit()">
+                            <option value="" selected disabled hidden> Pilih</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+    
+                    <div class="col-md-2 col-3">
+                        <label for="sortyBy">Urutkan Berdasarkan</label>
+                        <select name="sortBy" class="form-control form-control-sm" value="{{$sortBy}}" onchange="submit()">
+                            <option value="" selected disabled hidden>Pilih</option>
+                            <option value="total_selection">Popularitas</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
         </div>
-        @endif
     <hr>
-    <div>
+    <div class="card-wrapper">
         @if(count($contents) > 0)
             @foreach($contents as $content)
                 <div class="card-deck">

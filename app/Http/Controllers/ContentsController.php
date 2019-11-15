@@ -38,11 +38,38 @@ class ContentsController extends Controller
 
 
         $search = $request->search;
-        $contents = DB::table('contents')->where('title', 'like', '%'.$search.'%')->orderBy('created_at', 'DESC')->paginate(9);
+        $category = $request->category;
+        $sortBy = $request->sortBy;
+
+        if ($request->search) {
+            $contents = DB::table('contents')
+                    ->where('title', 'like', '%'.$search.'%')
+                    ->orderBy('created_at', 'DESC')
+                    ->paginate(16);
+        } elseif ($request->category) {
+            $contents = DB::table('contents')
+                    ->where('category', $category)
+                    ->orderBy('created_at', 'DESC')
+                    ->paginate(16);
+        } elseif ($request->sortBy) {
+            $contents = DB::table('contents')
+                    ->orderBy($sortBy, 'DESC')
+                    ->paginate(16);
+        } else {
+            $contents = DB::table('contents')
+                        ->orderBy('created_at', 'DESC')
+                        ->paginate(16);
+            }
         $ratings = Ratings::all();
 
         // return view('contents.index')->with('contents', $contents)->withQuery ($query);
-        return view('contents.index', ['contents'=>$contents, 'search'=>$search, 'ratings'=>$ratings]);
+        return view('contents.index', [
+            'contents'=>$contents, 
+            'search'=>$search, 
+            'ratings'=>$ratings,
+            'category'=>$category,
+            'sortBy' =>$sortBy
+            ]);
     }
 
     /**
@@ -151,34 +178,24 @@ class ContentsController extends Controller
                         ->where('user_id',$user_id)
                         ->where('content_id', $content_id)
                         ->avg('A');
-        if (count($selection) == 0) {
-            # code...
-            return view('contents.show', [
-                'content'=>$content, 
-                'ratings'=>$ratings, 
-                'content_rating' =>$content_rating,
-                'selection' => 0,
-                'timespent' => $timespent,
-                'bookmarked' => $bookmarked,
-            ]);   
-        } else {
-            # code...
-            return view('contents.show', [
-                'content'=>$content, 
-                'ratings'=>$ratings, 
-                'content_rating' =>$content_rating,
-                'selection' =>$selection,
-                'timespent' => $timespent,
-                'bookmarked' => $bookmarked,
-            ]);   
+        if (count($ratings) == 0) {
+            $ratings = 0;
         }
+        if (count($content_rating) == 0) {
+            $content_rating = 0;
+        }
+        if (count($selection) == 0) {
+            $selection = 0;
+        }
+        return view('contents.show', [
+            'content'=>$content, 
+            'ratings'=>$ratings, 
+            'content_rating' =>$content_rating,
+            'selection' => $selection,
+            'timespent' => $timespent,
+            'bookmarked' => $bookmarked,
+        ]);   
         
-        // return view('contents.show', [
-        //     'content'=>$content, 
-        //     'ratings'=>$ratings, 
-        //     'content_rating' =>$content_rating,
-        //     'selection' =>$selection
-        //     ]);    
     }
 
     /**

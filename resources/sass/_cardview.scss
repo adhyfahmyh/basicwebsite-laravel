@@ -1,7 +1,12 @@
+.card-wrapper {
+    text-align: center;
+}
+
 .card-deck {
     display: inline-block;
-    max-width: 30%;
-    margin: 10px;
+    max-width: 24%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 50px;
     text-decoration: none;
 }

@@ -8,6 +8,9 @@
         {!!Form::close()!!} --}}
     <div class="column-container">
         <div class="content-column">
+            <div>
+                <a href="javascript:history.go(-1)"><button>Kembali</button></a>
+            </div>
             <div class="show-title text-center">
                 <h3>{{$content->title}}</h3>
             </div>
@@ -30,18 +33,13 @@
                 </div> 
                 <div class="rating-container">
                     <div class="rating-overall">
-                        <div class="star-rating-overal">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star" width="30" height="30">
-                        </div>
-                        <div class="star-rating-text">
-                            <span>fcdgd</span>
-                        </div>
-                        
+                        <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
+                        <strong><span id="ratVal" itemprop="ratingValue">{{round($content_rating)}}</span></strong>
+                        <span class="grey">/10</span>
                     </div>
                     <div class="rating-user">
-
                         <div class="give-rating">
-                            <form action="{{ route('content.rating')}}" method="POST" id="rating" name="rating" enctype="multipart/form-data">
+                            <form action="{{ route('content.rating') }}" method="POST" id="rating" name="rating" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <input type="hidden" name="_method" value="POST">
                                 <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
@@ -59,31 +57,22 @@
                                 </span>
                             </form>
                         </div>
-                    </div>
+                        <button id="clicktorate">
+                            <div class="rwrapper">
+                                <div class="rating-user-wrapper" id="rating-user-wrapper">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="user rating star">
+                                    <p>Berikan</p>
+                                    <p>Rating</p>
+                                </div>
+                                <div class="is-rating-user" id="is-rating-user">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
+                                    <strong><span id="userRat" itemprop="userRating">{{round($ratings)}}</span></strong>
+                                    <span><small>oleh Anda</small></span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>    
                 </div>
-                
-                <span class="r-text">{{round($ratings)}}</span><span>/10</span>
-                
-                {{-- <p>Rating dari pengguna: {{0.5 * round($content_rating / 0.5)}}<strong>/10</strong></p>
-                <p>Rating dari anda: {{0.5 * round($ratings / 0.5)}}<strong>/10</strong></p>
-                <form action="{{action('RatingsController@store')}}" method="post" class="content-score" id="content_score" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    {{ method_field('post') }}
-                    <input type="hidden" name="content_id" value="{{$content->id}}">
-                    <select name="rating" id="rating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form> --}}
             </div>
             <div class="content-body">
                 <div class="app-row-content">
@@ -138,7 +127,6 @@
                                 </div>
                                     
                                 <div id="Penjabaran" class="tabcontent">
-                                    <h3>News</h3>
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
@@ -174,28 +162,6 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="sidebar-column">
-            <div class="sidebar-sidebar">
-                <div class="sidebar-header">
-                    <h4>Rekomendasi Konten Pembelajaran Selanjutnya</h4>
-
-                </div>
-                <div class="sidebar-content" style="top: 114px; bottom: 0px; width: 25%;">
-                    <div data-purpose="curriculum-section-container">
-                        <div class="section--section--BukKG" data-purpose="section-panel-0" aria-expanded="false">
-                            <div class="section--section-heading--2k6aW">
-                                <div class="section--title--eCwjX">
-                                    <span>
-                                        <span><h4>TEST</h4></span>
-                                        <span><small>TESTTESTESTEST</small></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <form style="display:none;" action="{{ route('content.selection')}}" method="POST" id="selection" name="selection" enctype="multipart/form-data">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="POST">
@@ -208,14 +174,23 @@
             <input type="text" name="content_id" id="contentId" value="{{$content->id}}">
             <input type="text" name="time_count" id="seconds">
         </form>
-    </div> 
-    <style>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery('#clicktorate').on('click', function(event) {
+                jQuery('.give-rating').toggle('show');
+            });
+        });
+
+        //tab dashboard default open
+        document.getElementById("defaultOpen").click();
         
-    </style>
-    <script>
+        // bookmark check uncheck display
         var book = {{ round($bookmarked) }};
         if (book !== 0) {
             document.getElementById("savebtn").checked = true;
+            document.getElementById("save_text").innerHTML = "Terima kasih anda telah menyimpan konten ini Silahkan lihat "+"<a href='/saved-content/{{ Auth::user()->username }}'>di sini! </a>";
+
         }
         $('input[id="savebtn"]').click(function(){ 
             if (this.checked) {
@@ -234,7 +209,6 @@
                 });            
                 document.getElementById("save_text").innerHTML = "Terima kasih anda telah menyimpan konten ini Silahkan lihat "+"<a href='/saved-content/{{ Auth::user()->username }}'>di sini! </a>";
             }else{
-                // $("#" + sspan).remove();//what should go here
                 var bookmarks = $("#bookmark").serialize();
                 $.ajax({
                     url:"{{ route('content.delete_bookmark') }}",
@@ -250,30 +224,59 @@
                 document.getElementById("save_text").innerHTML = "Tekan logo di samping untuk bookmark atau menyimpan konten ini!";
             }
         });
-
-        var rate = {{round($ratings)}};
-        radiobtn = document.getElementById(rate);
-        radiobtn.checked = true;
-        var rating = $('#rating');
-        $('input[type=radio]').click(function(e) {
-            var value = $(this).val();
-            $.ajax({
-                url:"{{ route('content.rating')}}",
-                method:'POST',
-                data: rating.serialize(),
-                success:alert('Berhasil memberikan rating')
+        
+        function inputrating() {
+            var contentRate = {{round($content_rating)}};
+            var rating = $('#rating');
+            $('input[type=radio]').click(function(e) {
+                var value = $(this).val();
+                $.ajax({
+                    url: "{{ route('content.rating') }}",
+                    method: 'POST',
+                    data: rating.serialize(),
+                    success: function(){
+                        alert( "Berhasil memberikan rating");
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Some error..");
+                    }
+                });
+                $("#userVal").html(contentRate);
+                $("#userRat").html(value);
+                $('.rating-user-wrapper').hide();
+                $( ".is-rating-user" ).show();
             });
-            $('.r-text').html(value);
-        });
+        };
+        
         window.onload = () => {
+            confirm ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
+            var contentRate = {{round($content_rating)}};
+            var rate = {{round($ratings)}};
+            radiobtn = document.getElementById(rate);
+            radiobtn.checked = true;
+
+            //get hide and show user rating
+            var userRat = {{$ratings}};
+            var ratinguserwrapper = $("#rating-user-wrapper");
+            var isratinguser = $("#is-rating-user");
+            if (userRat !== null) {
+                $("#rating-user-wrapper").hide();  
+                $("#is-rating-user").show();
+            } else {
+                $("#is-rating-user").hide();
+                $("#rating-user-wrapper").show();
+            };
+
             let totalSeconds = document.getElementById("seconds").value;
             let intervalId = null;
-
+            
             intervalId = setInterval(startTimer, 1000);
             function startTimer() {
                 document.getElementById("seconds").value = ++totalSeconds;
             }
         };
+        
+        //save stopwatch
         window.onunload = function() {
             let $time_spent = $('#timespent');
             $.ajax({
@@ -282,38 +285,38 @@
                 data: $time_spent.serialize()
             });
         };
-
+        
+        //count selection
         setTimeout(function(){
             let selectionCount = document.getElementById('contentSelectionCount').value;
             let selectionCountPlusOne = parseInt(selectionCount)+1;
-
+            
             document.getElementById('contentSelectionCount').value = selectionCountPlusOne;
             let $formVar = $('#selection');
             
             $.ajax({
-
+                
                 url:"{{ route('content.selection')}}",
                 method:'POST',
                 data: $formVar.serialize()
             });
         }, 1000);
-
+        
+        //tab dashboard
         function openPage(pageName,elmnt,color) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+                tabcontent[i].style.display = "none";
             }
             tablinks = document.getElementsByClassName("tablink");
             for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "";
+                tablinks[i].style.backgroundColor = "";
             }
             document.getElementById(pageName).style.display = "block";
             elmnt.style.backgroundColor = color;
         };
         
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-
+        $(document).ready(inputrating);
     </script>
 @endsection

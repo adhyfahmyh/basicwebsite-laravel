@@ -4,6 +4,7 @@ namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MyLearning\Selection;
+use MyLearning\Contents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +48,10 @@ class SelectionController extends Controller
                     ->where('user_id', '=', $user_id)
                     ->where('content_id', '=', $content_id)
                     ->first();
+
+        $input_selection = DB::table('user_selection')
+                            ->where('content_id', '=', $content_id)
+                            ->sum('total_selection');
         if (is_null($result)) {
             $curTime = new \DateTime();
             DB::table('user_selection')
@@ -56,6 +61,11 @@ class SelectionController extends Controller
                     'total_selection'=>$selection_count,
                     'created_at'=>$curTime
                     ]);
+            DB::table('contents')
+                ->where('id', '=', $content_id)
+                ->update([
+                    'total_selection'=>$input_selection
+                ]);
         } else {
             # code...
             Selection::where([
@@ -65,6 +75,11 @@ class SelectionController extends Controller
                 ->update([
                     'total_selection'=>$selection_count
                     ]);
+            DB::table('contents')
+                ->where('id', '=', $content_id)
+                ->update([
+                    'total_selection'=>$input_selection
+                ]);
         }
         return redirect(url()->previous())->with('total_selection', $selection_count);
     }

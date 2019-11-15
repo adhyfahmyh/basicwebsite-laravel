@@ -11580,10 +11580,15 @@ li#profile-info-item2 {
   letter-spacing: 5px;
 }
 
+.card-wrapper {
+  text-align: center;
+}
+
 .card-deck {
   display: inline-block;
-  max-width: 30%;
-  margin: 10px;
+  max-width: 24%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 50px;
   text-decoration: none;
 }
@@ -12093,21 +12098,100 @@ div#save_btn_container {
   padding-top: 5px;
 }
 
-.give-rating {
+.rating-container {
+  width: 70%;
+}
+
+.rating-overall {
+  height: 50px;
+  padding-right: 5px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#ratVal {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.rating-overall img {
+  cursor: pointer;
+  margin-right: 15px;
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+
+.rating-overall span {
+  margin-left: 15px;
+  display: inline-block;
+  margin: 2px 0 0 0;
+  cursor: pointer;
+}
+
+span.small {
+  display: block;
+}
+
+.rating-user {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.rating-user button {
+  background: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.rating-user-wrapper {
+  width: 130px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.rating-user-wrapper img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  float: left;
+}
+
+.rating-user-wrapper p {
+  text-align: left;
+  margin-left: 15px;
+  display: block;
+  margin: 2px 0 0 0;
+}
+
+.is-rating-user {
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 150px;
+  overflow: hidden;
   display: none;
 }
 
-.star-rating-overall {
-  display: inline-block;
-  vertical-align: top;
+.is-rating-user img {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  float: left;
 }
 
-.star-rating-overall img {
-  width: 50px;
-  height: 50px;
+#userRat {
+  font-size: 35px;
 }
 
-.star-rating-text {
-  display: inline-block;
+.is-rating-user span {
+  text-align: left;
+  margin: 0;
+}
+
+.give-rating {
+  display: none;
 }
 

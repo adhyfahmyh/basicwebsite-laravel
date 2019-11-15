@@ -59,3 +59,6 @@ var config = {};
 config.placeholder = 'somevalue';
 CKEDITOR.replace('editor', config);
 
+function giveRating() {
+    
+}

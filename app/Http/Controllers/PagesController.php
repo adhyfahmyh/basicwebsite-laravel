@@ -32,7 +32,7 @@ class PagesController extends Controller
     public function index()
     {
         // $contents = DB::select('SELECT * from contents order by rating desc');
-        $contents = Contents::orderBy('rating', 'desc')->paginate(1);
+        $contents = Contents::orderBy('rating', 'desc')->paginate(8);
         return view('welcome')->with('contents', $contents);
     }
 }

@@ -9,6 +9,8 @@ use MyLearning\Selection;
 use MyLearning\Contents;
 use MyLearning\Http\Controllers\ContentsController;
 use Illuminate\Support\Facades\DB;
+use willvincent\Rateable\Rating;
+
 // use winner
 
 class RatingsController extends Controller
@@ -45,9 +47,9 @@ class RatingsController extends Controller
      */
     public function store(Request $request)
     {
-        $this-> validate($request,[
-            'rating'=> 'required'
-        ]);
+        // $this-> validate($request,[
+        //     'rating'=> 'required'
+        // ]);
         
         // $rating = new Ratings;
         // $rating->user_id = auth()->user()->id;
@@ -73,21 +75,28 @@ class RatingsController extends Controller
         $content_id = $request->content_id;
         $ratings = $request->rating;
         $result = DB::table('ratings')
-                    ->where('user_id', '=', $user_id)
-                    ->where('content_id', '=', $content_id)
-                    ->first();
+                ->where('user_id', '=', $user_id)
+                ->where('content_id', '=', $content_id)
+                ->first();
+        // $arr_rating = DB::select("SELECT `rating` FROM `ratings` WHERE `content_id` = $content_id");
+        
         $curTime = new DateTime();
         if (is_null($result)) {
-            # code...
             DB::table('ratings')
                 ->insert([
                     'user_id'=>$user_id, 
                     'content_id'=>$content_id, 
                     'rating'=>$ratings,
                     'created_at' =>$curTime
-                    ]);
+                ]);
+            $input_rating = DB::table('ratings')
+                    ->where('content_id', $content_id)
+                    ->avg('rating');        
+            Contents::where('id', $content_id)
+            ->update([
+                'rating'=> $input_rating
+                ]);
         } else {
-            # code...
             Ratings::where([
                 'user_id'=>$user_id, 
                 'content_id'=>$content_id
@@ -95,10 +104,17 @@ class RatingsController extends Controller
                 ->update([
                     'rating'=> $ratings,
                     'updated_at'=>$curTime
-                    ]);
+                ]);
+            $input_rating = 
+            DB::table('ratings')
+                ->where('content_id', $content_id)
+                ->avg('rating');        
+            Contents::where('id', $content_id)
+            ->update([
+                'rating'=> $input_rating
+                ]);
         }
-        
-
+            
         // return redirect('contents/'.$rating->content_id)->with('success', 'Berhasil');
         return redirect(url()->previous());
     }

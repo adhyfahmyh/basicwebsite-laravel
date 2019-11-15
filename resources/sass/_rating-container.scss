@@ -1,23 +1,107 @@
-.give-rating {
-    display: none;
+.rating-container {
+    width: 70%;
 }
 
 .rating-overall {
-    // display: inline-block;
-}
-.star-rating-overall {
-    // background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
-    // background-size: cover;
-    // height: 50px;
-    // width: 50px;
-    // background-repeat: no-repeat;
-    display: inline-block;
-    vertical-align: top;
-}
-.star-rating-overall img {
-    width: 50px;
+    // width: 300px;
     height: 50px;
-}
-.star-rating-text {
+    padding-right: 5px;
+    // border-right: 2px solid grey;
+    // border: 4px solid red;
+    overflow: hidden;
     display: inline-block;
+}
+
+#ratVal {
+    // color: blue;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.rating-overall img {
+    cursor: pointer;
+    margin-right: 15px;
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.rating-overall span {
+    margin-left: 15px;
+    display: inline-block;
+    margin: 2px 0 0 0;
+    cursor: pointer;
+
+}
+
+span.small {
+    display: block;
+}
+
+.rating-user {
+    // width: 300px;
+    // height: 70px;
+    // border: 4px solid red;
+    overflow: hidden;
+    display: inline-block;
+}
+.rating-user button {
+    background: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    z-index: 4;
+}
+.rating-user-wrapper {
+    width: 130px;
+    padding: 0;
+    overflow: hidden;
+    // display: none;
+}
+.rating-user-wrapper img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    // display: inline-block;
+    float: left;
+}
+
+.rating-user-wrapper p {
+    text-align: left;
+    margin-left: 15px;
+    display: block;
+    margin: 2px 0 0 0;
+}
+
+.is-rating-user {
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    width: 150px;
+    overflow: hidden;
+    display: none;
+    // border: 4px solid red;
+}
+
+.is-rating-user img {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    float: left;
+}
+
+#userRat {
+    font-size: 35px;
+}
+
+.is-rating-user span {
+    text-align: left;
+    // margin-left: 15px;
+    // display: block;
+    margin: 0;
+}
+
+.give-rating {
+    display: none;
+    // background-color: red;
 }

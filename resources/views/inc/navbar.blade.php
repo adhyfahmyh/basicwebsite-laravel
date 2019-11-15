@@ -36,9 +36,9 @@
                 <div class="header-component2-search">
                     <div class="search">
                         <form action="/contents" method="GET">
-                            {{-- {{ csrf_field() }} --}}
+                            {{ csrf_field() }}
                             <span class="input-group">
-                            <input type="text" placeholder="Search.." name="search" >
+                            <input type="text" placeholder="Cari.." name="search" >
                                 <span class="input-group-btn">
                                     <button type="submit" class="btn btn-link" >
                                         <i class="fa fa-search"></i>

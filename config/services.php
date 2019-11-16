@@ -35,7 +35,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => MyLearning\User::class,
+        'model' => PLearning\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

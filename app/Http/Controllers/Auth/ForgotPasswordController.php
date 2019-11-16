@@ -1,8 +1,8 @@
 <?php
 
-namespace MyLearning\Http\Controllers\Auth;
+namespace PLearning\Http\Controllers\Auth;
 
-use MyLearning\Http\Controllers\Controller;
+use PLearning\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => MyLearning\User::class,
+            'model' => PLearning\User::class,
         ],
 
         // 'users' => [

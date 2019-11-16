@@ -1,14 +1,14 @@
 <?php
 
-namespace MyLearning\Http\Controllers;
+namespace PLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use MyLearning\Contents;
-use MyLearning\Ratings;
-use MyLearning\Http\Controllers\Auth;
+use PLearning\Contents;
+use PLearning\Ratings;
+use PLearning\Http\Controllers\Auth;
 use DB;
-use MyLearning\Comment;
-use MyLearning\Selection;
+use PLearning\Comment;
+use PLearning\Selection;
 use Symfony\Component\Console\Helper\Table;
 
 class ContentsController extends Controller
@@ -22,7 +22,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \MyLearning\Contents  $contents
+     * @param  \PLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -60,7 +60,7 @@ class ContentsController extends Controller
             $contents = DB::table('contents')
                         ->orderBy('created_at', 'DESC')
                         ->paginate(16);
-            }
+        }
         $ratings = Ratings::all();
 
         // return view('contents.index')->with('contents', $contents)->withQuery ($query);
@@ -104,36 +104,26 @@ class ContentsController extends Controller
             'video' => 'nullable'
         ]);
         
-        // Create Content
         if(!isset($_FILES['content_img']) || $_FILES['content_img']['error'] == UPLOAD_ERR_NO_FILE) {
             $img_name = ""; 
         } else {
-            // print_r($_FILES);
             $img_content = $request->file('content_img');
             $img_name = time()."_".$img_content->getClientOriginalName();
             $upload_path = 'data_file/images';
             $img_content->move($upload_path, $img_name);
         }
-        // $img_content = $request->file('content_img');
-        // $img_name = time()."_".$img_content->getClientOriginalName();
-        // $upload_path = 'data_file/images';
-        // $img_content->move($upload_path, $img_name);
-
-        // if(!isset($_FILES['file_name']) || $_FILES['file_name']['error'] == UPLOAD_ERR_NO_FILE) {
-        //     $file_name = ""; 
-        // } else {
         $file_content = $request->file('file');
         $file_name = time()."_".$file_content->getClientOriginalName();
         $upload_path_f = 'data_file/files';
         $file_content->move($upload_path_f, $file_name);
-        // }
 
         $tag = $request->tag;
         $tag = explode(" ", $tag);
         $tags = implode(substr_replace($tag," #",0,0));
+        $user_id = $request->user_id;
 
         Contents::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => $user_id,
             'title'=> $request->title,
             'content_img' => $img_name,
             'description'=> $request->description,
@@ -150,7 +140,7 @@ class ContentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \MyLearning\Contents  $contents
+     * @param  \PLearning\Contents  $contents
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -219,7 +209,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \MyLearning\Contents  $contents
+     * @param  \PLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Contents $contents)
@@ -230,7 +220,7 @@ class ContentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \MyLearning\Contents  $contents
+     * @param  \PLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function destroy(Contents $contents)
@@ -242,7 +232,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \MyLearning\Contents  $contents
+     * @param  \PLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request) 

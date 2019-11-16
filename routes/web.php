@@ -19,13 +19,13 @@ if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
 
 Route::get('/', 'PagesController@index')->middleware('auth');
 
-Route::get('/about', 'PagesController@getAbout');
+// Route::get('/about', 'PagesController@getAbout');
 
-Route::get('/contact', 'PagesController@getContact');
+// Route::get('/contact', 'PagesController@getContact');
 
-Route::get('/signin', 'PagesController@getSignin');
+// Route::get('/signin', 'PagesController@getSignin');
 
-Route::get('/messages', 'MessagesController@getMessages');
+// Route::get('/messages', 'MessagesController@getMessages');
 
 // Route::get('/profile', 'ProfileController@index');
 
@@ -67,5 +67,5 @@ Route::any('/search', function() {
     if (count ( $contents ) > 0)
         return view ( 'welcome' )->withDetails ( $contents )->withQuery ( $contents );
     else
-        return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
+        return view ( 'welcome' )->withMessage ( 'Konten yang anda cari tidak ada, silahkan coba kembali!' );
 });

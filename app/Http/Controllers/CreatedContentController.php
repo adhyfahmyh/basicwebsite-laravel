@@ -1,10 +1,10 @@
 <?php
 
-namespace MyLearning\Http\Controllers;
+namespace PLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use MyLearning\User;
-use MyLearning\Post;
+use PLearning\User;
+use PLearning\Post;
 use DB;
 
 class CreatedContentController extends Controller
@@ -56,8 +56,11 @@ class CreatedContentController extends Controller
     public function show($id)
     {
         $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('user.created-content')->with('posts', $user->posts);
+        // $saved_contents = DB::select("SELECT 'content_id' from 'bookmarks' WHERE 'user_id'=$user_id");
+        $created_contents = DB::table('contents')
+                            ->where('user_id', $user_id)
+                            ->paginate(8);
+        return view('user.created-content')->with(['created_contents'=>$created_contents]);
     }
 
     /**

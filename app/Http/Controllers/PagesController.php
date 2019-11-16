@@ -1,10 +1,10 @@
 <?php
 
-namespace MyLearning\Http\Controllers;
+namespace PLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use MyLearning\Post;
-use MyLearning\Contents;
+use PLearning\Post;
+use PLearning\Contents;
 use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
@@ -32,7 +32,7 @@ class PagesController extends Controller
     public function index()
     {
         // $contents = DB::select('SELECT * from contents order by rating desc');
-        $contents = Contents::orderBy('rating', 'desc')->paginate(8);
+        $contents = Contents::orderBy('rating', 'desc')->paginate(5);
         return view('welcome')->with('contents', $contents);
     }
 }

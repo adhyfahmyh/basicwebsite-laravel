@@ -3,7 +3,7 @@
     <div class="container">
         <div class="header-logo-container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{config('app.name', 'MyLearning')}}
+                {{config('app.name', 'PLearning')}}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -61,7 +61,7 @@
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrasi') }}</a>
                         </li>
                     @endif
                 @else

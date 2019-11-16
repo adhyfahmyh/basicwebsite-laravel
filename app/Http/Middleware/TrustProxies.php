@@ -1,6 +1,6 @@
 <?php
 
-namespace MyLearning\Http\Middleware;
+namespace PLearning\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Fideloper\Proxy\TrustProxies as Middleware;

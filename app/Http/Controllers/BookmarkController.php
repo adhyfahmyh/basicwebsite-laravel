@@ -1,8 +1,8 @@
 <?php
 
-namespace MyLearning\Http\Controllers;
+namespace PLearning\Http\Controllers;
 
-use MyLearning\Bookmark;
+use PLearning\Bookmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use DateTime;
@@ -72,7 +72,7 @@ class BookmarkController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \MyLearning\Bookmark  $bookmark
+     * @param  \PLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
     public function show(Bookmark $bookmark)
@@ -83,7 +83,7 @@ class BookmarkController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \MyLearning\Bookmark  $bookmark
+     * @param  \PLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
     public function edit(Bookmark $bookmark)
@@ -95,7 +95,7 @@ class BookmarkController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \MyLearning\Bookmark  $bookmark
+     * @param  \PLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Bookmark $bookmark)
@@ -106,7 +106,7 @@ class BookmarkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \MyLearning\Bookmark  $bookmark
+     * @param  \PLearning\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
     public function destroy(Bookmark $bookmark, Request $request)

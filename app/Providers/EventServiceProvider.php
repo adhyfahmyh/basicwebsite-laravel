@@ -1,6 +1,6 @@
 <?php
 
-namespace MyLearning\Providers;
+namespace PLearning\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;

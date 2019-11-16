@@ -1,6 +1,6 @@
 <?php
 
-namespace MyLearning;
+namespace PLearning;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,10 +17,10 @@ class Ratings extends Model
 
     public function user()
     {
-        return $this->belongsTo('MyLearning\User');
+        return $this->belongsTo('PLearning\User');
     }
 
     public function contents() {
-        return $this->belongsTo('MyLearning\Contents');
+        return $this->belongsTo('PLearning\Contents');
     }
 }

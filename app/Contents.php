@@ -1,6 +1,6 @@
 <?php
 
-namespace MyLearning;
+namespace PLearning;
 
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
@@ -12,7 +12,7 @@ class Contents extends Model
     // Table name
     protected $table = 'contents';
     protected $fillable = [
-        'title', 'content_img', 'description', 'category', 'tag', 'body', 'file', 'video'
+        'user_id', 'title', 'content_img', 'description', 'category', 'tag', 'body', 'file', 'video'
     ];
 
     // Primary Key
@@ -27,7 +27,7 @@ class Contents extends Model
     }
     public function ratings()
     {
-        return $this->hasMany('MyLearning\Ratings');
+        return $this->hasMany('PLearning\Ratings');
     }
 
     public function comments()

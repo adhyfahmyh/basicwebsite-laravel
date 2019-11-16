@@ -1,6 +1,6 @@
 <?php
 
-namespace MyLearning;
+namespace PLearning;
 
 use Illuminate\Database\Eloquent\Model;
 

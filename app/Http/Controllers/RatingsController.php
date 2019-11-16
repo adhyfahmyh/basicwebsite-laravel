@@ -1,13 +1,13 @@
 <?php
 
-namespace MyLearning\Http\Controllers;
+namespace PLearning\Http\Controllers;
 
 use DateTime;
 use Illuminate\Http\Request;
-use MyLearning\Ratings;
-use MyLearning\Selection;
-use MyLearning\Contents;
-use MyLearning\Http\Controllers\ContentsController;
+use PLearning\Ratings;
+use PLearning\Selection;
+use PLearning\Contents;
+use PLearning\Http\Controllers\ContentsController;
 use Illuminate\Support\Facades\DB;
 use willvincent\Rateable\Rating;
 
@@ -122,7 +122,7 @@ class RatingsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \MyLearning\Ratings  $ratings
+     * @param  \PLearning\Ratings  $ratings
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -135,7 +135,7 @@ class RatingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \MyLearning\Ratings  $ratings
+     * @param  \PLearning\Ratings  $ratings
      * @return \Illuminate\Http\Response
      */
     public function edit(Ratings $ratings)
@@ -147,7 +147,7 @@ class RatingsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \MyLearning\Ratings  $ratings
+     * @param  \PLearning\Ratings  $ratings
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Ratings $ratings)
@@ -158,7 +158,7 @@ class RatingsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \MyLearning\Ratings  $ratings
+     * @param  \PLearning\Ratings  $ratings
      * @return \Illuminate\Http\Response
      */
     public function destroy(Ratings $ratings)

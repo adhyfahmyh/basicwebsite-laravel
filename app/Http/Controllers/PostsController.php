@@ -1,9 +1,9 @@
 <?php
 
-namespace MyLearning\Http\Controllers;
+namespace PLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use MyLearning\Post;
+use PLearning\Post;
 use DB;
 
 class PostsController extends Controller

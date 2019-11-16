@@ -36,7 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MyLearning\\": "app/"
+            "PLearning\\": "app/"
         },
         "classmap": [
             "database/seeds",

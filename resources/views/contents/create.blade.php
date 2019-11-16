@@ -6,6 +6,8 @@
     {{ Form::open(['action' => 'ContentsController@store', 'method' => 'POST', 'enctype' => "multipart/form-data"]) }}
     {{ csrf_field() }}
     {{ method_field('post') }}
+    <input type="hidden" name="user_id" id="user_id" value="{{auth()->user()->id}}">
+    {{-- {{Form::hidden('user_id', )}} --}}
     <div class="form-group">
         {{Form::label('title', 'Judul Konten')}}
         {{Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Judul Konten'])}}

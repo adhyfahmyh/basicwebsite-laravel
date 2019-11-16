@@ -52,6 +52,8 @@ Route::post('contents/$content->id/selection', ['uses' => 'SelectionController@s
 Route::post('contents/$content->id/timespent', ['uses' => 'TimespentController@store', 'as' => 'content.timespent']);
 Route::post('contents/$content->id/bookmark', ['uses' => 'BookmarkController@store', 'as' => 'content.bookmark']);
 Route::post('contents/$content->id/delete-bookmark', ['uses' => 'BookmarkController@destroy', 'as' => 'content.delete_bookmark']);
+Route::post('contents/$content->id/comment', ['uses' => 'CommentController@store', 'as' => 'content.comment']);
+Route::post('contents/$content->id/replycomment', ['uses' => 'CommentController@replyStore', 'as' => 'content.reply_comment']);
 
 Auth::routes();
 

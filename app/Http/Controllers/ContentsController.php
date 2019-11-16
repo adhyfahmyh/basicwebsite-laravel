@@ -7,6 +7,7 @@ use MyLearning\Contents;
 use MyLearning\Ratings;
 use MyLearning\Http\Controllers\Auth;
 use DB;
+use MyLearning\Comment;
 use MyLearning\Selection;
 use Symfony\Component\Console\Helper\Table;
 
@@ -178,6 +179,9 @@ class ContentsController extends Controller
                         ->where('user_id',$user_id)
                         ->where('content_id', $content_id)
                         ->avg('A');
+        $comments = DB::table('comments')
+                        ->where('content_id', $content_id)
+                        ->get();
         if (count($ratings) == 0) {
             $ratings = 0;
         }
@@ -194,6 +198,7 @@ class ContentsController extends Controller
             'selection' => $selection,
             'timespent' => $timespent,
             'bookmarked' => $bookmarked,
+            'comments' => $comments,
         ]);   
         
     }

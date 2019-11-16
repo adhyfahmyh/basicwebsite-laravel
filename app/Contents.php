@@ -23,11 +23,16 @@ class Contents extends Model
 
     public function user()
     {
-        return $this->belongsTo('MyLearning\User');
+        return $this->belongsTo(User::class);
     }
     public function ratings()
     {
         return $this->hasMany('MyLearning\Ratings');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
     
 }

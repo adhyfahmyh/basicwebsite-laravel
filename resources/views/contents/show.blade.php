@@ -131,16 +131,50 @@
                                 </div>
                                     
                                 <div id="TJ" class="tabcontent">
-                                    <h3>Komentar</h3>
-                                    {!! Form::open(array('url' => 'CommentController@store','method' => 'POST')) !!}
-                                    <div class="form-group">
-                                        {{-- {{ Form::label('comment', 'Komentar') }} --}}
-                                        {{ Form::textarea('comment', '', ['class' => 'form-control', 'placeholder' => 'Tulis komentar anda'])}}
+                                    <div class="col-md-12" style="padding:0;">
+                                        <div class="card" style="background:none">
+                                            <div class="card-body">
+                                                <h4>Silahkan beri komentar atau pertanyaan disini</h4>
+                                                <form method="post" action=" {{ route('content.comment') }} " id="comment" name="comment" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <input type="textarea" name="comment_body" class="form-control" style="height:50px;"/>
+                                                        <input type="hidden" name="content_id" value="{{ $content->id }}" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" class="btn btn-warning" value="Submit" />
+                                                    </div>
+                                                </form><br><hr>
+                                                <h4>Komentar dan pertanyaan</h4><br>
+                                                @foreach($comments as $comment)
+                                                    <div class="display-comment">
+                                                        
+                                                        <strong style="font-size:18px;">{{ $comment->username }}</strong>
+                                                        @if (!empty($comment->parent_username))
+                                                            <p style="margin:0;font-size:12px;">Kepada: <strong>{{$comment->parent_username}}</strong></p>
+                                                        @endif
+                                                        <p style="margin:0;font-size:15px;padding-top:5px;">{{ $comment->body }}</p>
+                                                        <br>
+                                                        <div class="reply-comment">
+                                                            <form method="post" action="{{ route('content.reply_comment') }}">
+                                                                @csrf
+                                                                <div class="form-group">
+                                                                    <input type="text" name="comment_body" class="form-control" style="width:500px"/>
+                                                                    <input type="hidden" name="content_id" value="{{ $content->id }}" />
+                                                                    <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
+                                                                    <input type="hidden" name="parent_username" value="{{ $comment->username }}" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="submit" class="btn btn-warning" value="Balas" />
+                                                                </div>
+                                                            </form>
+                                                        </div><hr>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        {{ Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-                                    </div>
-                                    {!! Form::close() !!}
+                                    
                                 </div>
                                     
                                 <div id="Video" class="tabcontent">
@@ -176,9 +210,15 @@
         </form>
     </div>
     <script type="text/javascript">
+        function reply() {
+
+        }
         jQuery(document).ready(function() {
             jQuery('#clicktorate').on('click', function(event) {
                 jQuery('.give-rating').toggle('show');
+            });
+            jQuery('#reply').on('click', function(event) {
+                jQuery('.reply-comment').toggle('show');
             });
         });
 

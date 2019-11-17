@@ -45,6 +45,8 @@ class ContentsController extends Controller
         if ($request->search) {
             $contents = DB::table('contents')
                     ->where('title', 'like', '%'.$search.'%')
+                    ->orWhere('tag', 'like', '%'.$search.'%')
+                    ->orWhere('category', 'like', '%'.$search.'%')
                     ->orderBy('created_at', 'DESC')
                     ->paginate(16);
         } elseif ($request->category) {

@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class="card-footer" style="text-align:left;">
-                            <small class="text-muted" style="position:relative;text-align:left;">Dibuat pada: {{date('d-m-Y', strtotime($contents->created_at))}}</small>
+                            <small class="text-muted" style="position:relative;text-align:left;">Dibuat pada: {{date('d-m-Y', strtotime($content->created_at))}}</small>
                         </div>
                     </div>
                     </a>

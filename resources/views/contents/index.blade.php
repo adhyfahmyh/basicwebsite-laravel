@@ -15,7 +15,7 @@
                         @if (isset($category))
                             <div class="col-md-4">
                                 <label for="reset" style="margin:0"><p>Hasil untuk kategori: <b>{{ $category }}</b></p></label>
-                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block" class="btn btn-warning">
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block;font-weight:bolder;" class="btn btn-warning">
                             </div>
                         @elseif (isset($sortBy))
                             <div class="col-md-4">
@@ -29,13 +29,13 @@
                                     }
                                 ?>
                                 </b></p></label>
-                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block" class="btn btn-warning">
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block;font-weight:bolder;" class="btn btn-warning">
                                 {{-- <button type="reset" onclick="window.location.href='/contents'" name="reset">Reset</button> --}}
                             </div>
                         @elseif (isset($search))
                             <div class="col-md-4">
                                 <label for="reset" style="margin:0"><p>Hasil pencarian: <b>{{ $search }}</b></p></label>
-                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block" class="btn btn-warning">
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block;font-weight:bolder;" class="btn btn-warning">
                             </div>
                         @endif
                     </div>

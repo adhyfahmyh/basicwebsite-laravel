@@ -47,6 +47,10 @@ class ContentsController extends Controller
                     ->where('title', 'like', '%'.$search.'%')
                     ->orWhere('tag', 'like', '%'.$search.'%')
                     ->orWhere('category', 'like', '%'.$search.'%')
+                    ->orWhere('description', 'like', '%'.$search.'%')
+                    ->orWhere('username', 'like', '%'.$search.'%')
+                    ->orWhere('firstname', 'like', '%'.$search.'%')
+                    ->orWhere('lastname', 'like', '%'.$search.'%')
                     ->orderBy('created_at', 'DESC')
                     ->paginate(16);
         } elseif ($request->category) {

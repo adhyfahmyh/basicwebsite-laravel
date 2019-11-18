@@ -9,7 +9,7 @@
     <div class="column-container">
         <div class="content-column">
             <div>
-                <a href="javascript:history.go(-1)"><button class="btn btn-warning">Kembali</button></a>
+                <a href="javascript:history.go(-1)"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a>
             </div>
             <div class="show-title text-center">
                 <h3>{{$content->title}}</h3>
@@ -114,16 +114,20 @@
                                         <small>Tag: <strong>{!! $content->tag !!}</strong></small>
                                     <hr>
                                     <h5>Deskripsi Konten</h5>
-                                    <p>{!! $content->description !!}</p>
+                                    @if (empty($content->description))
+                                        <p>Tidak ada deskripsi</p>
+                                    @else
+                                        <p>{!! $content->description !!}</p>
+                                    @endif
                                 </div>
                                     
-                                <div id="Penjabaran" class="tabcontent">
+                                <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
                                 <div id="TJ" class="tabcontent">
                                     <div class="col-md-10 offset-md-1" style="padding:0;">
-                                        <div class="card" style="background:none">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <h4>Silahkan beri komentar atau pertanyaan disini</h4>
                                                 <form method="post" action=" {{ route('content.comment') }} " id="comment" name="comment" enctype="multipart/form-data">
@@ -137,31 +141,35 @@
                                                     </div>
                                                 </form><br><hr>
                                                 <h4>Komentar dan pertanyaan</h4><br>
-                                                @foreach($comments as $comment)
-                                                    <div class="display-comment">
-                                                        
-                                                        <strong style="font-size:18px;">{{ $comment->username }}</strong>
-                                                        @if (!empty($comment->parent_username))
-                                                            <p style="margin:0;font-size:12px;">Kepada: <strong>{{$comment->parent_username}}</strong></p>
-                                                        @endif
-                                                        <p style="margin:0;font-size:15px;padding-top:5px;">{{ $comment->body }}</p>
-                                                        <br>
-                                                        <div class="reply-comment">
-                                                            <form method="post" action="{{ route('content.reply_comment') }}">
-                                                                @csrf
-                                                                <div class="form-group">
-                                                                    <input type="text" name="comment_body" class="form-control" style="width:500px"/>
-                                                                    <input type="hidden" name="content_id" value="{{ $content->id }}" />
-                                                                    <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
-                                                                    <input type="hidden" name="parent_username" value="{{ $comment->username }}" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <input type="submit" class="btn btn-warning" value="Balas" />
-                                                                </div>
-                                                            </form>
-                                                        </div><hr>
-                                                    </div>
-                                                @endforeach
+                                                @if (count($comments)==0)
+                                                    <p>Tidak ada komentar atau pertanyaan</p>
+                                                @else
+                                                    @foreach($comments as $comment)
+                                                        <div class="display-comment">
+                                                            
+                                                            <strong style="font-size:18px;">{{ $comment->username }}</strong>
+                                                            @if (!empty($comment->parent_username))
+                                                                <p style="margin:0;font-size:12px;">Kepada: <strong>{{$comment->parent_username}}</strong></p>
+                                                            @endif
+                                                            <p style="margin:0;font-size:15px;padding-top:5px;">{{ $comment->body }}</p>
+                                                            <br>
+                                                            <div class="reply-comment">
+                                                                <form method="post" action="{{ route('content.reply_comment') }}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <input type="text" name="comment_body" class="form-control" style="width:500px"/>
+                                                                        <input type="hidden" name="content_id" value="{{ $content->id }}" />
+                                                                        <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
+                                                                        <input type="hidden" name="parent_username" value="{{ $comment->username }}" />
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input type="submit" class="btn btn-warning" value="Balas" />
+                                                                    </div>
+                                                                </form>
+                                                            </div><hr>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -169,8 +177,12 @@
                                 </div>
                                     
                                 <div id="Video" class="tabcontent">
-                                    <h3>Video Konten</h3>
-                                    <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                    <h4>Video Konten</h4>
+                                    @if (!empty($content->video))
+                                        <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                    @else
+                                        <p>Video tidak tersedia</p>
+                                    @endif
                                 </div>
                             </div>
                             <footer>

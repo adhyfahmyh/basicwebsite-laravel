@@ -1,0 +1,130 @@
+//index content page
+button#create-content {
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    background-color: #00a2ed;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    // height: 50px;
+    padding: 10px;
+}
+button#create-content h4 {
+    margin: 0;
+}
+button#create-content:hover {
+    box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card-deck {
+    width: 300px;
+    height: 400px;
+    // background-color: red;
+}
+.card-deck .card {
+    height: 400px;
+}
+.card-deck .card {
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.card-deck .card:hover {
+    box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    color: #4d4d4d;
+    text-align: left;
+    padding: 20px 20px 0px 20px;
+}
+.text-card {
+    text-align: left;
+}
+.rating-card {
+    // height: 30px;
+}
+.rating-card img#rating {
+    height: 20px;
+    width: 20px;
+    float: left;
+}
+.rating-card p#ratVal {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    width: 100px;
+}
+.card-deck .card .card-body p{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-deck .card img{
+    // min-height: 100px;
+    height: 200px;
+}
+
+//create content page
+.mainsection {
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+.mainsection .form-group {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+.mainsection .form-group.upload input {
+    width: 300px;
+    height: 43px;
+}
+.mainsection .form-group.description textarea {
+    width: 300px;
+    height: 200px;
+    vertical-align: text-top;
+    text-align: left;
+}
+.mainsection .form-group.select select {
+    width: 300px;
+    display: block;
+    text-align-last: center;
+}
+.mainsection .form-group.body .ck.ck-editor__main .ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred{
+    height: 200px;
+}
+
+//Show Content
+.show-container {
+    // margin-top: 50px;
+    // margin-bottom: 50px;
+    // margin-left: 100px;
+    // margin-right: 100px;
+    margin: auto;
+    width: 100%;
+}
+.show-container .show-title {
+    text-align: center;
+}
+.show-img {
+    height: 300px;
+    width: 100%;
+    margin-bottom:20px;
+}
+.show-img img {
+    width: 100%;
+}
+.show-file {
+    margin-bottom: 50px;
+}
+
+//filtering
+
+#filterContent {
+    // float: right;
+    // text-align: right;
+}

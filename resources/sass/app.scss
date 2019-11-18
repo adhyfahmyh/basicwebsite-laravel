@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Custom
+@import 'custom';
+@import 'navbar';
+@import 'showcase';
+@import 'cardview';
+@import 'contents';
+@import 'show';
+@import 'rating';
+@import 'savecontent';
+@import 'rating-container';
+
+@import url("https://bootswatch.com/flatly/bootstrap.min.css");

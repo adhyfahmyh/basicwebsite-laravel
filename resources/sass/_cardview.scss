@@ -1,0 +1,23 @@
+.card-wrapper {
+    text-align: center;
+}
+
+.card-deck {
+    display: inline-block;
+    max-width: 24%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    text-decoration: none;
+}
+.card-deck:hover {
+    box-shadow: 100px;
+}
+.card-deck a:hover {
+    box-shadow: 10px;
+    text-decoration: none;
+}
+.card {
+    // display: inline;
+    text-decoration: none;
+}

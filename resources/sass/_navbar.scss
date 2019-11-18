@@ -1,0 +1,193 @@
+//navbar
+#navbar-1{
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: sticky;
+    height: 65px;
+    min-width: 100%;
+    z-index: 1010;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+    color: #737373;
+}
+#navbar-1 .container {
+    display: flex;
+    justify-content: space-between;
+    background: inherit;
+    box-sizing: border-box;
+    height: 65px;
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1011;    
+    color: #737373;
+}
+#navbar-1 .container .header-left .header-component1 li a.nav-link,
+#navbar-1 .container .header-right a {
+    color: #737373;
+}
+#navbar-1 .container .header-left .header-component1 li a.nav-link.active {
+    color: #666666;
+    font-weight:bold;
+}
+.header-logo-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    // background-color: red;
+}
+.header-logo-container a {
+    color: 	#E84C54;
+    font-weight: 700;
+    text-shadow: 0.5px 0.5px rgb(153, 153, 153);
+    font-family: "Great Vibes", cursive;
+    font-size: 25px;
+}
+.header-left {
+    flex: 1;
+    min-width: 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#dropdown-left:hover .dropdown-menu.dropdown-menu-left{
+    display: block;
+}
+.header-left .header-component2{
+    margin: 0 25px;
+    // max-width: 630px;
+    width: 80%;
+    
+}
+
+.header-left .header-component2-search {
+    margin:0;
+}
+//search
+.search {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block!important;
+    width: 100%;
+    height: 100%;
+}
+.search .input-text {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    background-color: #f2f3f5;
+    border-radius: 2px;
+    padding: 0;
+    margin: 0;
+}
+.search .input-group{
+    background-color: #f2f3f5;
+    border-radius: 2px;
+    position: relative;
+    display: table;
+    border-collapse: separate
+}
+.search .input-group input{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    font-size: 13px;
+    -webkit-appearance: none;
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    display: table-cell;
+    background-image: none;
+    line-height: 1.43;
+    color: #29303b;
+    padding: 10px 12px;
+    box-shadow: none;
+    transition: border-color ease-in-out .08s,box-shadow ease-in-out .08s;
+    font-family: inherit;
+    margin: 0;
+}
+
+.input-group-btn {
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+    display: table-cell;
+}
+.search .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.search .input-group-btn button{
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    color: 	#E84C54;
+    width: 44px;
+    height: 44px;
+    z-index: 2;
+    margin-left: -1px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    position: relative;
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow:none;
+    overflow: visible;
+}
+.search .input-group-btn .btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 11px 12px;
+    font-size: 15px;
+    line-height: 1.35135;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.search .input-group-btn .btn:hover {
+    color: black;
+}
+#navbar-1 .container .collapse.navbar-collapse {
+    flex: 1;
+    min-width: 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navbar-nav.ml-auto:hover li.nav-item.dropdown #navbarDropdown .dropdown-menu.dropdown-menu-right{
+    display: block;
+}
+.container .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+    #navbar-1 {
+        height: 50px;
+    }
+}

@@ -1,0 +1,48 @@
+input[type=checkbox]#savebtn {
+    display:none;
+}
+input[type=checkbox]#savebtn + label {
+    display:inline-block;
+    padding: 0;
+    background: no-repeat url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljg2OCA1Ni44NjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljg2OCA1Ni44Njg7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8cGF0aCBkPSJNNTIuOTM0LDYuMTM2YzAtMy4zMjQtMi42ODQtNi4wNTMtNi02LjEyNlYwaC0zNi45MWMtMy4zNTgsMC02LjA5LDIuNzMxLTYuMDksNi4wOXY1MC43NzhsMTktMTIuNjY2bDE5LDEyLjY2NlYyNWgxMVY2LjEzNiAgeiBNMzkuOTM0LDUzLjEzMmwtMTctMTEuMzM0bC0xNywxMS4zMzRWNi4wOWMwLTIuMjU1LDEuODM1LTQuMDksNC4wOS00LjA5SDQyLjA0Yy0wLjk4MywwLjk2Mi0xLjY4MiwyLjIxMi0xLjk2NSwzLjYxMSAgbC0wLjAwMSwwLjAwM2MtMC4wNDUsMC4yMjItMC4wOCwwLjQ0OC0wLjEwMywwLjY3N0MzOS45NDcsNi41MjQsMzkuOTM0LDYuNzYxLDM5LjkzNCw3djE4VjUzLjEzMnogTTUwLjkzNCwyM2gtOVY3ICBjMC0wLjM0LDAuMDM1LTAuNjcxLDAuMS0wLjk5MmMwLjM4Ny0xLjg5LDEuODU4LTMuMzk5LDMuNzI4LTMuODU1YzAuMDM2LTAuMDA5LDAuMDY4LTAuMDI1LDAuMTA0LTAuMDMyICBjMC4yNDMtMC4wNTQsMC40OTgtMC4wNzMsMC43NTMtMC4wODljMC4wODMtMC4wMDUsMC4xNjItMC4wMjQsMC4yNDYtMC4wMjVjMi4yNDYsMC4wMzcsNC4wNjksMS44ODEsNC4wNjksNC4xMjlWMjN6IiBmaWxsPSIjMDAwMDAwIi8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=');
+    height: 30px;
+    width: 30px;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+input[type=checkbox]#savebtn:hover + label {
+    background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljg2OCA1Ni44NjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljg2OCA1Ni44Njg7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8cGF0aCBkPSJNNDYuOTM0LDAuMDExVjBoLTM2LjkxYy0zLjM1OCwwLTYuMDksMi43MzEtNi4wOSw2LjA5djUwLjc3OGwxOS0xMi42NjZsMTksMTIuNjY2VjMydi03VjE0aDJ2MTFoOVY2LjEzNiAgQzUyLjkzNCwyLjgxOSw1MC4yNjIsMC4wOTYsNDYuOTM0LDAuMDExeiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") no-repeat;
+    height: 30px;
+    width: 30px;
+    display:inline-block;
+    background-size: 100%;
+}
+input[type=checkbox]#savebtn:checked + label {
+    background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljg2OCA1Ni44NjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljg2OCA1Ni44Njg7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8cGF0aCBkPSJNNDYuOTM0LDAuMDExVjBoLTM2LjkxYy0zLjM1OCwwLTYuMDksMi43MzEtNi4wOSw2LjA5djUwLjc3OGwxOS0xMi42NjZsMTksMTIuNjY2VjMydi03VjE0aDJ2MTFoOVY2LjEzNiAgQzUyLjkzNCwyLjgxOSw1MC4yNjIsMC4wOTYsNDYuOTM0LDAuMDExeiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") no-repeat;
+    height: 30px;
+    width: 30px;
+    display:inline-block;
+    background-size: 100%;
+    // box-shadow: 0px 0px 50px 3px black;    
+}
+div#save_container {
+    float: right;
+    width: 30%;
+}
+div#save_text_container {
+    width:90%;
+    margin-right:2%;
+    float: left;
+    text-align:right;
+    margin:0
+}
+div#save_text_container p{
+    width:100%;
+    margin:0
+}
+div#save_btn_container {
+    float: right;
+    margin:0;
+    padding-top:5px;
+}

@@ -206,7 +206,7 @@
             <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
             <input type="text" name="selection_count" id="contentSelectionCount" value="{{$selection}}">
         </form>
-        <form style="display:none;" action="{{ route('content.timespent')}}" method="POST" id="timespent" name="timespent" enctype="multipart/form-data">
+        <form style="" action="{{ route('content.timespent')}}" method="POST" id="timespent" name="timespent" enctype="multipart/form-data">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="POST">
             <input type="text" name="content_id" id="contentId" value="{{$content->id}}">
@@ -233,10 +233,11 @@
             document.getElementById("save_text").innerHTML = "Terima kasih anda telah menyimpan konten ini Silahkan lihat "+"<a href='/saved-content/{{ Auth::user()->username }}'>di sini! </a>";
 
         }
+
+        //bookmark save
         $('input[id="savebtn"]').click(function(){ 
             if (this.checked) {
                 var bookmarks = $("#bookmark").serialize();
-                // $('.book').html(bookmark);
                 $.ajax({
                     url:"{{ route('content.bookmark') }}",
                     method:'POST',
@@ -290,8 +291,16 @@
         };
         
         window.onload = () => {
+            let totalSeconds = document.getElementById("seconds").value;
+            let intervalId = null;
+            
+            intervalId = setInterval(startTimer, 1000);
+            function startTimer() {
+                document.getElementById("seconds").value = ++totalSeconds;
+            }
+
             var ratings = {{$ratings}};
-            if (ratings == null) {
+            if (ratings == 0) {
                 alert ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
             }
 
@@ -312,18 +321,12 @@
                 $("#rating-user-wrapper").show();
             }
 
-            let totalSeconds = document.getElementById("seconds").value;
-            let intervalId = null;
-            
-            intervalId = setInterval(startTimer, 1000);
-            function startTimer() {
-                document.getElementById("seconds").value = ++totalSeconds;
-            }
         };
         
-        //save stopwatch
+        //save stopwatch and bookmark zero
         window.onunload = function() {
             let $time_spent = $('#timespent');
+
             $.ajax({
                 url:"{{ route('content.timespent')}}",
                 method:'POST',
@@ -340,7 +343,6 @@
             let $formVar = $('#selection');
             
             $.ajax({
-                
                 url:"{{ route('content.selection')}}",
                 method:'POST',
                 data: $formVar.serialize()

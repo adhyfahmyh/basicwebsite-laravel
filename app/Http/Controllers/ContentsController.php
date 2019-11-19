@@ -27,17 +27,6 @@ class ContentsController extends Controller
      */
     public function index(Request $request)
     {
-        // $contents = Contents::orderBy('updated_at', 'desc')->paginate(5);
-
-
-        // $contents = DB::select('SELECT * from contents');;
-        
-
-        // $contents = Contents::when($request->search, function ($query) use ($request) {
-        //     $query->where('title', 'LIKE', "%{$request->search}%");
-        // })->get();
-
-
         $search = $request->search;
         $category = $request->category;
         $sortBy = $request->sortBy;

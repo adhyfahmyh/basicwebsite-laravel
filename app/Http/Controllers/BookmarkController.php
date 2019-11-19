@@ -42,11 +42,11 @@ class BookmarkController extends Controller
         $user_id = $bookmark->user_id;
         $content_id = $request->content_id;
         $bookmarks = $request->bookmark;
+        $curTime = new DateTime();
         $result = DB::table('bookmarks')
                     ->where('user_id', '=', $user_id)
                     ->where('content_id', '=', $content_id)
                     ->first();
-        $curTime = new DateTime();
         if (is_null($result)) {
             # code...
             DB::table('bookmarks')

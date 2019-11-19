@@ -47,6 +47,10 @@ class TimespentController extends Controller
                     ->where('user_id', '=', $user_id)
                     ->where('content_id', '=', $content_id)
                     ->first();
+        $result_bookmark = DB::table('bookmarks')
+                    ->where('user_id', '=', $user_id)
+                    ->where('content_id', '=', $content_id)
+                    ->first();
         if (is_null($result)) {
             $curTime = new \DateTime();
             DB::table('timespents')

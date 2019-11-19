@@ -1,8 +1,8 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
-use PLearning\Weight;
+use MyLearning\Weight;
 use Illuminate\Http\Request;
 
 class WeightController extends Controller
@@ -41,7 +41,7 @@ class WeightController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \PLearning\Weight  $weight
+     * @param  \MyLearning\Weight  $weight
      * @return \Illuminate\Http\Response
      */
     public function show(Weight $weight)
@@ -52,7 +52,7 @@ class WeightController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \PLearning\Weight  $weight
+     * @param  \MyLearning\Weight  $weight
      * @return \Illuminate\Http\Response
      */
     public function edit(Weight $weight)
@@ -64,7 +64,7 @@ class WeightController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \PLearning\Weight  $weight
+     * @param  \MyLearning\Weight  $weight
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Weight $weight)
@@ -75,7 +75,7 @@ class WeightController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \PLearning\Weight  $weight
+     * @param  \MyLearning\Weight  $weight
      * @return \Illuminate\Http\Response
      */
     public function destroy(Weight $weight)

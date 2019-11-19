@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning;
+namespace MyLearning;
 
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
@@ -27,7 +27,7 @@ class Contents extends Model
     }
     public function ratings()
     {
-        return $this->hasMany('PLearning\Ratings');
+        return $this->hasMany('MyLearning\Ratings');
     }
 
     public function comments()

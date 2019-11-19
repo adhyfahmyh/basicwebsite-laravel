@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning\Providers;
+namespace MyLearning\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'PLearning\Http\Controllers';
+    protected $namespace = 'MyLearning\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

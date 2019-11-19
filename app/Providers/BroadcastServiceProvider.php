@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning\Providers;
+namespace MyLearning\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;

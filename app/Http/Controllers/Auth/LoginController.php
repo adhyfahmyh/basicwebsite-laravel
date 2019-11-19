@@ -1,8 +1,8 @@
 <?php
 
-namespace PLearning\Http\Controllers\Auth;
+namespace MyLearning\Http\Controllers\Auth;
 
-use PLearning\Http\Controllers\Controller;
+use MyLearning\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

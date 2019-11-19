@@ -1,10 +1,10 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PLearning\Post;
-use PLearning\Contents;
+use MyLearning\Post;
+use MyLearning\Contents;
 use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller

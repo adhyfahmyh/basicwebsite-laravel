@@ -1,11 +1,11 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PLearning\User;
-use PLearning\Post;
+use MyLearning\User;
+use MyLearning\Post;
 use DB;
 
 class ProfileController extends Controller

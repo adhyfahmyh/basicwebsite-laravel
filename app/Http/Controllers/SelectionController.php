@@ -1,10 +1,10 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PLearning\Selection;
-use PLearning\Contents;
+use MyLearning\Selection;
+use MyLearning\Contents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 

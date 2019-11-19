@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-        {{-- <a href="/contents/{{$content->id}}/edit" class="btn btn-default" id="edit_post">Edit Post</a>
-        {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method'=>'POST', 'id'=>'delete_post'])!!}
-            {{Form::hidden('_method', 'DELETE')}}
-            {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-        {!!Form::close()!!} --}}
     <div class="column-container">
         <div class="content-column">
             <div>
@@ -206,7 +201,7 @@
             <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
             <input type="text" name="selection_count" id="contentSelectionCount" value="{{$selection}}">
         </form>
-        <form style="" action="{{ route('content.timespent')}}" method="POST" id="timespent" name="timespent" enctype="multipart/form-data">
+        <form style="display:none;" action="{{ route('content.timespent')}}" method="POST" id="timespent" name="timespent" enctype="multipart/form-data">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="POST">
             <input type="text" name="content_id" id="contentId" value="{{$content->id}}">

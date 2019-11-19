@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning;
+namespace MyLearning;
 
 use Illuminate\Database\Eloquent\Model;
  
@@ -17,6 +17,6 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo('PLearning\User');
+        return $this->belongsTo('MyLearning\User');
     }
 }

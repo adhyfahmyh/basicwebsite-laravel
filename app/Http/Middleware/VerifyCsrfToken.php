@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning\Http\Middleware;
+namespace MyLearning\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 

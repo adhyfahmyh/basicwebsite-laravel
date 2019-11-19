@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning\Console;
+namespace MyLearning\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

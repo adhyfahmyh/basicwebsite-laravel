@@ -1,10 +1,10 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PLearning\User;
-use PLearning\Post;
+use MyLearning\User;
+use MyLearning\Post;
 use DB;
 
 class CreatedContentController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning\Exceptions;
+namespace MyLearning\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

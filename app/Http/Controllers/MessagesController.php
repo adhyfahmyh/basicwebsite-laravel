@@ -1,9 +1,9 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PLearning\Message;
+use MyLearning\Message;
 
 class MessagesController extends Controller
 {

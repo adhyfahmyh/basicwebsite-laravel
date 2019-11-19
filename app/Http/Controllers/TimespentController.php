@@ -1,8 +1,8 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
-use PLearning\Timespent;
+use MyLearning\Timespent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Psy\Command\ListCommand\Enumerator;
@@ -81,7 +81,7 @@ class TimespentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \PLearning\Timespent  $timespent
+     * @param  \MyLearning\Timespent  $timespent
      * @return \Illuminate\Http\Response
      */
     public function show(Timespent $timespent)
@@ -92,7 +92,7 @@ class TimespentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \PLearning\Timespent  $timespent
+     * @param  \MyLearning\Timespent  $timespent
      * @return \Illuminate\Http\Response
      */
     public function edit(Timespent $timespent)
@@ -104,7 +104,7 @@ class TimespentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \PLearning\Timespent  $timespent
+     * @param  \MyLearning\Timespent  $timespent
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Timespent $timespent)
@@ -115,7 +115,7 @@ class TimespentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \PLearning\Timespent  $timespent
+     * @param  \MyLearning\Timespent  $timespent
      * @return \Illuminate\Http\Response
      */
     public function destroy(Timespent $timespent)

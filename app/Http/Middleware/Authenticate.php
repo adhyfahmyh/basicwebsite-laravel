@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning\Http\Middleware;
+namespace MyLearning\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Facades\Log;

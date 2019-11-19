@@ -1,6 +1,6 @@
 <?php
 
-namespace PLearning\Http\Middleware;
+namespace MyLearning\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

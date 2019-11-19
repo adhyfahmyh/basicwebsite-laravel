@@ -1,14 +1,14 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PLearning\Contents;
-use PLearning\Ratings;
-use PLearning\Http\Controllers\Auth;
+use MyLearning\Contents;
+use MyLearning\Ratings;
+use MyLearning\Http\Controllers\Auth;
 use DB;
-use PLearning\Comment;
-use PLearning\Selection;
+use MyLearning\Comment;
+use MyLearning\Selection;
 use Symfony\Component\Console\Helper\Table;
 
 class ContentsController extends Controller
@@ -22,7 +22,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \PLearning\Contents  $contents
+     * @param  \MyLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -135,7 +135,7 @@ class ContentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \PLearning\Contents  $contents
+     * @param  \MyLearning\Contents  $contents
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -204,7 +204,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \PLearning\Contents  $contents
+     * @param  \MyLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Contents $contents)
@@ -215,7 +215,7 @@ class ContentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \PLearning\Contents  $contents
+     * @param  \MyLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function destroy(Contents $contents)
@@ -227,7 +227,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \PLearning\Contents  $contents
+     * @param  \MyLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request) 

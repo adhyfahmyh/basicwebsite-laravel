@@ -1,11 +1,11 @@
 <?php
 
-namespace PLearning\Http\Controllers;
+namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PLearning\User;
-use PLearning\Post;
-use PLearning\Bookmark;
+use MyLearning\User;
+use MyLearning\Post;
+use MyLearning\Bookmark;
 use DB;
 
 class SavedContentController extends Controller

@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-        {{-- <a href="/contents/{{$content->id}}/edit" class="btn btn-default" id="edit_post">Edit Post</a>
-        {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method'=>'POST', 'id'=>'delete_post'])!!}
-            {{Form::hidden('_method', 'DELETE')}}
-            {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-        {!!Form::close()!!} --}}
     <div class="column-container">
         <div class="content-column">
             <div>
@@ -201,9 +196,6 @@
         </form>
     </div>
     <script type="text/javascript">
-        function reply() {
-
-        }
         jQuery(document).ready(function() {
             jQuery('#clicktorate').on('click', function(event) {
                 jQuery('.give-rating').toggle('show');
@@ -280,7 +272,11 @@
         };
         
         window.onload = () => {
-            confirm ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
+            var rating = {{$ratings}}
+            if (rating == 0) {
+                alert ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
+            }
+            
             var contentRate = {{round($content_rating)}};
             var rate = {{round($ratings)}};
             radiobtn = document.getElementById(rate);

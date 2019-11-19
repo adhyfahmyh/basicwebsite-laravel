@@ -9,7 +9,7 @@
     <div class="column-container">
         <div class="content-column">
             <div>
-                <a href="javascript:history.go(-1)"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a>
+                <a href="/contents"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a>
             </div>
             <div class="show-title text-center">
                 <h3>{{$content->title}}</h3>
@@ -113,7 +113,7 @@
                                         <small>Kategori: <strong>{!! $content->category !!}</strong></small>
                                         <small>Tag: <strong>{!! $content->tag !!}</strong></small>
                                     <hr>
-                                    <h5>Deskripsi Konten</h5>
+                                    <h4>Deskripsi Konten</h4>
                                     @if (empty($content->description))
                                         <p>Tidak ada deskripsi</p>
                                     @else
@@ -122,6 +122,7 @@
                                 </div>
                                     
                                 <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
+                                    <h4>Penjabaran Materi</h4>
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
@@ -213,9 +214,6 @@
         </form>
     </div>
     <script type="text/javascript">
-        function reply() {
-
-        }
         jQuery(document).ready(function() {
             jQuery('#clicktorate').on('click', function(event) {
                 jQuery('.give-rating').toggle('show');
@@ -292,7 +290,11 @@
         };
         
         window.onload = () => {
-            confirm ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
+            var ratings = {{$ratings}};
+            if (ratings == null) {
+                alert ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
+            }
+
             var contentRate = {{round($content_rating)}};
             var rate = {{round($ratings)}};
             radiobtn = document.getElementById(rate);
@@ -308,7 +310,7 @@
             } else {
                 $("#is-rating-user").hide();
                 $("#rating-user-wrapper").show();
-            };
+            }
 
             let totalSeconds = document.getElementById("seconds").value;
             let intervalId = null;

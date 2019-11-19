@@ -36,7 +36,11 @@
     },
     "autoload": {
         "psr-4": {
+<<<<<<< HEAD
             "MyLearning\\": "app/"
+=======
+            "PLearning\\": "app/"
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
         },
         "classmap": [
             "database/seeds",

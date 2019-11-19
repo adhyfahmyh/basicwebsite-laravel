@@ -1,9 +1,16 @@
 <?php
 
+<<<<<<< HEAD
 namespace MyLearning\Http\Controllers\Auth;
 
 use MyLearning\User;
 use MyLearning\Http\Controllers\Controller;
+=======
+namespace PLearning\Http\Controllers\Auth;
+
+use PLearning\User;
+use PLearning\Http\Controllers\Controller;
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -65,7 +72,11 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
+<<<<<<< HEAD
      * @return \MyLearning\User
+=======
+     * @return \PLearning\User
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      */
     protected function create(array $data)
     {

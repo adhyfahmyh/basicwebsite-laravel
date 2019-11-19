@@ -1,10 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
     <div class="column-container">
         <div class="content-column">
             <div>
                 <a href="/contents"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a>
+=======
+        {{-- <a href="/contents/{{$content->id}}/edit" class="btn btn-default" id="edit_post">Edit Post</a>
+        {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method'=>'POST', 'id'=>'delete_post'])!!}
+            {{Form::hidden('_method', 'DELETE')}}
+            {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
+        {!!Form::close()!!} --}}
+    <div class="column-container">
+        <div class="content-column">
+            <div>
+                <a href="javascript:history.go(-1)"><button>Kembali</button></a>
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
             </div>
             <div class="show-title text-center">
                 <h3>{{$content->title}}</h3>
@@ -105,6 +117,7 @@
                             <div class="dashboard-content">
                                 <div id="Deskripsi" class="tabcontent">
                                     <span>Dibuat oleh: {{$content->user->firstname}} {{$content->user->lastname}}</span>
+<<<<<<< HEAD
                                         <small>Kategori: <strong>{!! $content->category !!}</strong></small>
                                         <small>Tag: <strong>{!! $content->tag !!}</strong></small>
                                     <hr>
@@ -118,12 +131,36 @@
                                     
                                 <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
                                     <h4>Penjabaran Materi</h4>
+=======
+                                    {{-- <span> --}}
+                                        <small>Kategori: <strong>{!! $content->category !!}</strong></small>
+                                    {{-- </span> --}}
+                                    {{-- <span> --}}
+                                        <small>Tag: <strong>{!! $content->tag !!}</strong></small>
+                                    {{-- </span> --}}
+                                    <hr>
+                                    <h5>Deskripsi Konten</h5>
+                                    <p>{!! $content->description !!}</p>
+                                    <footer>
+                                        {{-- <hr> --}}
+                                        {{-- <div class="content-footer-description"> --}}
+                                        {{-- </div> --}}
+                                    </footer>   
+                                </div>
+                                    
+                                <div id="Penjabaran" class="tabcontent">
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
                                 <div id="TJ" class="tabcontent">
+<<<<<<< HEAD
                                     <div class="col-md-10 offset-md-1" style="padding:0;">
                                         <div class="card">
+=======
+                                    <div class="col-md-12" style="padding:0;">
+                                        <div class="card" style="background:none">
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                                             <div class="card-body">
                                                 <h4>Silahkan beri komentar atau pertanyaan disini</h4>
                                                 <form method="post" action=" {{ route('content.comment') }} " id="comment" name="comment" enctype="multipart/form-data">
@@ -137,6 +174,7 @@
                                                     </div>
                                                 </form><br><hr>
                                                 <h4>Komentar dan pertanyaan</h4><br>
+<<<<<<< HEAD
                                                 @if (count($comments)==0)
                                                     <p>Tidak ada komentar atau pertanyaan</p>
                                                 @else
@@ -166,6 +204,33 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
+=======
+                                                @foreach($comments as $comment)
+                                                    <div class="display-comment">
+                                                        
+                                                        <strong style="font-size:18px;">{{ $comment->username }}</strong>
+                                                        @if (!empty($comment->parent_username))
+                                                            <p style="margin:0;font-size:12px;">Kepada: <strong>{{$comment->parent_username}}</strong></p>
+                                                        @endif
+                                                        <p style="margin:0;font-size:15px;padding-top:5px;">{{ $comment->body }}</p>
+                                                        <br>
+                                                        <div class="reply-comment">
+                                                            <form method="post" action="{{ route('content.reply_comment') }}">
+                                                                @csrf
+                                                                <div class="form-group">
+                                                                    <input type="text" name="comment_body" class="form-control" style="width:500px"/>
+                                                                    <input type="hidden" name="content_id" value="{{ $content->id }}" />
+                                                                    <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
+                                                                    <input type="hidden" name="parent_username" value="{{ $comment->username }}" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="submit" class="btn btn-warning" value="Balas" />
+                                                                </div>
+                                                            </form>
+                                                        </div><hr>
+                                                    </div>
+                                                @endforeach
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                                             </div>
                                         </div>
                                     </div>
@@ -173,12 +238,17 @@
                                 </div>
                                     
                                 <div id="Video" class="tabcontent">
+<<<<<<< HEAD
                                     <h4>Video Konten</h4>
                                     @if (!empty($content->video))
                                         <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
                                     @else
                                         <p>Video tidak tersedia</p>
                                     @endif
+=======
+                                    <h3>Video Konten</h3>
+                                    <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                                 </div>
                             </div>
                             <footer>
@@ -209,6 +279,12 @@
         </form>
     </div>
     <script type="text/javascript">
+<<<<<<< HEAD
+=======
+        function reply() {
+
+        }
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
         jQuery(document).ready(function() {
             jQuery('#clicktorate').on('click', function(event) {
                 jQuery('.give-rating').toggle('show');
@@ -228,11 +304,18 @@
             document.getElementById("save_text").innerHTML = "Terima kasih anda telah menyimpan konten ini Silahkan lihat "+"<a href='/saved-content/{{ Auth::user()->username }}'>di sini! </a>";
 
         }
+<<<<<<< HEAD
 
         //bookmark save
         $('input[id="savebtn"]').click(function(){ 
             if (this.checked) {
                 var bookmarks = $("#bookmark").serialize();
+=======
+        $('input[id="savebtn"]').click(function(){ 
+            if (this.checked) {
+                var bookmarks = $("#bookmark").serialize();
+                // $('.book').html(bookmark);
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                 $.ajax({
                     url:"{{ route('content.bookmark') }}",
                     method:'POST',
@@ -286,6 +369,7 @@
         };
         
         window.onload = () => {
+<<<<<<< HEAD
             let totalSeconds = document.getElementById("seconds").value;
             let intervalId = null;
             
@@ -299,6 +383,9 @@
                 alert ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
             }
 
+=======
+            confirm ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
             var contentRate = {{round($content_rating)}};
             var rate = {{round($ratings)}};
             radiobtn = document.getElementById(rate);
@@ -314,6 +401,7 @@
             } else {
                 $("#is-rating-user").hide();
                 $("#rating-user-wrapper").show();
+<<<<<<< HEAD
             }
 
         };
@@ -322,6 +410,22 @@
         window.onunload = function() {
             let $time_spent = $('#timespent');
 
+=======
+            };
+
+            let totalSeconds = document.getElementById("seconds").value;
+            let intervalId = null;
+            
+            intervalId = setInterval(startTimer, 1000);
+            function startTimer() {
+                document.getElementById("seconds").value = ++totalSeconds;
+            }
+        };
+        
+        //save stopwatch
+        window.onunload = function() {
+            let $time_spent = $('#timespent');
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
             $.ajax({
                 url:"{{ route('content.timespent')}}",
                 method:'POST',
@@ -338,6 +442,10 @@
             let $formVar = $('#selection');
             
             $.ajax({
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                 url:"{{ route('content.selection')}}",
                 method:'POST',
                 data: $formVar.serialize()

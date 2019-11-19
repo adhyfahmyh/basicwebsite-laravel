@@ -15,7 +15,11 @@
                         @if (isset($category))
                             <div class="col-md-4">
                                 <label for="reset" style="margin:0"><p>Hasil untuk kategori: <b>{{ $category }}</b></p></label>
+<<<<<<< HEAD
                                 <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block;font-weight:bolder;" class="btn btn-warning">
+=======
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block">
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                             </div>
                         @elseif (isset($sortBy))
                             <div class="col-md-4">
@@ -29,13 +33,21 @@
                                     }
                                 ?>
                                 </b></p></label>
+<<<<<<< HEAD
                                 <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block;font-weight:bolder;" class="btn btn-warning">
+=======
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block">
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                                 {{-- <button type="reset" onclick="window.location.href='/contents'" name="reset">Reset</button> --}}
                             </div>
                         @elseif (isset($search))
                             <div class="col-md-4">
                                 <label for="reset" style="margin:0"><p>Hasil pencarian: <b>{{ $search }}</b></p></label>
+<<<<<<< HEAD
                                 <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block;font-weight:bolder;" class="btn btn-warning">
+=======
+                                <input type="button" value="Reset" name="reset" onclick="window.location.href='/contents'" style="display:block">
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                             </div>
                         @endif
                     </div>
@@ -44,11 +56,17 @@
                         <label for="category">Pilih Kategori</label>
                         <select name="category" class="form-control form-control-sm" value="{{$category}}" onchange="submit()">
                             <option value="" selected disabled hidden> Pilih</option>
+<<<<<<< HEAD
                             <option value="Membaca Nonsastra">Membaca Nonsastra</option>
                             <option value="Membaca Sastra">Membaca Sastra</option>
                             <option value="Menulis Terbatas">Menulis Terbatas</option>
                             <option value="Menyunting kata, kalimat, paragraf">Menyunting kata, kalimat, paragraf</option>
                             <option value="Menyunting ejaan dan tanda baca">Menyunting ejaan dan tanda baca</option>
+=======
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                         </select>
                     </div>
     

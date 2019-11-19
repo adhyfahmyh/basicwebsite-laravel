@@ -1,9 +1,16 @@
 <?php
 
+<<<<<<< HEAD
 namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MyLearning\User;
+=======
+namespace PLearning\Http\Controllers;
+
+use Illuminate\Http\Request;
+use PLearning\User;
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 
 class DashboardController extends Controller
 {

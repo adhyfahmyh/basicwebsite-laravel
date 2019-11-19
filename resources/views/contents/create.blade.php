@@ -22,6 +22,7 @@
     </div>
     <div class="form-group select">
         {{Form::label('category', 'Kategori')}}
+<<<<<<< HEAD
         {{Form::select('category', [
             'Membaca Nonsastra' => 'Membaca Nonsastra', 
             'Membaca Sastra' => 'Membaca Sastra', 
@@ -29,6 +30,10 @@
             'Menyunting kata, kalimat, paragraf' => 'Menyunting kata, kalimat, paragraf',
             'Menyunting ejaan dan tanda baca' => 'Menyunting ejaan dan tanda baca',
         ], 
+=======
+        {{Form::select('category', 
+        ['1' => '1', '2' => '2', '3' => '3'], 
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
         ['placeholder' => 'Pilih Kategori', 'class' => 'form-control'])}}
     </div>
     <div class="form-group">

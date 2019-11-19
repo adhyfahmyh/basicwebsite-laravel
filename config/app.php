@@ -172,11 +172,19 @@ return [
         /*
          * Application Service Providers...
          */
+<<<<<<< HEAD
         MyLearning\Providers\AppServiceProvider::class,
         MyLearning\Providers\AuthServiceProvider::class,
         // MyLearning\Providers\BroadcastServiceProvider::class,
         MyLearning\Providers\EventServiceProvider::class,
         MyLearning\Providers\RouteServiceProvider::class,
+=======
+        PLearning\Providers\AppServiceProvider::class,
+        PLearning\Providers\AuthServiceProvider::class,
+        // PLearning\Providers\BroadcastServiceProvider::class,
+        PLearning\Providers\EventServiceProvider::class,
+        PLearning\Providers\RouteServiceProvider::class,
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 
     ],
 

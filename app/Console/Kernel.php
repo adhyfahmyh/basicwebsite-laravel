@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace MyLearning\Console;
+=======
+namespace PLearning\Console;
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

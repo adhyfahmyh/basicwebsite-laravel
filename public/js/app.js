@@ -36899,8 +36899,13 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\xampp\htdocs\MyLearning\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\MyLearning\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\xampp\htdocs\basicwebsite\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\basicwebsite\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 
 
 /***/ })

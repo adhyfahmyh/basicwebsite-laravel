@@ -62,8 +62,15 @@
                                     {{ __('Login') }}
                                 </button>
                                 <div class="divider" style="width:10px;height:auto;display:inline-block"></div>
+<<<<<<< HEAD
                                 <a href="register" class="btn btn-secondary">
                                     {{ __('Registrasi Akun') }}
+=======
+                                <a href="register">
+                                    <button class="btn btn-secondary">
+                                        {{ __('Registrasi Akun') }}
+                                    </button>
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                                 </a>
                             </div>
                         </div>

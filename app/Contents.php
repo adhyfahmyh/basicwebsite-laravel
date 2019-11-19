@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace MyLearning;
+=======
+namespace PLearning;
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
@@ -27,7 +31,11 @@ class Contents extends Model
     }
     public function ratings()
     {
+<<<<<<< HEAD
         return $this->hasMany('MyLearning\Ratings');
+=======
+        return $this->hasMany('PLearning\Ratings');
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
     }
 
     public function comments()

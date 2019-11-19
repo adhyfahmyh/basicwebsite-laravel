@@ -28,17 +28,29 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
+<<<<<<< HEAD
     MyLearning\Http\Kernel::class
+=======
+    PLearning\Http\Kernel::class
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
+<<<<<<< HEAD
     MyLearning\Console\Kernel::class
+=======
+    PLearning\Console\Kernel::class
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
+<<<<<<< HEAD
     MyLearning\Exceptions\Handler::class
+=======
+    PLearning\Exceptions\Handler::class
+>>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 );
 
 /*

@@ -8,7 +8,7 @@
         <li class="list-group-item">
             <ul id="profile-info">
                 <li id="profile-info-item1">
-                    <strong>Name</strong>
+                    <strong>Nama Lengkap</strong>
                 </li>
                 <li id="profile-info-item2">
                     <span>{{ Auth::user()->firstname}} {{ Auth::user()->lastname}}</span>
@@ -18,7 +18,7 @@
         <li class="list-group-item" id="li-profile">
             <ul id="profile-info">
                 <li id="profile-info-item1">
-                    <strong>About</strong>
+                    <strong>Deskripsi Diri</strong>
                 <li id="profile-info-item2">
                     <span>{{ Auth::user()->about}}</span>
                 </li>
@@ -27,7 +27,7 @@
         <li class="list-group-item" id="li-profile">
             <ul id="profile-info">
                 <li id="profile-info-item1">
-                    <strong>Email</strong>
+                    <strong>Alamat E-mail</strong>
                 </li>
                 <li id="profile-info-item2">
                     <span>{{ Auth::user()->email}}</span>
@@ -37,7 +37,7 @@
         <li class="list-group-item" id="li-profile">
             <ul id="profile-info">
                 <li id="profile-info-item1">
-                    <strong>Contact</strong>
+                    <strong>Nomor HP</strong>
                 </li>
                 <li id="profile-info-item2">
                     <span>{{ Auth::user()->contact}}</span>
@@ -47,7 +47,7 @@
         <li class="list-group-item" id="li-profile">
             <ul id="profile-info">
                 <li id="profile-info-item1">
-                    <strong>Birthday</strong>
+                    <strong>Tanggal Lahir</strong>
                 </li>
                 <li id="profile-info-item2">
                     <span>{{ Auth::user()->birthday}}</span>

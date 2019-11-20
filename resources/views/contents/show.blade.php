@@ -12,6 +12,8 @@
             {{Form::hidden('_method', 'DELETE')}}
             {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
         {!!Form::close()!!} --}}
+=======
+>>>>>>> backin
     <div class="column-container">
         <div class="content-column">
             <div>
@@ -139,6 +141,7 @@
                                         <small>Tag: <strong>{!! $content->tag !!}</strong></small>
                                     {{-- </span> --}}
                                     <hr>
+<<<<<<< HEAD
                                     <h5>Deskripsi Konten</h5>
                                     <p>{!! $content->description !!}</p>
                                     <footer>
@@ -150,6 +153,18 @@
                                     
                                 <div id="Penjabaran" class="tabcontent">
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
+=======
+                                    <h4>Deskripsi Konten</h4>
+                                    @if (empty($content->description))
+                                        <p>Tidak ada deskripsi</p>
+                                    @else
+                                        <p>{!! $content->description !!}</p>
+                                    @endif
+                                </div>
+                                    
+                                <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
+                                    <h4>Penjabaran Konten Pembelajaran</h4>
+>>>>>>> backin
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
@@ -175,12 +190,20 @@
                                                 </form><br><hr>
                                                 <h4>Komentar dan pertanyaan</h4><br>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 @if (count($comments)==0)
                                                     <p>Tidak ada komentar atau pertanyaan</p>
                                                 @else
                                                     @foreach($comments as $comment)
                                                         <div class="display-comment">
                                                             
+=======
+                                                @if (count($comments) == 0)
+                                                    <p>Belum ada komentar atau pertanyaan</p>
+                                                @else
+                                                    @foreach($comments as $comment)
+                                                        <div class="display-comment">
+>>>>>>> backin
                                                             <strong style="font-size:18px;">{{ $comment->username }}</strong>
                                                             @if (!empty($comment->parent_username))
                                                                 <p style="margin:0;font-size:12px;">Kepada: <strong>{{$comment->parent_username}}</strong></p>
@@ -204,6 +227,7 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
+<<<<<<< HEAD
 =======
                                                 @foreach($comments as $comment)
                                                     <div class="display-comment">
@@ -231,11 +255,13 @@
                                                     </div>
                                                 @endforeach
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
+=======
+>>>>>>> backin
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 </div>
+<<<<<<< HEAD
                                     
                                 <div id="Video" class="tabcontent">
 <<<<<<< HEAD
@@ -249,6 +275,15 @@
                                     <h3>Video Konten</h3>
                                     <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
+=======
+                                <div id="Video" class="tabcontent col-md-10 offset-md-1">
+                                    <h4>Video Konten</h4>
+                                    @if (empty($content->video))
+                                        <p>Tidak ada video</p>
+                                    @else
+                                        <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                    @endif
+>>>>>>> backin
                                 </div>
                             </div>
                             <footer>
@@ -280,11 +315,14 @@
     </div>
     <script type="text/javascript">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         function reply() {
 
         }
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
+=======
+>>>>>>> backin
         jQuery(document).ready(function() {
             jQuery('#clicktorate').on('click', function(event) {
                 jQuery('.give-rating').toggle('show');
@@ -370,6 +408,9 @@
         
         window.onload = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> backin
             let totalSeconds = document.getElementById("seconds").value;
             let intervalId = null;
             
@@ -377,6 +418,7 @@
             function startTimer() {
                 document.getElementById("seconds").value = ++totalSeconds;
             }
+<<<<<<< HEAD
 
             var ratings = {{$ratings}};
             if (ratings == 0) {
@@ -386,6 +428,13 @@
 =======
             confirm ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
+=======
+            var rating = {{$ratings}}
+            if (rating == 0) {
+                alert ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
+            }
+            
+>>>>>>> backin
             var contentRate = {{round($content_rating)}};
             var rate = {{round($ratings)}};
             radiobtn = document.getElementById(rate);
@@ -413,13 +462,6 @@
 =======
             };
 
-            let totalSeconds = document.getElementById("seconds").value;
-            let intervalId = null;
-            
-            intervalId = setInterval(startTimer, 1000);
-            function startTimer() {
-                document.getElementById("seconds").value = ++totalSeconds;
-            }
         };
         
         //save stopwatch

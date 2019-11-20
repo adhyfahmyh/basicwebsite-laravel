@@ -108,11 +108,16 @@
                                         <small>Kategori: <strong>{!! $content->category !!}</strong></small>
                                         <small>Tag: <strong>{!! $content->tag !!}</strong></small>
                                     <hr>
-                                    <h5>Deskripsi Konten</h5>
-                                    <p>{!! $content->description !!}</p>
+                                    <h4>Deskripsi Konten</h4>
+                                    @if (empty($content->description))
+                                        <p>Tidak ada deskripsi</p>
+                                    @else
+                                        <p>{!! $content->description !!}</p>
+                                    @endif
                                 </div>
                                     
-                                <div id="Penjabaran" class="tabcontent">
+                                <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
+                                    <h4>Penjabaran Konten Pembelajaran</h4>
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
@@ -132,40 +137,45 @@
                                                     </div>
                                                 </form><br><hr>
                                                 <h4>Komentar dan pertanyaan</h4><br>
-                                                @foreach($comments as $comment)
-                                                    <div class="display-comment">
-                                                        
-                                                        <strong style="font-size:18px;">{{ $comment->username }}</strong>
-                                                        @if (!empty($comment->parent_username))
-                                                            <p style="margin:0;font-size:12px;">Kepada: <strong>{{$comment->parent_username}}</strong></p>
-                                                        @endif
-                                                        <p style="margin:0;font-size:15px;padding-top:5px;">{{ $comment->body }}</p>
-                                                        <br>
-                                                        <div class="reply-comment">
-                                                            <form method="post" action="{{ route('content.reply_comment') }}">
-                                                                @csrf
-                                                                <div class="form-group">
-                                                                    <input type="text" name="comment_body" class="form-control" style="width:500px"/>
-                                                                    <input type="hidden" name="content_id" value="{{ $content->id }}" />
-                                                                    <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
-                                                                    <input type="hidden" name="parent_username" value="{{ $comment->username }}" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <input type="submit" class="btn btn-warning" value="Balas" />
-                                                                </div>
-                                                            </form>
-                                                        </div><hr>
-                                                    </div>
-                                                @endforeach
+                                                @if (count($comments) == 0)
+                                                    <p>Belum ada komentar atau pertanyaan</p>
+                                                @else
+                                                    @foreach($comments as $comment)
+                                                        <div class="display-comment">
+                                                            <strong style="font-size:18px;">{{ $comment->username }}</strong>
+                                                            @if (!empty($comment->parent_username))
+                                                                <p style="margin:0;font-size:12px;">Kepada: <strong>{{$comment->parent_username}}</strong></p>
+                                                            @endif
+                                                            <p style="margin:0;font-size:15px;padding-top:5px;">{{ $comment->body }}</p>
+                                                            <br>
+                                                            <div class="reply-comment">
+                                                                <form method="post" action="{{ route('content.reply_comment') }}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <input type="text" name="comment_body" class="form-control" style="width:500px"/>
+                                                                        <input type="hidden" name="content_id" value="{{ $content->id }}" />
+                                                                        <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
+                                                                        <input type="hidden" name="parent_username" value="{{ $comment->username }}" />
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input type="submit" class="btn btn-warning" value="Balas" />
+                                                                    </div>
+                                                                </form>
+                                                            </div><hr>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 </div>
-                                    
-                                <div id="Video" class="tabcontent">
-                                    <h3>Video Konten</h3>
-                                    <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                <div id="Video" class="tabcontent col-md-10 offset-md-1">
+                                    <h4>Video Konten</h4>
+                                    @if (empty($content->video))
+                                        <p>Tidak ada video</p>
+                                    @else
+                                        <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                    @endif
                                 </div>
                             </div>
                             <footer>
@@ -272,6 +282,13 @@
         };
         
         window.onload = () => {
+            let totalSeconds = document.getElementById("seconds").value;
+            let intervalId = null;
+            
+            intervalId = setInterval(startTimer, 1000);
+            function startTimer() {
+                document.getElementById("seconds").value = ++totalSeconds;
+            }
             var rating = {{$ratings}}
             if (rating == 0) {
                 alert ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
@@ -294,13 +311,6 @@
                 $("#rating-user-wrapper").show();
             };
 
-            let totalSeconds = document.getElementById("seconds").value;
-            let intervalId = null;
-            
-            intervalId = setInterval(startTimer, 1000);
-            function startTimer() {
-                document.getElementById("seconds").value = ++totalSeconds;
-            }
         };
         
         //save stopwatch

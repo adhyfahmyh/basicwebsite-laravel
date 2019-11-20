@@ -41,7 +41,8 @@
         {{ $created_contents->links() }}        
     @else
         <div class="col-md-12" style="text-align:center;">
-            <h3>Tidak Ada</h3>
+            <br><br><br><br><br>
+            <h3>Tidak ada konten yang anda buat</h3>
         </div>
     @endif
     {{-- {{$saved_contents}} --}}

@@ -41,6 +41,7 @@
         {{$saved_contents->links()}}   
     @else
         <div class="col-md-12" style="text-align:center;">
+            <br><br><br><br><br>
             <h3>Tidak ada konten yang anda simpan</h3>
             <a href="/contents">Lihat konten pembelajaran di sini</a>
         </div>

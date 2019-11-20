@@ -104,7 +104,8 @@
             @endforeach
             {{$contents->links()}}
         @else
-            <p>NO POST FOUND</p>
+                <br><br>
+            <p>Tidak ada konten yang ditemukan</p>
         @endif
     </div>
 @endsection

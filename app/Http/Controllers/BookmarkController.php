@@ -53,7 +53,7 @@ class BookmarkController extends Controller
                 ->insert([
                     'user_id'=>$user_id, 
                     'content_id'=>$content_id, 
-                    'A'=>$bookmarks,
+                    'bookmarked'=>$bookmarks,
                     'created_at' =>$curTime
                     ]);
         } else {
@@ -63,7 +63,7 @@ class BookmarkController extends Controller
                 'content_id'=>$content_id
                 ])
                 ->update([
-                    'A'=> $bookmarks,
+                    'bookmarked'=> $bookmarks,
                     'updated_at'=>$curTime
                     ]);
         }

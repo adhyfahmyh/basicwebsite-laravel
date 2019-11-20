@@ -8,7 +8,7 @@ class Bookmark extends Model
 {
     protected $table = 'bookmarks';
     protected $fillable = [
-        'user_id', 'content_id', 'A'
+        'user_id', 'content_id', 'bookmarked'
     ];
 
     // Primary Key

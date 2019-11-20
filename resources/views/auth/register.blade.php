@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <div class="form-group row"><small class="col-md-9 offset-md-2">Tanda  <p style="margin:0;color:crimson;display:inline">*</p>  = Harus diisi!</small></div>
                         <div class="form-group row">
                             <label for="username" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><strong>{{ __('Username') }}</strong></label>
 
@@ -76,10 +77,10 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="contact" class="col-md-2 col-form-label text-md-right"><strong>{{ __('Nomor HP') }}</strong></label>
+                            <label for="contact" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><strong>{{ __('Nomor HP') }}</strong></label>
 
                             <div class="col-md-9">
-                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" autocomplete="contact" placeholder="Masukan nomor handphone anda">
+                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" placeholder="Masukan nomor handphone anda">
                             </div>
                         </div>    
 
@@ -87,7 +88,7 @@
                             <label for="birthday" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><strong>{{ __('Tanggal Lahir') }}</strong></label>
 
                             <div class="col-md-9">
-                                <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" autocomplete="birthday" placeholder="Tanggal Lahir anda">
+                                <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" placeholder="Tanggal Lahir anda">
                             </div>
                         </div>  
 
@@ -128,6 +129,7 @@
                                 </button>
                             </div>
                         </div>
+                        <br>
                     </form>
                 </div>
             </div>

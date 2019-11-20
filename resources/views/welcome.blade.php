@@ -47,7 +47,8 @@
                 @endforeach
             @else
                 <div class="col-md-12" style="text-align:center;">
-                    <h3>Tidak Tersedia</h3>
+                    <br><br>
+                    <p>Tidak Tersedia</p>
                 </div>
             @endif
         </div>

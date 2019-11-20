@@ -1,11 +1,7 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-<<<<<<< HEAD
 use MyLearning\User;
-=======
-use PLearning\User;
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 

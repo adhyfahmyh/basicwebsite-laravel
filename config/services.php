@@ -35,11 +35,7 @@ return [
     ],
 
     'stripe' => [
-<<<<<<< HEAD
         'model' => MyLearning\User::class,
-=======
-        'model' => PLearning\User::class,
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

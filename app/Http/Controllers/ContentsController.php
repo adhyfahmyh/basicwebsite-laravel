@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 namespace MyLearning\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,17 +9,6 @@ use MyLearning\Http\Controllers\Auth;
 use DB;
 use MyLearning\Comment;
 use MyLearning\Selection;
-=======
-namespace PLearning\Http\Controllers;
-
-use Illuminate\Http\Request;
-use PLearning\Contents;
-use PLearning\Ratings;
-use PLearning\Http\Controllers\Auth;
-use DB;
-use PLearning\Comment;
-use PLearning\Selection;
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 use Symfony\Component\Console\Helper\Table;
 
 class ContentsController extends Controller
@@ -34,29 +22,11 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
      * @param  \MyLearning\Contents  $contents
-=======
-     * @param  \PLearning\Contents  $contents
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-<<<<<<< HEAD
-=======
-        // $contents = Contents::orderBy('updated_at', 'desc')->paginate(5);
-
-
-        // $contents = DB::select('SELECT * from contents');;
-        
-
-        // $contents = Contents::when($request->search, function ($query) use ($request) {
-        //     $query->where('title', 'LIKE', "%{$request->search}%");
-        // })->get();
-
-
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
         $search = $request->search;
         $category = $request->category;
         $sortBy = $request->sortBy;
@@ -66,13 +36,10 @@ class ContentsController extends Controller
                     ->where('title', 'like', '%'.$search.'%')
                     ->orWhere('tag', 'like', '%'.$search.'%')
                     ->orWhere('category', 'like', '%'.$search.'%')
-<<<<<<< HEAD
                     ->orWhere('description', 'like', '%'.$search.'%')
                     ->orWhere('username', 'like', '%'.$search.'%')
                     ->orWhere('firstname', 'like', '%'.$search.'%')
                     ->orWhere('lastname', 'like', '%'.$search.'%')
-=======
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
                     ->orderBy('created_at', 'DESC')
                     ->paginate(16);
         } elseif ($request->category) {
@@ -168,11 +135,7 @@ class ContentsController extends Controller
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Contents  $contents
-=======
-     * @param  \PLearning\Contents  $contents
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -241,11 +204,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
      * @param  \MyLearning\Contents  $contents
-=======
-     * @param  \PLearning\Contents  $contents
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Contents $contents)
@@ -256,11 +215,7 @@ class ContentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Contents  $contents
-=======
-     * @param  \PLearning\Contents  $contents
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function destroy(Contents $contents)
@@ -272,11 +227,7 @@ class ContentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
      * @param  \MyLearning\Contents  $contents
-=======
-     * @param  \PLearning\Contents  $contents
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request) 

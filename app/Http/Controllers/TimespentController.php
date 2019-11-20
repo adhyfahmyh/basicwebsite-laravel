@@ -1,14 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 namespace MyLearning\Http\Controllers;
 
 use MyLearning\Timespent;
-=======
-namespace PLearning\Http\Controllers;
-
-use PLearning\Timespent;
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Psy\Command\ListCommand\Enumerator;
@@ -53,13 +47,10 @@ class TimespentController extends Controller
                     ->where('user_id', '=', $user_id)
                     ->where('content_id', '=', $content_id)
                     ->first();
-<<<<<<< HEAD
         $result_bookmark = DB::table('bookmarks')
                     ->where('user_id', '=', $user_id)
                     ->where('content_id', '=', $content_id)
                     ->first();
-=======
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
         if (is_null($result)) {
             $curTime = new \DateTime();
             DB::table('timespents')
@@ -90,11 +81,7 @@ class TimespentController extends Controller
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Timespent  $timespent
-=======
-     * @param  \PLearning\Timespent  $timespent
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function show(Timespent $timespent)
@@ -105,11 +92,7 @@ class TimespentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Timespent  $timespent
-=======
-     * @param  \PLearning\Timespent  $timespent
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function edit(Timespent $timespent)
@@ -121,11 +104,7 @@ class TimespentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
      * @param  \MyLearning\Timespent  $timespent
-=======
-     * @param  \PLearning\Timespent  $timespent
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Timespent $timespent)
@@ -136,11 +115,7 @@ class TimespentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Timespent  $timespent
-=======
-     * @param  \PLearning\Timespent  $timespent
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function destroy(Timespent $timespent)

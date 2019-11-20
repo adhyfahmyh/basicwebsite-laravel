@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 namespace MyLearning\Http\Controllers;
 
 use DateTime;
@@ -9,16 +8,6 @@ use MyLearning\Ratings;
 use MyLearning\Selection;
 use MyLearning\Contents;
 use MyLearning\Http\Controllers\ContentsController;
-=======
-namespace PLearning\Http\Controllers;
-
-use DateTime;
-use Illuminate\Http\Request;
-use PLearning\Ratings;
-use PLearning\Selection;
-use PLearning\Contents;
-use PLearning\Http\Controllers\ContentsController;
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 use Illuminate\Support\Facades\DB;
 use willvincent\Rateable\Rating;
 
@@ -133,11 +122,7 @@ class RatingsController extends Controller
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Ratings  $ratings
-=======
-     * @param  \PLearning\Ratings  $ratings
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -150,11 +135,7 @@ class RatingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Ratings  $ratings
-=======
-     * @param  \PLearning\Ratings  $ratings
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function edit(Ratings $ratings)
@@ -166,11 +147,7 @@ class RatingsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
      * @param  \MyLearning\Ratings  $ratings
-=======
-     * @param  \PLearning\Ratings  $ratings
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Ratings $ratings)
@@ -181,11 +158,7 @@ class RatingsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
      * @param  \MyLearning\Ratings  $ratings
-=======
-     * @param  \PLearning\Ratings  $ratings
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
      * @return \Illuminate\Http\Response
      */
     public function destroy(Ratings $ratings)

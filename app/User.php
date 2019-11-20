@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
 namespace MyLearning;
-=======
-namespace PLearning;
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -42,20 +38,11 @@ class User extends Authenticatable
     ];
 
     public function contents(){
-<<<<<<< HEAD
         // return $this->hasMany(['MyLearning\Post', 'MyLearning\Contents']);
         return $this->hasMany('MyLearning\Contents');
     }
 
     public function ratings(){
         return $this->hasMany('MyLearning\Ratings');
-=======
-        // return $this->hasMany(['PLearning\Post', 'PLearning\Contents']);
-        return $this->hasMany('PLearning\Contents');
-    }
-
-    public function ratings(){
-        return $this->hasMany('PLearning\Ratings');
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
     }
 }

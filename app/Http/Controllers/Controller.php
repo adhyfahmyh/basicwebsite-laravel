@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
 namespace MyLearning\Http\Controllers;
-=======
-namespace PLearning\Http\Controllers;
->>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

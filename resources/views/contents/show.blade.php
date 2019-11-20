@@ -14,6 +14,8 @@
         {!!Form::close()!!} --}}
 =======
 >>>>>>> backin
+=======
+>>>>>>> backin
     <div class="column-container">
         <div class="content-column">
             <div>
@@ -129,6 +131,7 @@
                                     @else
                                         <p>{!! $content->description !!}</p>
                                     @endif
+<<<<<<< HEAD
                                 </div>
                                     
                                 <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
@@ -165,6 +168,12 @@
                                 <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
                                     <h4>Penjabaran Konten Pembelajaran</h4>
 >>>>>>> backin
+=======
+                                </div>
+                                    
+                                <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
+                                    <h4>Penjabaran Konten Pembelajaran</h4>
+>>>>>>> backin
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
@@ -191,6 +200,7 @@
                                                 <h4>Komentar dan pertanyaan</h4><br>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 @if (count($comments)==0)
                                                     <p>Tidak ada komentar atau pertanyaan</p>
                                                 @else
@@ -198,11 +208,16 @@
                                                         <div class="display-comment">
                                                             
 =======
+=======
+>>>>>>> backin
                                                 @if (count($comments) == 0)
                                                     <p>Belum ada komentar atau pertanyaan</p>
                                                 @else
                                                     @foreach($comments as $comment)
                                                         <div class="display-comment">
+<<<<<<< HEAD
+>>>>>>> backin
+=======
 >>>>>>> backin
                                                             <strong style="font-size:18px;">{{ $comment->username }}</strong>
                                                             @if (!empty($comment->parent_username))
@@ -227,6 +242,7 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                                                 @foreach($comments as $comment)
@@ -257,10 +273,13 @@
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 =======
 >>>>>>> backin
+=======
+>>>>>>> backin
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                                     
                                 <div id="Video" class="tabcontent">
@@ -276,6 +295,8 @@
                                     <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 =======
+=======
+>>>>>>> backin
                                 <div id="Video" class="tabcontent col-md-10 offset-md-1">
                                     <h4>Video Konten</h4>
                                     @if (empty($content->video))
@@ -283,6 +304,9 @@
                                     @else
                                         <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
                                     @endif
+<<<<<<< HEAD
+>>>>>>> backin
+=======
 >>>>>>> backin
                                 </div>
                             </div>
@@ -316,11 +340,14 @@
     <script type="text/javascript">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         function reply() {
 
         }
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
+=======
+>>>>>>> backin
 =======
 >>>>>>> backin
         jQuery(document).ready(function() {
@@ -409,6 +436,9 @@
         window.onload = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> backin
 =======
 >>>>>>> backin
             let totalSeconds = document.getElementById("seconds").value;
@@ -418,6 +448,7 @@
             function startTimer() {
                 document.getElementById("seconds").value = ++totalSeconds;
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
             var ratings = {{$ratings}};
@@ -429,11 +460,16 @@
             confirm ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
 >>>>>>> 83057d45ae102081508fb236bfd2d6dfdfb3d56c
 =======
+=======
+>>>>>>> backin
             var rating = {{$ratings}}
             if (rating == 0) {
                 alert ("JANGAN LUPA MEMBERIKAN RATING PADA KONTEN INI!");
             }
             
+<<<<<<< HEAD
+>>>>>>> backin
+=======
 >>>>>>> backin
             var contentRate = {{round($content_rating)}};
             var rate = {{round($ratings)}};

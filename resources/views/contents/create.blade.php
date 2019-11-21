@@ -2,14 +2,16 @@
  
 @section('content')
 <div class="mainsection">
-    <h2>Buat Konten</h2><br>
+    <div class="text-center">
+        <h2>Buat Konten Pembelajaran</h2><br>
+    </div>
     {{ Form::open(['action' => 'ContentsController@store', 'method' => 'POST', 'enctype' => "multipart/form-data"]) }}
     {{ csrf_field() }}
     {{ method_field('post') }}
     <input type="hidden" name="user_id" id="user_id" value="{{auth()->user()->id}}">
     {{-- {{Form::hidden('user_id', )}} --}}
     <div class="form-group">
-        {{Form::label('title', 'Judul Konten')}}
+        {{Form::label('title', 'Judul Konten')}}<p style="margin:0;color:crimson;display:inline">*</p>
         {{Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Judul Konten', 'required' => 'required'])}}
     </div>
     <div class="form-group upload">
@@ -20,8 +22,8 @@
         {{Form::label('description', 'Deskripsi')}}
         {{Form::textarea('description', null, [ 'class' => 'form-control', 'placeholder' => 'Deskripsi Konten'])}}
     </div>
-    <div class="form-group select">
-        {{Form::label('category', 'Kategori')}}
+    <div class="form-group select   ">
+        {{Form::label('category', 'Kategori')}}<p style="margin:0;color:crimson;display:inline">*</p>
         {{Form::select('category', [
             'Membaca Nonsastra' => 'Membaca Nonsastra', 
             'Membaca Sastra' => 'Membaca Sastra', 
@@ -36,11 +38,11 @@
         {{Form::text('tag', null, [ 'class' => 'form-control', 'placeholder' => 'Tag'])}}
     </div>
     <div class="form-group body">
-        {{Form::label('body', 'Penjabaran')}}
+        {{Form::label('body', 'Penjabaran')}}<p style="margin:0;color:crimson;display:inline">*</p>
         {{Form::textarea('body', null, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Silahkan berikan penjabaran tentang konten pembelajaran..', 'required' => 'required'])}}
     </div>
     <div class="form-group upload">
-        {{Form::label('file', 'File')}}
+        {{Form::label('file', 'File')}}<p style="margin:0;color:crimson;display:inline">*</p>
         {{Form::file('file', [ 'class' => 'form-control', 'placeholder' => 'Upload File', 'required' => 'required'])}}
     </div>
     <div class="form-group">

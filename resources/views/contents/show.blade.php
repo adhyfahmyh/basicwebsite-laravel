@@ -117,7 +117,7 @@
                                 </div>
 
                                 <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
-                                    <h4>Penjabaran Konten Pembelajaran</h4>
+                                    <h4>{!! $content->title !!}</h4>
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     

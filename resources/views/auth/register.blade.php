@@ -10,7 +10,11 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        <div class="form-group row"><small class="col-md-9 offset-md-2">Tanda  <p style="margin:0;color:crimson;display:inline">*</p>  = Harus diisi!</small></div>
+                        <div class="form-group row">
+                            <div class="col-md-12" style="background-color:#ffff99">
+                                <small class="col-md-9 offset-md-2">Tanda  <p style="margin:0;color:crimson;display:inline">*</p>  = Harus diisi!</small>
+                            </div>
+                        </div><br>
                         <div class="form-group row">
                             <label for="username" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><strong>{{ __('Username') }}</strong></label>
 

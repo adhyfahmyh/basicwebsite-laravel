@@ -163,7 +163,7 @@ class ContentsController extends Controller
         $bookmarked = DB::table('bookmarks')
                         ->where('user_id',$user_id)
                         ->where('content_id', $content_id)
-                        ->avg('A');
+                        ->avg('bookmarked');
         $comments = DB::table('comments')
                         ->where('content_id', $content_id)
                         ->get();

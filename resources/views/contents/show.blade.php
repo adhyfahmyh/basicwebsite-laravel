@@ -169,7 +169,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="Video" class="tabcontent">
+                                <div id="Video" class="tabcontent col-md-10 offset-md-1">
                                     <h4>Video Konten</h4>
                                     @if (!empty($content->video))
                                         <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>

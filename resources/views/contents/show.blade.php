@@ -121,11 +121,9 @@
                                     <p>{!! $content->body !!} </p> 
                                 </div>
                                     
-                                <div id="TJ" class="tabcontent">
-                                    <div class="col-md-10 offset-md-1" style="padding:0;">
-                                        <div class="card">
+                                <div id="TJ" class="tabcontent col-md-10 offset-md-1">
                                     <div class="col-md-12" style="padding:0;">
-                                        <div class="card" style="background:none">
+                                        <div class="card">
                                             <div class="card-body">
                                                 <h4>Silahkan beri komentar atau pertanyaan disini</h4>
                                                 <form method="post" action=" {{ route('content.comment') }} " id="comment" name="comment" enctype="multipart/form-data">

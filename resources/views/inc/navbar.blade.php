@@ -2,8 +2,11 @@
 <nav class="navbar navbar-expand-md" id="navbar-1">
     <div class="container">
         <div class="header-logo-container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            {{-- <a class="navbar-brand" href="{{ url('/') }}">
                 {{config('app.name', 'PLearning')}}
+            </a> --}}
+            <a class="navbar-brand" href="{{ url('/') }}">
+                I'AM BATMAN
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>

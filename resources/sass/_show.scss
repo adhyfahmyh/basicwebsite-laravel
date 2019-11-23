@@ -223,68 +223,6 @@
 #Deskripsi span{
     display: block;
 }
-// #Home {background-color: red;}
-// #News {background-color: green;}
-// #Contact {background-color: blue;}
-// #About {background-color: orange;}
-//dashboard content
-
-// SIDE CONTENT
-// .sidebar-column {
-//     width: 25%;
-// }
-
-// .sidebar-sidebar {
-//     position: relative;
-//     height: 100%;
-//     min-width: 300px;
-// }
-
-// .sidebar-header {
-//     position: fixed;
-//     font-size: 16px;
-//     font-weight: 600;
-//     line-height: 1.5em;
-//     display: flex;
-//     justify-content: space-between;
-//     padding: 16px;
-//     border: 1px solid #dedfe0;
-//     border-right: none;
-// }
-
-// .sidebar-content {
-//     position: fixed;
-//     bottom: 0;
-//     right: 0;
-//     z-index: 1;
-//     background-color: #fff;
-//     border: 1px solid #e8e9eb;
-//     overflow-x: hidden;
-//     overflow-y: auto;
-// }
-
-// .section--section--BukKG {
-//     border-bottom: 1px solid #dedfe0;
-// }
-
-// .section--section-heading--2k6aW {
-//     position: relative;
-//     display: flex;
-//     justify-content: space-between;
-//     flex-wrap: wrap;
-//     flex-direction: column;
-//     padding: 16px;
-//     background-color: #f7f8fa;
-// }
-
-// .section--title--eCwjX {
-//     font-size: 15px;
-//     font-weight: 600;
-//     line-height: 1.43em;
-//     max-width: 100%;
-//     margin: 0 24px 0 0;
-// }
-// SIDE CONTENT
 
 //RATING SYSTEM
 .content-score .heading {
@@ -300,3 +238,17 @@
 }
 
 //RATING SYSTEM
+
+#Video.tabcontent iframe{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#video-wrapper {
+    text-align: center;
+}
+#tj-wrapper, #penjabaran-wrapper, #video-wrapper {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

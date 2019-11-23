@@ -116,13 +116,15 @@
                                     @endif
                                 </div>
 
-                                <div id="Penjabaran" class="tabcontent col-md-10 offset-md-1">
-                                    <h4>{!! $content->title !!}</h4>
-                                    <p>{!! $content->body !!} </p> 
+                                <div id="Penjabaran" class="tabcontent">
+                                    <div class="col-md-10" style="padding:0;" id="penjabaran-wrapper">
+                                        <h4>{!! $content->title !!}</h4><hr>
+                                        <p>{!! $content->body !!} </p>
+                                    </div>
                                 </div>
                                     
-                                <div id="TJ" class="tabcontent col-md-10 offset-md-1">
-                                    <div class="col-md-12" style="padding:0;">
+                                <div id="TJ" class="tabcontent">
+                                    <div class="col-md-10" style="padding:0;" id="tj-wrapper">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h4>Silahkan beri komentar atau pertanyaan disini</h4>
@@ -169,13 +171,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="Video" class="tabcontent col-md-10 offset-md-1">
-                                    <h4>Video Konten</h4>
-                                    @if (!empty($content->video))
-                                        <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
-                                    @else
-                                        <p>Tidak ada video pada konten ini</p>
-                                    @endif
+                                <div id="Video" class="tabcontent">
+                                    <div style="padding:0;" id="video-wrapper">
+                                        <h4>Video Konten</h4><hr>
+                                        @if (!empty($content->video))
+                                            <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                        @else
+                                            <p>Tidak ada video pada konten ini</p>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
 

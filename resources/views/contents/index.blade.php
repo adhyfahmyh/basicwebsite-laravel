@@ -47,8 +47,8 @@
                             <option value="Membaca Nonsastra">Membaca Nonsastra</option>
                             <option value="Membaca Sastra">Membaca Sastra</option>
                             <option value="Menulis Terbatas">Menulis Terbatas</option>
-                            <option value="Menyunting kata, kalimat, paragraf">Menyunting kata, kalimat, paragraf</option>
-                            <option value="Menyunting ejaan dan tanda baca">Menyunting ejaan dan tanda baca</option>
+                            <option value="Ciri dan Struktur Teks">Ciri dan Struktur Teks</option>
+                            <option value="Kebahasaan dalam Teks">Kebahasaan dalam Teks</option>
                         </select>
                     </div>
     

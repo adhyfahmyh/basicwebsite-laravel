@@ -9,7 +9,6 @@
     {{ csrf_field() }}
     {{ method_field('post') }}
     <input type="hidden" name="user_id" id="user_id" value="{{auth()->user()->id}}">
-    {{-- {{Form::hidden('user_id', )}} --}}
     <div class="form-group">
         {{Form::label('title', 'Judul Konten')}}<p style="margin:0;color:crimson;display:inline">*</p>
         {{Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Judul Konten', 'required' => 'required'])}}
@@ -28,8 +27,8 @@
             'Membaca Nonsastra' => 'Membaca Nonsastra', 
             'Membaca Sastra' => 'Membaca Sastra', 
             'Menulis Terbatas' => 'Menulis Terbatas',
-            'Menyunting kata, kalimat, paragraf' => 'Menyunting kata, kalimat, paragraf',
-            'Menyunting ejaan dan tanda baca' => 'Menyunting ejaan dan tanda baca',
+            'Ciri dan Struktur Teks' => 'Ciri dan Struktur Teks',
+            'Kebahasaan dalam Teks' => 'Kebahasaan dalam Teks',
         ], 
         ['placeholder' => 'Pilih Kategori', 'class' => 'form-control'])}}
     </div>

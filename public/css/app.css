@@ -11619,6 +11619,10 @@ li#profile-info-item2 {
   padding: 5px;
 }
 
+.card-body hr {
+  margin: 12px;
+}
+
 button#create-content {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.08);
   -webkit-transition: box-shadow 0.3s ease-in-out;

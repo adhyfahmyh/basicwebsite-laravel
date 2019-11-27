@@ -11609,6 +11609,11 @@ li#profile-info-item2 {
   text-decoration: none;
 }
 
+.card-title {
+  font-size: medium;
+  font-weight: bold;
+}
+
 button#create-content {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.08);
   -webkit-transition: box-shadow 0.3s ease-in-out;
@@ -11739,6 +11744,11 @@ button#create-content:hover {
 
 .show-file {
   margin-bottom: 50px;
+}
+
+div#cke_editor.cke_1.cke.cke_reset.cke_chrome.cke_editor_editor.cke_ltr.cke_browser_webkit,
+iframe.cke_wysiwyg_frame.cke_reset {
+  height: auto;
 }
 
 .column-container {

@@ -19,7 +19,7 @@
                                 <img src="{{ url('/data_file/images/'.$content->content_img) }}" alt="post_image" class="card-img">
                             @endif
                             <div class="card-body">
-                                <h5 class="card-title">{{$content->title}}</h5>
+                                <p class="card-title">{{$content->title}}</p>
                                 <hr>
                                 <div class="text-card">
                                     @if (empty($content->description))

@@ -128,3 +128,7 @@ button#create-content:hover {
     // float: right;
     // text-align: right;
 }
+div#cke_editor.cke_1.cke.cke_reset.cke_chrome.cke_editor_editor.cke_ltr.cke_browser_webkit,
+iframe.cke_wysiwyg_frame.cke_reset {
+    height: auto;
+}

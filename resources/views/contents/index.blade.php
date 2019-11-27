@@ -104,16 +104,8 @@
             @endforeach
             {{$contents->links()}}
         @else
-                <br><br>
+            <br><br>
             <p>Tidak ada konten yang ditemukan</p>
         @endif
     </div>
 @endsection
-
-    {{-- <ul class="list-group">
-                    <li class="list-group-item">
-                        <h3><a href="/contents/{{$content->id}}">{{$content->title}}</a></h3>
-                        <small>Written on {{$content->created_at}} by {{@$content->user->firstname}}</small>
-                    </li>
-                </ul> --}}
-            {{-- </div> --}}

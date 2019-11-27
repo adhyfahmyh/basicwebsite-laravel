@@ -11610,8 +11610,13 @@ li#profile-info-item2 {
 }
 
 .card-title {
-  font-size: medium;
+  font-size: 18px;
   font-weight: bold;
+  margin: 0;
+}
+
+.card-footer {
+  padding: 5px;
 }
 
 button#create-content {

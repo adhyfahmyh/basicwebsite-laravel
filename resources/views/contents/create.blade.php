@@ -24,9 +24,10 @@
     <div class="form-group select   ">
         {{Form::label('category', 'Kategori')}}<p style="margin:0;color:crimson;display:inline">*</p>
         {{Form::select('category', [
-            'Membaca Nonsastra' => 'Membaca Nonsastra', 
-            'Membaca Sastra' => 'Membaca Sastra', 
-            'Menulis Terbatas' => 'Menulis Terbatas',
+            'Membaca Teks Nonsastra' => 'Membaca Teks Nonsastra', 
+            'Membaca Teks Sastra' => 'Membaca Teks Sastra', 
+            'Menulis Teks Nonsastra' => 'Menulis Teks Nonsastra',
+            'Menulis Teks Sastra' => 'Menulis Teks Sastra',
             'Ciri dan Struktur Teks' => 'Ciri dan Struktur Teks',
             'Kebahasaan dalam Teks' => 'Kebahasaan dalam Teks',
         ], 

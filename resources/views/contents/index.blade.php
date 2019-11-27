@@ -44,9 +44,10 @@
                         <label for="category">Pilih Kategori</label>
                         <select name="category" class="form-control form-control-sm" value="{{$category}}" onchange="submit()">
                             <option value="" selected disabled hidden> Pilih</option>
-                            <option value="Membaca Nonsastra">Membaca Nonsastra</option>
-                            <option value="Membaca Sastra">Membaca Sastra</option>
-                            <option value="Menulis Terbatas">Menulis Terbatas</option>
+                            <option value="Membaca Teks Nonsastra">Membaca Teks Nonsastra</option>
+                            <option value="Membaca Teks Sastra">Membaca Teks Sastra</option>
+                            <option value="Menulis Teks Nonsastra">Menulis Teks Nonsastra</option>
+                            <option value="Menulis Teks Sastra">Menulis Teks Sastra</option>
                             <option value="Ciri dan Struktur Teks">Ciri dan Struktur Teks</option>
                             <option value="Kebahasaan dalam Teks">Kebahasaan dalam Teks</option>
                         </select>

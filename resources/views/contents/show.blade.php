@@ -98,7 +98,7 @@
                                 <div class="dashboard-tabs-container">
                                     <button class="tablink" onclick="openPage('Deskripsi', this, '#E84C54')" id="defaultOpen">Deskripsi</button>
                                     <button class="tablink" onclick="openPage('Penjabaran', this, '#E84C54')">Penjabaran</button>
-                                    <button class="tablink" onclick="openPage('TJ', this, '#E84C54')">Tanya Jawab</button>
+                                    <button class="tablink" onclick="openPage('TJ', this, '#E84C54')">Komentar</button>
                                     <button class="tablink" onclick="openPage('Video', this, '#E84C54')">Video</button>
                                 </div>
                             </div>

@@ -106,7 +106,7 @@
                     </a>
                 </div>
             @endforeach
-            {{$contents->links("pagination::bootstrap-4")}}
+            {{$contents->links()}}
         @else
             <br><br>
             <p>Tidak ada konten yang ditemukan</p>

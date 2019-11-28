@@ -81,10 +81,10 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="contact" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><strong>{{ __('Nomor HP') }}</strong></label>
+                            <label for="contact" class="col-md-2 col-form-label text-md-right"><strong>{{ __('Nomor HP') }}</strong></label>
 
                             <div class="col-md-9">
-                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" placeholder="Masukan nomor handphone anda">
+                                <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" autocomplete="contact" placeholder="Masukan nomor handphone anda">
                             </div>
                         </div>    
 
@@ -92,7 +92,7 @@
                             <label for="birthday" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><strong>{{ __('Tanggal Lahir') }}</strong></label>
 
                             <div class="col-md-9">
-                                <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" placeholder="Tanggal Lahir anda">
+                                <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" autocomplete="birthday" placeholder="Tanggal Lahir Anda" >
                             </div>
                         </div>  
 
@@ -109,12 +109,13 @@
 
                             <div class="col-md-9">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi untuk akun anda">
-
+                                <input type="checkbox" id="eye" name="eye" onclick="if(password.type=='text')password.type='password'; else password.type='text';" />                             
+                                <label for="eye" class="mb-0">Tampilkan kata sandi</label>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror   
                             </div>
                         </div>
 
@@ -123,6 +124,8 @@
 
                             <div class="col-md-9">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Masukan kembali kata sandi anda">
+                                <input type="checkbox" id="eye2" name="eye2" onclick="if(password_confirmation.type=='text')password_confirmation.type='password'; else password_confirmation.type='text';" />                             
+                                <label for="eye2" class="mb-0">Tampilkan kata sandi</label>
                             </div>
                         </div>
                         <br>

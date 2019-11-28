@@ -20,7 +20,13 @@
                 <li id="profile-info-item1">
                     <strong>Deskripsi Diri</strong>
                 <li id="profile-info-item2">
-                    <span>{{ Auth::user()->about}}</span>
+                    @if (Auth::user()->about == 0)
+                        <p class="mb-0" style="color:red;">
+                            Belum ada, silahkan <a href="/profile/{{Auth::user()->username}}/edit"> tambahkan</a>
+                        </p>
+                    @else
+                        <span>{{ Auth::user()->about}}</span>                        
+                    @endif
                 </li>
             </ul>
         </li>
@@ -40,7 +46,13 @@
                     <strong>Nomor HP</strong>
                 </li>
                 <li id="profile-info-item2">
-                    <span>{{ Auth::user()->contact}}</span>
+                    @if (Auth::user()->contact == 0)
+                        <p class="mb-0" style="color:red;">
+                            Belum ada, silahkan <a href="/profile/{{Auth::user()->username}}/edit"> tambahkan</a>
+                        </p>
+                    @else
+                        <span>{{ Auth::user()->contact}}</span>                        
+                    @endif
                 </li>
             </ul>  
         </li>
@@ -50,7 +62,7 @@
                     <strong>Tanggal Lahir</strong>
                 </li>
                 <li id="profile-info-item2">
-                    <span>{{ Auth::user()->birthday}}</span>
+                    <span>{{date('d-m-Y', strtotime(Auth::user()->birthday))}}</span>
                 </li>
             </ul>
         </li>
@@ -61,9 +73,15 @@
                 </li>
                 <li id="profile-info-item2">
                     <span>
-                        <a href="{{ Auth::user()->link}}" target="_blank">
-                            {{ Auth::user()->link}}
-                        </a>
+                        @if (Auth::user()->link == 0)
+                            <p class="mb-0" style="color:red;">
+                                Belum ada, silahkan <a href="/profile/{{Auth::user()->username}}/edit"> tambahkan</a>
+                            </p>
+                        @else
+                            <a href="{{ Auth::user()->link}}" target="_blank">
+                                {{ Auth::user()->link}}
+                            </a>
+                        @endif
                     </span>
                 </li>
             </ul>

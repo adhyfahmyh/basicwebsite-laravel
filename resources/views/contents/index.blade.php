@@ -6,7 +6,10 @@
     </button> --}}
     <div>
         <h2 class="text-center">Konten Pembelajaran</h2>
-        <br>
+        <div class="text-center" style="background-color:#ffff99; border-radius:5px;">
+            <p class="mb-0">Silahkan pilih konten pembelajaran yang anda butuhkan</p>
+            <p>Gunakan fitur pencarian yang ada diatas, atau pilih kategori maupun urutkan konten berdasarkan kebutuhan anda</p>
+        </div>
     </div>
         <div class="filter">
             <form action="/contents" method="GET">

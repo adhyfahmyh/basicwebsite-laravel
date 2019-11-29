@@ -361,5 +361,6 @@
         };
         
         $(document).ready(inputrating);
+
     </script>
 @endsection

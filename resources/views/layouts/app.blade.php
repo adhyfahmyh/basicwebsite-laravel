@@ -9,28 +9,14 @@
 
     <title>{{ config('app.name', 'MyLearning') }}</title>
 
+    {{-- jQuery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     {{-- oEmbed API CDN --}}
-    <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={API KEY}"></script>
-    {{-- CKEDITOR 4 LOCAL --}}
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
-    {{-- CKEDITOR 5 local --}}
-    {{-- <script src="/vendor/ckeditor5-build-classic/ckeditor.js"></script>
-    <script src="vendor/ckeditor5-build-classic/ckeditor5-easy/src/easyimage.js"></script> --}}
-    {{-- NICEEDIT EDITOR --}}
-    {{-- <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> --}}
-    {{-- TINY MCE --}}
-    {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>tinymce.init({selector:'textarea'});</script> --}}
-    {{-- CDN CKEDITOR 5 --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+    {{-- <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={API KEY}"></script> --}}
 
-    {{-- jQuery --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -41,7 +27,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="logo2.ico"/>
 </head>
 <body>
-    
     <div class="container-fluid">
         @include('inc.navbar')
 

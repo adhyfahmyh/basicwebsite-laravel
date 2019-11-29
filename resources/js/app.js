@@ -25,40 +25,7 @@ require('./bootstrap');
  */
 
    
-// CKEDITOR.replace( 'editor' );
 
-// ClassicEditor
-//     .create( document.querySelector( '#editor' ), 
-//         { 
-//             image: {
-//                 toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
-//                 styles: [
-//                     // This option is equal to a situation where no style is applied.
-//                     'full',
-//                     // This represents an image aligned to the left.
-//                     'alignLeft',
-//                     // This represents an image aligned to the right.
-//                     'alignRight'
-//                 ]
-//             },
-//             cloudServices: {
-//                 tokenUrl: 'https://42726.cke-cs.com/token/dev/dgdVlCXCJ8gHWrPA4KkzlwloJkHrpQTGBbl0h0B8BzelvnaxNuSA7urKZo6s',
-//                 uploadUrl: 'https://42726.cke-cs.com/easyimage/upload/'
-//             }
-//         } 
-//     )
-    
-//     .then( newEditor => {
-//         console.log( 'Editor was initialized', editor );
-//     } )
-//     .catch( error => {
-//         console.error( error );
-//     } );
 
-var config = {};
-config.placeholder = 'somevalue';
-CKEDITOR.replace('editor', config);
 
-function giveRating() {
-    
-}
+

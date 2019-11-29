@@ -55,5 +55,14 @@
     </div>
     
 </div>
+
+{{-- CKEDITOR 4 PACKAGE --}}
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script>
+    var config = {};
+    config.placeholder = 'somevalue';
+    CKEDITOR.replace('editor', config);
+</script>
 @endsection
 

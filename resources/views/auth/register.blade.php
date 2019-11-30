@@ -33,7 +33,7 @@
                             <label for="firstname" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><strong>{{ __('Nama Depan') }}</strong></label>
 
                             <div class="col-md-9">
-                                <input id="firstname" type="text" class="form-control @error('name') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus placeholder="Contoh: Ahmad Dahlan Wahyu nama depannya adalah Ahmad">
+                                <input id="firstname" type="text" class="form-control @error('name') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus placeholder="Cth: Ahmad Wahyu nama depannya Ahmad">
 
                                 @error('firstname')
                                     <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                             <label for="lastname" class="col-md-2 col-form-label text-md-right"><p style="margin:0;color:crimson;display:inline">*</p><Strong>{{ __('Nama Belakang') }}</Strong></label>
 
                             <div class="col-md-9">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus placeholder="Contoh: Ahmad Dahlan Wahyu nama belakangnya adalah Wahyu">
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus placeholder="Cth: Ahmad Wahyu nama belakangnya Wahyu">
 
                                 @error('lastname')
                                     <span class="invalid-feedback" role="alert">

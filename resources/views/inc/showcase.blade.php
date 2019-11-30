@@ -1,8 +1,6 @@
 <div class="jumbotron">
     <div class="container">
-        <div class="head">
-            <p>Personalized Learning Environment</p>
-        </div>
+        <h1>Personalized Learning Environment</h1>
         <p>Sebuah konsep pembelajaran untuk pelajar </p>
     </div>
 </div>

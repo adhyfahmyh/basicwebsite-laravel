@@ -41,20 +41,20 @@ class ContentsController extends Controller
                     // ->orWhere('firstname', 'like', '%'.$search.'%')
                     // ->orWhere('lastname', 'like', '%'.$search.'%')
                     ->orderBy('created_at', 'DESC')
-                    ->paginate(16);
+                    ->paginate(3);
         } elseif ($request->category) {
             $contents = DB::table('contents')
                     ->where('category', $category)
                     ->orderBy('created_at', 'DESC')
-                    ->paginate(16);
+                    ->paginate(3);
         } elseif ($request->sortBy) {
             $contents = DB::table('contents')
                     ->orderBy($sortBy, 'DESC')
-                    ->paginate(16);
+                    ->paginate(3);
         } else {
             $contents = DB::table('contents')
                         ->orderBy('created_at', 'DESC')
-                        ->paginate(16);
+                        ->paginate(3);
         }
         $ratings = Ratings::all();
 

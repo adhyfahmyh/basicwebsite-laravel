@@ -27,7 +27,21 @@
     <link rel="shortcut icon" type="image/x-icon" href="logo2.ico"/>
 </head>
 <body>
-    <div class="container-fluid">
+    @include('inc.navbar')
+    <main role="main">
+        @if (Request::is('/'))
+            @include('inc.showcase')
+        @endif
+        {{-- <div class="container"> --}}
+            @yield('content')
+        {{-- </div>         --}}
+    </main>
+    @include('inc.footer')
+    
+</body>
+</html>
+
+{{-- <div class="container-fluid">
         @include('inc.navbar')
 
         @if (Request::is('profile*' ,'created-content*' ,'saved-content*'))
@@ -75,8 +89,4 @@
                 </div>
             </div>
         @endif
-
-    </div>
-    @include('inc.footer')
-</body>
-</html>
+    </div> --}}

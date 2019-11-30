@@ -70,24 +70,8 @@
                 </div>
             </div>
             <div class="content-body">
-                <div class="app-row-content">
-                    <div class="app-curriculum-item">
-                        <div class="curriculum-item-view">
-                            <div class="curriculum-item-view-absolute">
-                                <div class="curriculum-item-view-aspect-ratio">
-                                    <div class="curriculum-item-view-content-container">
-                                        <div class="curriculum-item-view-scaled-height-limiter">
-                                            <div class="curriculum-item-view-absolute-height-limiter">
-                                                <div class="curriculum-item-view-content" data-purpose="curriculum-item-viewer-content">
-                                                    <iframe src="/ViewerJS/#..{{ ('/data_file/files/'.$content->file) }}" frameborder="0" height="100%" width="100%" allowfullscreen webkitallowfullscreen></iframe>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="curriculum-item-view-content" data-purpose="curriculum-item-viewer-content">
+                    <iframe src="/ViewerJS/#..{{ ('/data_file/files/'.$content->file) }}" frameborder="0" height="100%" width="100%" allowfullscreen webkitallowfullscreen></iframe>
                 </div>
             </div>
             <div class="content-dashboard">

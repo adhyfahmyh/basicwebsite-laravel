@@ -9,3 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+public/data_file/files/*
+!public/data_file/files/.gitkeep 
+public/data_file/images/*
+!public/data_file/images/.gitkeep

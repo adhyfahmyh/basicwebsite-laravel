@@ -11,67 +11,89 @@
             </div>
             <hr>
             <div class="content-score" name="contentscore">
-                <div id="save_container">
-                    <div id="save_text_container">
-                        <p id="save_text">Tekan logo di samping untuk bookmark atau menyimpan konten ini!</p>
-                    </div>
-                    <div id="save_btn_container">
-                        <form action="{{ route('content.bookmark')}}" method="POST" id="bookmark" name="bookmark" enctype="multipart/form-data">
-                            {{csrf_field()}}
-                            <input type="hidden" name="_method" value="POST">
-                            <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
-                            <input type="checkbox" name="bookmark" id="savebtn" value="1">
-                            {{-- <input type="checkbox" name="bookmark" id="save" value="1"> --}}
-                            <label for="savebtn"></label>
-                        </form>
-                    </div>
-                </div> 
-                <div class="rating-container">
-                    <div class="rating-overall">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
-                        <strong><span id="ratVal" itemprop="ratingValue">{{round($content_rating)}}</span></strong>
-                        <span class="grey">/10</span>
-                    </div>
-                    <div class="rating-user">
-                        <div class="give-rating">
-                            <form action="{{ route('content.rating') }}" method="POST" id="rating" name="rating" enctype="multipart/form-data">
-                                {{csrf_field()}}
-                                <input type="hidden" name="_method" value="POST">
-                                <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
-                                <span class="star-rating">
-                                    <input type="radio" name="rating" value="1" id="1" title="1/10"><i></i>
-                                    <input type="radio" name="rating" value="2" id="2" title="2/10"><i></i>
-                                    <input type="radio" name="rating" value="3" id="3" title="3/10"><i></i>
-                                    <input type="radio" name="rating" value="4" id="4" title="4/10"><i></i>
-                                    <input type="radio" name="rating" value="5" id="5" title="5/10"><i></i>
-                                    <input type="radio" name="rating" value="6" id="6" title="6/10"><i></i>
-                                    <input type="radio" name="rating" value="7" id="7" title="7/10"><i></i>
-                                    <input type="radio" name="rating" value="8" id="8" title="8/10"><i></i>
-                                    <input type="radio" name="rating" value="9" id="9" title="9/10"><i></i>
-                                    <input type="radio" name="rating" value="10" id="10" title="10/10"><i></i>
-                                </span>
-                            </form>
-                        </div>
-                        <button id="clicktorate">
-                            <div class="rwrapper">
-                                <div class="rating-user-wrapper" id="rating-user-wrapper">
-                                    <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="user rating star">
-                                    <p>Berikan</p>
-                                    <p>Rating</p>
-                                </div>
-                                <div class="is-rating-user" id="is-rating-user">
-                                    <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
-                                    <strong><span id="userRat" itemprop="userRating">{{round($ratings)}}</span></strong>
-                                    <span><small>oleh Anda</small></span>
-                                </div>
-                            </div>
-                        </button>
-                    </div>    
+                <div class="row give-rating">
+                    <form action="{{ route('content.rating') }}" method="POST" id="rating" name="rating" enctype="multipart/form-data" >
+                        {{csrf_field()}}
+                        <input type="hidden" name="_method" value="POST">
+                        <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
+                        <span class="star-rating">
+                            <input type="radio" name="rating" value="1" id="1" title="1/10"><i></i>
+                            <input type="radio" name="rating" value="2" id="2" title="2/10"><i></i>
+                            <input type="radio" name="rating" value="3" id="3" title="3/10"><i></i>
+                            <input type="radio" name="rating" value="4" id="4" title="4/10"><i></i>
+                            <input type="radio" name="rating" value="5" id="5" title="5/10"><i></i>
+                            <input type="radio" name="rating" value="6" id="6" title="6/10"><i></i>
+                            <input type="radio" name="rating" value="7" id="7" title="7/10"><i></i>
+                            <input type="radio" name="rating" value="8" id="8" title="8/10"><i></i>
+                            <input type="radio" name="rating" value="9" id="9" title="9/10"><i></i>
+                            <input type="radio" name="rating" value="10" id="10" title="10/10"><i></i>
+                        </span>
+                    </form>
                 </div>
-            </div>
+                <div class="row">
+                    <div id="rating-container" class="col">
+                        <div class="row-md">
+                            {{-- <div class="col-4 rating-overall">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
+                                <div class="row">
+                                    <span id="ratVal" itemprop="ratingValue">
+                                        <h3>{{round($content_rating)}}<small>/10</small></h3>
+                                    </span>
+                                </div>
+                            </div> --}}
+                            <div class="col rating-user" style="padding-left:0">
+                                <button id="clicktorate">
+                                    <div class="rwrapper btn btn-primary">
+                                        <div class="rating-user-wrapper" id="rating-user-wrapper" style="width:110px">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="user rating star" style="margin-right:5px">
+                                            <div class="row">
+                                                <span>
+                                                    <p>Berikan</p>
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <span>
+                                                    <p>Rating</p>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="is-rating-user" id="is-rating-user" style="width:110px">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
+                                            <div class="row ml-5">
+                                                <span id="userRat" itemprop="userRating">
+                                                    <h3 class="mb-0"> {{round($ratings)}}</h3>
+                                                </span>
+                                            </div>
+                                            <div class="row ml-5">
+                                                <small>oleh Anda</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>    
+                        </div>
+                    </div>
+                    <div id="save_container" class="col-4">
+                        <div class="row">
+                            <div id="save_text_container" class="col">
+                                <p id="save_text">Tekan logo di samping untuk bookmark atau menyimpan konten ini!</p>
+                            </div>
+                            <div id="save_btn_container" class="col-2">
+                                <form action="{{ route('content.bookmark')}}" method="POST" id="bookmark" name="bookmark" enctype="multipart/form-data">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="_method" value="POST">
+                                    <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
+                                    <input type="checkbox" name="bookmark" id="savebtn" value="1">
+                                    <label for="savebtn" style="float:right"></label>
+                                </form>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div><br>
             <div class="content-body">
-                <div class="curriculum-item-view-content" data-purpose="curriculum-item-viewer-content">
-                    <iframe src="/ViewerJS/#..{{ ('/data_file/files/'.$content->file) }}" frameborder="0" height="100%" width="100%" allowfullscreen webkitallowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-16by9" data-purpose="curriculum-item-viewer-content">
+                    <iframe src="/ViewerJS/#..{{ ('/data_file/files/'.$content->file) }}" class="embed-responsive-item" frameborder="0" allowfullscreen webkitallowfullscreen></iframe>
                 </div>
             </div>
             <div class="content-dashboard">
@@ -80,10 +102,10 @@
                         <div class="dashboard-wrapper">
                             <div class="dashboard-navbar">
                                 <div class="dashboard-tabs-container">
-                                    <button class="tablink" onclick="openPage('Deskripsi', this, '#E84C54')" id="defaultOpen">Deskripsi</button>
-                                    <button class="tablink" onclick="openPage('Penjabaran', this, '#E84C54')">Penjabaran</button>
-                                    <button class="tablink" onclick="openPage('TJ', this, '#E84C54')">Komentar</button>
-                                    <button class="tablink" onclick="openPage('Video', this, '#E84C54')">Video</button>
+                                    <button class="tablink" onclick="openPage('Deskripsi', this, '#F8FAFC')" id="defaultOpen"><strong>Deskripsi</strong></button>
+                                    <button class="tablink" onclick="openPage('Penjabaran', this, '#F8FAFC')"><strong>Penjabaran</strong></button>
+                                    <button class="tablink" onclick="openPage('TJ', this, '#F8FAFC')"><strong>Komentar</strong></button>
+                                    <button class="tablink" onclick="openPage('Video', this, '#F8FAFC')"><strong>Video</strong></button>
                                 </div>
                             </div>
                             <div class="dashboard-content">
@@ -107,7 +129,7 @@
                                     </div>
                                 </div>
                                     
-                                <div id="TJ" class="tabcontent">
+                                <div id="TJ" class="tabcontent" style="color:black">
                                     <div class="col-md-10" style="padding:0;" id="tj-wrapper">
                                         <div class="card">
                                             <div class="card-body">
@@ -138,7 +160,7 @@
                                                                 <form method="post" action="{{ route('content.reply_comment') }}">
                                                                     @csrf
                                                                     <div class="form-group">
-                                                                        <input type="text" name="comment_body" class="form-control" style="width:500px"/>
+                                                                        <input type="text" name="comment_body" class="form-control"/>
                                                                         <input type="hidden" name="content_id" value="{{ $content->id }}" />
                                                                         <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
                                                                         <input type="hidden" name="parent_username" value="{{ $comment->username }}" />
@@ -156,10 +178,10 @@
                                     </div>
                                 </div>
                                 <div id="Video" class="tabcontent">
-                                    <div style="padding:0;" id="video-wrapper">
-                                        <h4>Video Konten</h4><hr>
+                                    <h4>Video Konten</h4><hr>
+                                    <div id="video-wrapper" class="embed-responsive embed-responsive-16by9">
                                         @if (!empty($content->video))
-                                            <iframe src="{!! $content->video !!}" frameborder="0" width="854px" height="480px" allowfullscreen></iframe>
+                                            <iframe src="{!! $content->video !!}" frameborder="0" class="embed-responsive-item" allowfullscreen></iframe>
                                         @else
                                             <p>Tidak ada video pada konten ini</p>
                                         @endif

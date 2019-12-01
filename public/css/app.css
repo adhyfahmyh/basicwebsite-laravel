@@ -11106,6 +11106,7 @@ body {
 
 main {
   margin: 20px;
+  min-height: 77vh;
 }
 
 .container {
@@ -11519,14 +11520,13 @@ main {
 }
 
 .tablink {
-  background-color: #555;
-  color: white;
+  background-color: #b3b3b3;
+  color: black;
   float: left;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
+  padding: 15px;
   width: 25%;
 }
 
@@ -11788,7 +11788,6 @@ span.small {
 }
 
 .rating-user-wrapper {
-  width: 130px;
   padding: 0;
   overflow: hidden;
 }
@@ -11796,7 +11795,6 @@ span.small {
 .rating-user-wrapper img {
   width: 40px;
   height: 40px;
-  margin-right: 15px;
   float: left;
 }
 
@@ -11823,10 +11821,6 @@ span.small {
   float: left;
 }
 
-#userRat {
-  font-size: 35px;
-}
-
 .is-rating-user span {
   text-align: left;
   margin: 0;
@@ -11841,18 +11835,8 @@ footer {
   left: 0;
   bottom: 0;
   right: 0;
-  text-align: center;
-}
-
-#footer {
-  width: 100%;
   padding: 10px;
-}
-
-footer p {
-  height: 100%;
-  vertical-align: text-bottom;
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  text-align: center;
 }
 

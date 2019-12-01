@@ -171,7 +171,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{Request::is('profile/*') ? 'active' : ''}}" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
+                        <span class="glyphicon glyphicon-off"></span>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/contents/">Profil Anda</a>

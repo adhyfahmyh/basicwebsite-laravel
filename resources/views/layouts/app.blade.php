@@ -14,6 +14,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
     {{-- oEmbed API CDN --}}
     {{-- <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={API KEY}"></script> --}}
 
@@ -36,8 +37,8 @@
             @yield('content')
         {{-- </div>         --}}
     </main>
-    @include('inc.footer')
     
+    @include('inc.footer')
 </body>
 </html>
 

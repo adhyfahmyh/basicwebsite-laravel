@@ -166,7 +166,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/contents/">Semua Konten Pembelajaran</a>
-                        <a class="dropdown-item" href="#">Rekomendasi Alur Pembelajaran</a>
+                        <a class="dropdown-item disabled" href="#">Rekomendasi Alur Pembelajaran</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -174,8 +174,8 @@
                         <span class="glyphicon glyphicon-off"></span>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/contents/">Profil Anda</a>
-                        <a class="dropdown-item" href="/contents/create">Buat Konten</a>
+                        <a class="dropdown-item" href="/profile/{{ Auth::user()->username }}">Profil Anda</a>
+                        <a class="dropdown-item disabled" href="/contents/create">Buat Konten</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">{{ __('Keluar/Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

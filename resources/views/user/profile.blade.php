@@ -101,8 +101,8 @@
     <div class="content">
         <ul class="list-group" id="profile">
             <div style="text-align:center;vertical-align:middle;">
-                <h2 style="padding:10px;margin:0">
-                    <strong>Profile</strong>
+                <h2 style="padding:15px;margin:0">
+                    <strong>Profil Anda</strong>
                 </h2>
             </div>
             <li class="list-group-item">

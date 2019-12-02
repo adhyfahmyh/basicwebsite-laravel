@@ -55,9 +55,9 @@
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             @if (empty($created_content->content_img))
-                                <img src="https://www.litmos.com/wp-content/uploads/2016/06/blog-eLearning-templates.png" alt="post_image" class="card-img-top" height="250">
+                                <img src="https://www.litmos.com/wp-content/uploads/2016/06/blog-eLearning-templates.png" alt="post_image" class="card-img-top" height="255">
                             @else
-                                <img src="{{ url('/data_file/images/'.$created_content->content_img) }}" alt="post_image" class="card-img-top" height="250">
+                                <img src="{{ url('/data_file/images/'.$created_content->content_img) }}" alt="post_image" class="card-img-top" height="255">
                             @endif
                           </div>
                           <div class="col-md-8">

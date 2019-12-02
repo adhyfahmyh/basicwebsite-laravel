@@ -48,6 +48,10 @@
         {{ Form::open(['action' => ['ProfileController@update', Auth::user()->id], 'method' => 'POST']) }}
             <div class="form-wrapper">
                 <div class="form-group">
+                    {{Form::label('username', 'Username: ')}}
+                    {{Form::text('username', Auth::user()->username, ['class' => 'form-control', 'placeholder' => Auth::user()->username, 'disabled'=>true])}}
+                </div>
+                <div class="form-group">
                     {{Form::label('firstname', 'Nama Depan: ')}}
                     {{Form::text('firstname', Auth::user()->firstname, ['class' => 'form-control', 'placeholder' => Auth::user()->firstname])}}
                 </div>

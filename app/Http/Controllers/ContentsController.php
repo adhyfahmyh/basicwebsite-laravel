@@ -30,6 +30,8 @@ class ContentsController extends Controller
         $search = $request->search;
         $category = $request->category;
         $sortBy = $request->sortBy;
+        $terbaru = $request->terbaru;
+        $terlama = $request->terlama;
 
         if ($request->search) {
             $contents = DB::table('contents')
@@ -37,9 +39,6 @@ class ContentsController extends Controller
                     ->orWhere('tag', 'like', '%'.$search.'%')
                     ->orWhere('category', 'like', '%'.$search.'%')
                     ->orWhere('description', 'like', '%'.$search.'%')
-                    // ->orWhere('username', 'like', '%'.$search.'%')
-                    // ->orWhere('firstname', 'like', '%'.$search.'%')
-                    // ->orWhere('lastname', 'like', '%'.$search.'%')
                     ->orderBy('created_at', 'DESC')
                     ->paginate(3);
         } elseif ($request->category) {

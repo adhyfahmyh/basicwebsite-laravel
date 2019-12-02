@@ -8,10 +8,22 @@
         <h2 class="text-center">Konten Pembelajaran</h2>
         <div class="text-center" style="background-color:#ffff99; border-radius:5px;">
             <p class="mb-0">Silahkan pilih konten pembelajaran yang anda butuhkan</p>
-            <p>Gunakan fitur pencarian yang ada diatas, atau pilih kategori maupun urutkan konten berdasarkan kebutuhan anda</p>
+            <p>Gunakan fitur pencarian, pilih kategori atau urutkan konten berdasarkan kebutuhan anda</p>
         </div>
     </div>
     <div class="filter">
+        <form action="/contents" method="GET" class="form-inline row ">
+            {{ csrf_field() }}
+            <div class="input-group col">
+                <input type="text" name="search" class="form-control" placeholder="Cari.." id="searchInput" >
+                <div class="input-group-append" >
+                    <button class="btn btn-secondary" type="button" id="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div> 
+        </form>
+        <br>
         <form action="/contents" method="GET">
             <div class="form-row">
                 <div class="form-group col">
@@ -27,7 +39,9 @@
                 </div>
                 <div class="form-group col">
                     <select name="sortBy" class="form-control form-control-md" value="{{$sortBy}}" onchange="submit()">
-                        <option value="" selected disabled hidden> Urutkan Berdasarkan</option>
+                        <option value="" selected disabled hidden>Urutkan Berdasarkan</option>
+                        {{-- <option value="terbaru">Terbaru</option>
+                        <option value="terlama">Terlama</option> --}}
                         <option value="total_selection">Popularitas</option>
                         <option value="rating">Rating</option>
                     </select>

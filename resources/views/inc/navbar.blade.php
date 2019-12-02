@@ -89,7 +89,10 @@
 </nav> --}}
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="{{ url('/') }}">{{config('app.name', 'MyLearning')}}</a>
+    <a class="navbar-brand" href="{{ url('/') }}">
+        <i class="fa fa-book"></i>
+        {{config('app.name', 'MyLearning')}}
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -171,7 +174,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{Request::is('profile/*') ? 'active' : ''}}" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="glyphicon glyphicon-off"></span>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
+                        {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/profile/{{ Auth::user()->username }}">Profil Anda</a>

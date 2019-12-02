@@ -45,7 +45,7 @@
             <h3>Tidak ada konten yang anda buat</h3>
         </div>
     @endif --}}
-    
+    <br>
     <div class="container-fluid">
         @include('inc.sidebar-profile')
         <div class="content">

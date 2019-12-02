@@ -38,11 +38,14 @@
   /* On screens that are less than 700px wide, make the sidebar into a topbar */
   @media screen and (max-width: 700px) {
     .sidebar {
-      width: 100%;
+      min-width: 100%;
       height: auto;
       position: relative;
     }
-    .sidebar a {float: left;}
+    .sidebar a {
+      float: left;
+      min-width: 100%;
+    }
     div.content {margin-left: 0;}
     .sidebar-item {
         width: 100%;
@@ -54,8 +57,9 @@
     .sidebar a {
       text-align: center;
       float: none;
+      min-width: 100%;
     }
     .sidebar-item {
-        width: 50%;
+      min-width: 100%;
     }
   }

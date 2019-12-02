@@ -47,6 +47,7 @@
         </div>
     @endif --}}
     {{-- {{$saved_contents}} --}}
+    <br>
     <div class="container-fluid">
         @include('inc.sidebar-profile')
         <div class="content">

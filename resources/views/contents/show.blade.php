@@ -5,12 +5,12 @@
         <div class="content-column">
             <div>
                 <a href="/contents"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a>
-            </div>
+            </div><br>
             <div class="show-title text-center">
                 <h3>{{$content->title}}</h3>
             </div>
             <hr>
-            <div class="content-score" name="contentscore">
+            <div class="content-score col" name="contentscore">
                 <div class="row give-rating">
                     <form action="{{ route('content.rating') }}" method="POST" id="rating" name="rating" enctype="multipart/form-data" >
                         {{csrf_field()}}
@@ -44,7 +44,7 @@
                             <div class="col rating-user" style="padding-left:0">
                                 <button id="clicktorate">
                                     <div class="rwrapper btn btn-primary">
-                                        <div class="rating-user-wrapper" id="rating-user-wrapper" style="width:110px">
+                                        <div class="rating-user-wrapper" id="rating-user-wrapper" style="width:20vw;">
                                             <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="user rating star" style="margin-right:5px">
                                             <div class="row">
                                                 <span>
@@ -57,14 +57,14 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="is-rating-user" id="is-rating-user" style="width:110px">
+                                        <div class="is-rating-user" id="is-rating-user" style="width:21vw;">
                                             <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
-                                            <div class="row ml-5">
+                                            <div class="row">
                                                 <span id="userRat" itemprop="userRating">
                                                     <h3 class="mb-0"> {{round($ratings)}}</h3>
                                                 </span>
                                             </div>
-                                            <div class="row ml-5">
+                                            <div class="row">
                                                 <small>oleh Anda</small>
                                             </div>
                                         </div>
@@ -73,12 +73,12 @@
                             </div>    
                         </div>
                     </div>
-                    <div id="save_container" class="col-4">
-                        <div class="row">
-                            <div id="save_text_container" class="col">
+                    <div id="save_container" class="col" style="padding:0">
+                        <div class="d-flex flex-reverse">
+                            <div id="save_text_container" class="p-2">
                                 <p id="save_text">Tekan logo di samping untuk bookmark atau menyimpan konten ini!</p>
                             </div>
-                            <div id="save_btn_container" class="col-2">
+                            <div id="save_btn_container" class="p-2" style="padding:0;">
                                 <form action="{{ route('content.bookmark')}}" method="POST" id="bookmark" name="bookmark" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                     <input type="hidden" name="_method" value="POST">
@@ -103,7 +103,7 @@
                             <div class="dashboard-navbar">
                                 <div class="dashboard-tabs-container">
                                     <button class="tablink" onclick="openPage('Deskripsi', this, '#F8FAFC')" id="defaultOpen"><strong>Deskripsi</strong></button>
-                                    <button class="tablink" onclick="openPage('Penjabaran', this, '#F8FAFC')"><strong>Penjabaran</strong></button>
+                                    <button class="tablink" onclick="openPage('Penjabaran', this, '#F8FAFC')"><strong>Penjelasan</strong></button>
                                     <button class="tablink" onclick="openPage('TJ', this, '#F8FAFC')"><strong>Komentar</strong></button>
                                     <button class="tablink" onclick="openPage('Video', this, '#F8FAFC')"><strong>Video</strong></button>
                                 </div>
@@ -179,25 +179,22 @@
                                 </div>
                                 <div id="Video" class="tabcontent">
                                     <h4>Video Konten</h4><hr>
-                                    <div id="video-wrapper" class="embed-responsive embed-responsive-16by9">
-                                        @if (!empty($content->video))
+                                    @if (!empty($content->video))
+                                        <div id="video-wrapper" class="embed-responsive embed-responsive-16by9">
                                             <iframe src="{!! $content->video !!}" frameborder="0" class="embed-responsive-item" allowfullscreen></iframe>
-                                        @else
-                                            <p>Tidak ada video pada konten ini</p>
-                                        @endif
-                                    </div>
+                                        </div>
+                                    @else
+                                        <p>Tidak ada video pada konten ini</p>
+                                    @endif
                                 </div>
                             </div>
 
-                            <footer>
+                            <div>
                                 <hr>
                                 <div class="created-at">
                                     <small>Dibuat pada: {{ $content->created_at}}</small>
                                 </div>
-                                <div class="updated-at">
-                                    <small>Terakhir diubah: {{ $content->updated_at}}</small>
-                                </div>
-                            </footer>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -40,6 +40,7 @@
     </div>
     
 {{ Form::close() }} --}}
+<br>
 <div class="container-fluid">
     @include('inc.sidebar-profile')
     <div class="content">

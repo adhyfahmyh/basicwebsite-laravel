@@ -96,6 +96,7 @@
         </main>
     </div>
 </div> --}}
+<br>
 <div class="container-fluid">
     @include('inc.sidebar-profile')
     <div class="content">

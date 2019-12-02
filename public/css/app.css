@@ -11101,12 +11101,12 @@ a.text-dark:focus {
 }
 
 body {
-  padding-top: 65px;
+  padding-top: 8vh;
 }
 
 main {
-  margin: 20px;
-  min-height: 77vh;
+  margin: 2vw;
+  min-height: 90vh;
 }
 
 .container {
@@ -11379,6 +11379,10 @@ a.navbar-brand {
   margin-right: auto;
 }
 
+#rating-container {
+  padding-left: 0 !important;
+}
+
 .star-rating {
   font-size: 0;
   white-space: nowrap;
@@ -11521,7 +11525,7 @@ div#save_text_container p {
 div#save_btn_container {
   float: right;
   margin: 0;
-  padding-top: 5px;
+  padding-right: 0 !important;
 }
 
 .rating-container {
@@ -11665,13 +11669,14 @@ div.content {
 
 @media screen and (max-width: 700px) {
   .sidebar {
-    width: 100%;
+    min-width: 100%;
     height: auto;
     position: relative;
   }
 
   .sidebar a {
     float: left;
+    min-width: 100%;
   }
 
   div.content {
@@ -11689,10 +11694,11 @@ div.content {
   .sidebar a {
     text-align: center;
     float: none;
+    min-width: 100%;
   }
 
   .sidebar-item {
-    width: 50%;
+    min-width: 100%;
   }
 }
 

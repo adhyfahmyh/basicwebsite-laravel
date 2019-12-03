@@ -125,7 +125,7 @@
             @endforeach
         {{ $contents->links() }}
     @else
-        
+        <p>Tidak tersedia</p>
     @endif
         
 @endsection

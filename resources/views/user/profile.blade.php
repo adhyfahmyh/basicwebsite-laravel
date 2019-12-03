@@ -121,7 +121,7 @@
                     <li class="list-inline-item col-md-2">
                         <strong>Deskripsi Diri</strong>
                     <li class="list-inline-item col-md-8">
-                        @if (Auth::user()->about == 0)
+                        @if (count(Auth::user()->about) == 0)
                             <p class="mb-0" style="color:red;">
                                 Belum ada, silahkan <a href="/profile/{{Auth::user()->username}}/edit"> tambahkan</a>
                             </p>
@@ -174,7 +174,7 @@
                     </li>
                     <li class="list-inline-item col-md-8">
                         <span>
-                            @if (Auth::user()->link == 0)
+                            @if (count(Auth::user()->link) == 0)
                                 <p class="mb-0" style="color:red;">
                                     Belum ada, silahkan <a href="/profile/{{Auth::user()->username}}/edit"> tambahkan</a>
                                 </p>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use MyLearning\User;
 use MyLearning\Post;
-use DB;
+// use DB;
 
 class ProfileController extends Controller
 {
@@ -78,11 +78,11 @@ class ProfileController extends Controller
         $this-> validate($request,[
             'firstname'=> 'required',
             'lastname' => 'required',
-            'about' => 'required',
+            // 'about' => 'required',
             'email'=>'required',
             'contact' => 'required',
             'birthday' => 'required',
-            'link' => 'required'
+            // 'link' => 'required'
         ]);
         
         // Create Post

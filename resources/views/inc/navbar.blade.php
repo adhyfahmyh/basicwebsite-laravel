@@ -100,10 +100,10 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="login">Login</a>
+                <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="register">Registrasi Akun</a>
+                <a class="nav-link" href="/register">Registrasi Akun</a>
             </li>
         </ul>
     </div>

@@ -42,9 +42,9 @@
                                 </div>
                             </div> --}}
                             <div class="col rating-user" style="padding-left:0">
-                                <button id="clicktorate">
-                                    <div class="rwrapper btn btn-primary">
-                                        <div class="rating-user-wrapper" id="rating-user-wrapper" style="width:20vw;">
+                                <button id="clicktorate" class="col" style="padding-left:0">
+                                    <div class="rwrapper btn btn-primary col">
+                                        <div class="rating-user-wrapper" id="rating-user-wrapper">
                                             <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="user rating star" style="margin-right:5px">
                                             <div class="row">
                                                 <span>
@@ -57,7 +57,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="is-rating-user" id="is-rating-user" style="width:21vw;">
+                                        <div class="is-rating-user" id="is-rating-user">
                                             <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
                                             <div class="row">
                                                 <span id="userRat" itemprop="userRating">
@@ -84,7 +84,7 @@
                                     <input type="hidden" name="_method" value="POST">
                                     <input type="hidden" name="content_id" id="contentId" value="{{$content->id}}">
                                     <input type="checkbox" name="bookmark" id="savebtn" value="1">
-                                    <label for="savebtn" style="float:right"></label>
+                                    <label for="savebtn"></label>
                                 </form>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                 </div>
             </div><br>
             <div class="content-body">
-                <div class="embed-responsive embed-responsive-16by9" data-purpose="curriculum-item-viewer-content">
+                <div class="embed-responsive embed-responsive-4by3" data-purpose="curriculum-item-viewer-content">
                     <iframe src="/ViewerJS/#..{{ ('/data_file/files/'.$content->file) }}" class="embed-responsive-item" frameborder="0" allowfullscreen webkitallowfullscreen></iframe>
                 </div>
             </div>

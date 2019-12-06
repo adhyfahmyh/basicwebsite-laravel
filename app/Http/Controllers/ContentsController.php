@@ -7,6 +7,7 @@ use MyLearning\Contents;
 use MyLearning\Ratings;
 use MyLearning\Http\Controllers\Auth;
 use DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use MyLearning\Comment;
 use MyLearning\Selection;
 use Symfony\Component\Console\Helper\Table;
@@ -208,7 +209,49 @@ class ContentsController extends Controller
      */
     public function update(Request $request, Contents $contents)
     {
-        //
+        $this-> validate($request,[
+            'title'=> 'required',
+            // 'file'=> 'required',
+            'body' => 'required'
+        ]);
+        $id = $request->content_id;
+        $content = Contents::find($id);
+        $title = $request->title;
+        // $content_img = $request->content_img;
+        $category = $request->category;
+        $tag = $request->tag;
+        $body = $request->body;
+        // $file = $request->file;
+        $video = $request->video;
+        // if(!isset($_FILES['content_img']) || $_FILES['content_img']['error'] == UPLOAD_ERR_NO_FILE) {
+        //     $content_img = Contents::select('content_img')->where('id', $id); 
+        // } else {
+        //     $img_content = $request->file('content_img');
+        //     $content_img = time()."_".$img_content->getClientOriginalName();
+        //     $upload_path = 'data_file/images';
+        //     $img_content->move($upload_path, $content_img);
+        // };
+        // if(!isset($_FILES['file']) || $_FILES['file']['error'] == UPLOAD_ERR_NO_FILE) {
+        //     $file = Contents::select('file')->where('id', $id); 
+        // } else {
+        //     $file_content = $request->file('file');
+        //     $file = time()."_".$file_content->getClientOriginalName();
+        //     $upload_path = 'data_file/files';
+        //     $file_content->move($upload_path, $file);
+        // };
+        // $content->save();
+        Contents::where('id',$id)->update([
+            'title' => $title,
+            // 'content_img' => $content_img,
+            'category' => $category,
+            'tag' => $tag,
+            'body' => $body,
+            // 'file' => $file,
+            'video' => $video,
+        ]);
+
+        // return redirect()->route('user.created-content', $content->id)->with('success', 'Konten Telah Diedit');
+        return redirect('/created-content/*')->with('success', 'Konten Berhasil diedit');
     }
 
     /**
@@ -217,9 +260,12 @@ class ContentsController extends Controller
      * @param  \MyLearning\Contents  $contents
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contents $contents)
+    public function destroy(Request $request, Contents $contents)
     {
-        //
+        $id = $request->content_id;
+        $content = Contents::find($id);
+        $content->delete();
+        return redirect('/created-content/Auth::user()->id')->with('success', 'Konten Berhasil dihapus');
     }
 
     /**

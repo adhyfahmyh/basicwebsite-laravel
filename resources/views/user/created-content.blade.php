@@ -81,8 +81,21 @@
                                     </p>
                                 @endif
                             </div>
-                            <div class="card-footer" style="background:none; border:none;">
-                                <a href="/contents/{{$created_content->id}}" class="btn btn-success stretched-link col-md-12">Pelajari</a>
+                            <div class="card-footer row" style="background:none; border:none;">
+                                <div class="col">
+                                    <a href="/contents/{{$created_content->id}}" class="col-12 btn btn-success">Buka</a>
+                                </div>
+                                <div class="col">
+                                    <a href="/contents/{{$created_content->id}}/edit" class="col-12 btn btn-secondary">Edit</a>
+                                </div>
+                                <div class="col">
+                                    {{-- <a href="#" class="col-12 btn btn-danger" onclick="window.alert({{ $created_content->id }})">Delete</a> --}}
+                                    {!!Form::open(['action' => ['ContentsController@destroy', $created_content->id], 'method'=>'POST', 'id'=>'delete_content'])!!}
+                                        {{Form::hidden('_method', 'DELETE')}}
+                                        <input type="hidden" name="content_id" value="{{ $created_content->id }}">
+                                        {{Form::submit('Delete', ['class'=>'col-12 btn btn-danger','onClick'=>'alert(Apakah Anda Yakin?)'])}}
+                                    {!!Form::close()!!}
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted">Dibuat pada: {{date('d-m-Y', strtotime($created_content->created_at))}}</small>

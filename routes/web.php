@@ -37,6 +37,8 @@ Route::resource('saved-content', 'SavedContentController')->middleware('auth');
 
 Route::resource('posts', 'PostsController')->middleware('auth');
 Route::resource('contents', 'ContentsController')->middleware('auth');
+Route::post('contents/$content->id/edit', ['uses' => 'ContentsController@update']);
+// Route::post('contents/$content->id/delete', ['uses' => 'ContentsController@destroy', 'as' => 'content.delete']);
 Route::post('contents/$content->id/rating', ['uses' => 'RatingsController@store', 'as' => 'content.rating']);
 Route::post('contents/$content->id/selection', ['uses' => 'SelectionController@store', 'as' => 'content.selection']);
 Route::post('contents/$content->id/timespent', ['uses' => 'TimespentController@store', 'as' => 'content.timespent']);

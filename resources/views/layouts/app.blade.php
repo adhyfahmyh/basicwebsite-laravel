@@ -14,6 +14,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5dea42618ba87a0012fb48cc&product=inline-share-buttons" async="async"></script>
     
     {{-- oEmbed API CDN --}}
     {{-- <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={API KEY}"></script> --}}

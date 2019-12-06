@@ -46,27 +46,25 @@
                                     <div class="rwrapper btn btn-primary col">
                                         <div class="rating-user-wrapper" id="rating-user-wrapper">
                                             <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="user rating star" style="margin-right:5px">
-                                            <div class="row">
-                                                <span>
-                                                    <p>Berikan</p>
-                                                </span>
-                                            </div>
-                                            <div class="row">
+                                            {{-- <div class="row"> --}}
+                                                {{-- <span> --}}
+                                                    <p class="text-center">Berikan Rating</p>
+                                                {{-- </span> --}}
+                                            {{-- </div> --}}
+                                            {{-- <div class="row">
                                                 <span>
                                                     <p>Rating</p>
                                                 </span>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="is-rating-user" id="is-rating-user">
                                             <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=" alt="content rating star">
-                                            <div class="row">
-                                                <span id="userRat" itemprop="userRating">
-                                                    <h3 class="mb-0"> {{round($ratings)}}</h3>
-                                                </span>
-                                            </div>
-                                            <div class="row">
-                                                <small>oleh Anda</small>
-                                            </div>
+                                            {{-- <div class="row"> --}}
+                                                {{-- <span id="userRat" itemprop="userRating"> --}}
+                                                    <h3 class="mb-0 text-center"> {{round($ratings)}}</h3>
+                                                {{-- </span> --}}
+                                            {{-- </div> --}}    
+                                                <small class="mb-0 text-center">oleh Anda</small>
                                         </div>
                                     </div>
                                 </button>
@@ -96,6 +94,7 @@
                     <iframe src="/ViewerJS/#..{{ ('/data_file/files/'.$content->file) }}" class="embed-responsive-item" frameborder="0" allowfullscreen webkitallowfullscreen></iframe>
                 </div>
             </div>
+            
             <div class="content-dashboard">
                 <div class="app-row-content">
                     <div class="app-dashboard-content">
@@ -112,7 +111,8 @@
                                 <div id="Deskripsi" class="tabcontent">
                                     <span>Dibuat oleh: {{$content->user->firstname}} {{$content->user->lastname}}</span>
                                         <small>Kategori: <strong>{!! $content->category !!}</strong></small>
-                                        <small>Tag: <strong>{!! $content->tag !!}</strong></small>
+                                        <small>Tag: <strong>{!! $content->tag !!}</strong></small><br>
+                                        <div class="sharethis-inline-share-buttons" style="float:left"></div><br><br>
                                     <hr>
                                     <h4>Deskripsi Konten</h4>
                                     @if (empty($content->description))

@@ -26,7 +26,7 @@ class ContentRecommendationController extends Controller
         $curl = curl_init();
     
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "52.221.179.83:8001/recommend",
+            CURLOPT_URL => "18.140.61.0:8001/recommend",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,

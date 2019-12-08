@@ -47,6 +47,8 @@ Route::post('contents/$content->id/delete-bookmark', ['uses' => 'BookmarkControl
 Route::post('contents/$content->id/comment', ['uses' => 'CommentController@store', 'as' => 'content.comment']);
 Route::post('contents/$content->id/replycomment', ['uses' => 'CommentController@replyStore', 'as' => 'content.reply_comment']);
 
+Route::get('/content-recommendations', 'ContentRecommendationController@index')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth');

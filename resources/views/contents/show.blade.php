@@ -4,7 +4,8 @@
     <div class="column-container">
         <div class="content-column">
             <div>
-                <a href="/contents"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a>
+                {{-- <a href="/contents"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a> --}}
+                <a href="javascript:history.back()"><button class="btn btn-warning" style="font-weight:bolder;">Kembali</button></a>
             </div><br>
             <div class="show-title text-center">
                 <h3>{{$content->title}}</h3>

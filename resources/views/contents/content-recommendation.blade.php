@@ -5,9 +5,9 @@
         <h2 class="text-center">Rekomendasi Konten Pembelajaran</h2>
     </div>
     <hr>
-    @if (count($response)>0)
+    @if (count($contentRecommendation)>0)
         <ol class="steps">
-            @foreach ($response as $recommendation)
+            @foreach ($contentRecommendation as $recommendation)
                 <li>
                     <div class="card mb-3">
                         <div class="row no-gutters">
@@ -54,6 +54,20 @@
     @else
         <h3 class="text-center">Belum ada rekomendasi</h3>
     @endif
-    {{ $response }}
-    {{ $err }}
+    {{-- {{ $response }}
+    {{ $err }} --}}
+    {{-- <h1>response</h1>
+    {{$response}}
+    <h2>json</h2>
+    {{$json}}
+    
+    @foreach($recommendationw as $recommendation)
+        ID: {{ $recommendation['id'] }}
+        Gambar: {{ $recommendation['content_img'] }}
+        Judul: {{ $recommendation['title'] }}
+        Deskripsi: {{ $recommendation['description'] }}
+        Rating: {{ $recommendation['rating'] }}
+
+        Created at: {{ $recommendation['created_at'] }}
+    @endforeach --}}
 @endsection

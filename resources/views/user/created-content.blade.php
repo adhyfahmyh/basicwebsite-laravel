@@ -90,10 +90,10 @@
                                 </div>
                                 <div class="col">
                                     {{-- <a href="#" class="col-12 btn btn-danger" onclick="window.alert({{ $created_content->id }})">Delete</a> --}}
-                                    {!!Form::open(['action' => ['ContentsController@destroy', $created_content->id], 'method'=>'POST', 'id'=>'delete_content'])!!}
+                                    {!!Form::open(['action' => ['ContentsController@destroy', $created_content->id], 'method'=>'POST', 'id'=>'delete_content', 'onsubmit' => 'return ConfirmDelete()'])!!}
                                         {{Form::hidden('_method', 'DELETE')}}
                                         <input type="hidden" name="content_id" value="{{ $created_content->id }}">
-                                        {{Form::submit('Delete', ['class'=>'col-12 btn btn-danger','onClick'=>'alert(Apakah Anda Yakin?)'])}}
+                                        {{Form::submit('Delete', ['class'=>'col-12 btn btn-danger'])}}
                                     {!!Form::close()!!}
                                 </div>
                             </div>

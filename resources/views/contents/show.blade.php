@@ -103,7 +103,7 @@
                             <div class="dashboard-navbar">
                                 <div class="dashboard-tabs-container">
                                     <button class="tablink" onclick="openPage('Deskripsi', this, '#F8FAFC')" id="defaultOpen"><strong>Deskripsi</strong></button>
-                                    <button class="tablink" onclick="openPage('Penjabaran', this, '#F8FAFC')"><strong>Penjelasan</strong></button>
+                                    <button class="tablink" onclick="openPage('Penjabaran', this, '#F8FAFC')"><strong>Penjabaran</strong></button>
                                     <button class="tablink" onclick="openPage('TJ', this, '#F8FAFC')"><strong>Komentar</strong></button>
                                     <button class="tablink" onclick="openPage('Video', this, '#F8FAFC')"><strong>Video</strong></button>
                                 </div>
